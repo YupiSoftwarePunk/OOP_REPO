@@ -5,7 +5,7 @@ class Integer
 {
 public:
 
-	// Проверка числа
+	// number check
 	bool isOdd()const
 	{
 		return units_ % 2 == 0;
@@ -48,7 +48,7 @@ public:
 	}
 
 
-	// Операторы
+	// operators
 	int operator+(const Integer other)const
 	{
 		return units_ + other.units_;
