@@ -6,9 +6,9 @@ class Integer
 public:
 
 	// constructors
-	Integer():Integer(false, 0u) { }
-	Integer(bool sign, unsigned units):sign_(sign), units_(units){ }
-	Integer(int number) 
+	Integer() :Integer(false, 0u) { }
+	Integer(bool sign, unsigned units) :sign_(sign), units_(units) { }
+	Integer(int number)
 	{
 		if (number < 0)
 		{
@@ -69,27 +69,27 @@ public:
 
 	// operators
 
-	Integer operator+(const Integer &other)const
+	friend Integer operator+(const Integer& a,const Integer& b)
 	{
 		Integer result;
-		if (sign_ == other.sign_) 
+		if (a.sign_ == b.sign_)
 		{
-			result.sign_ = sign_;
-			result.units_ = units_ + other.units_;
+			result.sign_ = a.sign_;
+			result.units_ = a.units_ + b.units_;
 		}
 		else
 		{
-			if (units_ > other.units_)
+			if (a.units_ > b.units_)
 			{
-				result.sign_ = sign_;
-				result.units_ = units_ - other.units_;
+				result.sign_ = a.sign_;
+				result.units_ = a.units_ - b.units_;
 			}
-			else if (units_ < other.units_) 
+			else if (a.units_ < b.units_)
 			{
-				result.sign_ = other.sign_;
-				result.units_ = other.units_ - units_;
+				result.sign_ = b.sign_;
+				result.units_ = b.units_ - a.units_;
 			}
-			else 
+			else
 			{
 				result.sign_ = false;
 				result.units_ = 0;
@@ -98,9 +98,106 @@ public:
 		return result;
 	}
 
-	friend Integer operator-(const Integer other)
+	friend Integer operator-(const Integer& a, const Integer& b)
 	{
-		// доделать по принципу operator+
+		Integer result;
+		if (a.sign_ == b.sign_)
+		{
+			result.sign_ = a.sign_;
+			result.units_ = a.sign_ - b.sign_;
+		}
+		else
+		{
+			if (a.sign_ > b.sign_)
+			{
+				result.sign_ = a.sign_;
+				result.units_ = a.units_ + b.units_;
+			}
+			else if (a.sign_ < b.sign_)
+			{
+				result.sign_ = b.sign_;
+				result.units_ = b.units_ + a.units_;
+			}
+			else
+			{
+				result.sign_ = false;
+				result.units_ = 0;
+			}
+		}
+		return result;
+	}
+
+	friend Integer operator*(const Integer& a, const Integer& b)
+	{
+		Integer result;
+		if (a.sign_ == b.sign_)
+		{
+			result.sign_ = a.sign_;
+		}
+		else
+		{
+			if (a.sign_ > b.sign_)
+			{
+				result.sign_ = a.sign_;
+			}
+			else if (a.sign_ < b.sign_)
+			{
+				result.sign_ = b.sign_;
+			}
+			else
+			{
+				result.sign_ = false;
+				result.units_ = 0;
+			}
+		}
+		result.units_ = a.units_ * b.units_;
+		return result;
+	}
+
+	friend Integer operator/(const Integer& a, const Integer& b)
+	{
+		Integer result;
+		if (a.sign_ == b.sign_)
+		{
+			result.sign_ = a.sign_;
+			result.units_ = a.sign_ / b.sign_;
+		}
+		else
+		{
+			if (a.sign_ > b.sign_)
+			{
+				result.sign_ = a.sign_;
+				result.units_ = a.units_ / b.units_;
+			}
+			else if (a.sign_ < b.sign_)
+			{
+				result.sign_ = b.sign_;
+				result.units_ = b.units_ / a.units_;
+			}
+			else
+			{
+				result.sign_ = false;
+				result.units_ = 0;
+			}
+		}
+		return result;
+	}
+
+	friend Integer operator%(const Integer& a, const Integer& b)
+	{
+		Integer result;
+		if (a.sign_ == b.sign_)
+		{
+			result.sign_ = a.sign_;
+			result.units_ = a.sign_ % b.sign_;
+		}
+		else
+		{
+			if (a.sign_ > b.sign_)
+			{
+				// доделать
+			}
+		}
 	}
 
 
