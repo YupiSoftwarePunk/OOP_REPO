@@ -195,9 +195,21 @@ public:
 		{
 			if (a.sign_ > b.sign_)
 			{
-				// доделать
+				result.sign_ = a.sign_;
+				result.units_ = a.sign_ % b.sign_;
+			}
+			else if (a.sign_ < b.sign_)
+			{
+				result.sign_ = b.sign_;
+				result.units_ = b.sign_ % a.sign_;
+			}
+			else
+			{
+				result.sign_ = false;
+				result.units_ = 0;
 			}
 		}
+		return result;
 	}
 
 
@@ -208,3 +220,10 @@ private:
 	unsigned int units_;
 
 };
+
+
+
+int main() {
+
+	return 0;
+}
