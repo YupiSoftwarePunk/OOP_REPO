@@ -1,6 +1,19 @@
 #include <iostream>
 #include <numeric>
 
+
+class Demo
+{
+public:
+	friend std::ostream& operator<<
+		    (
+			std::ostream& out,
+			const Demo& obj
+			);
+};
+
+
+
 class Integer
 {
 public:
@@ -69,6 +82,8 @@ public:
 
 	// operators
 
+
+	// Арифметические операторы  
 	friend Integer operator+(const Integer& a,const Integer& b)
 	{
 		Integer result;
@@ -213,8 +228,129 @@ public:
 	}
 
 
+	// Операторы присваивания
+	Integer& operator+=(Integer other)
+	{
+		
+		if (sign_ == other.sign_)
+		{
+			sign_ = sign_;
+			units_ += other.units_;
+		}
+		else
+		{
+			if (sign_ > other.sign_)
+			{
+				sign_ = sign_;
+				units_ -= other.units_;
+			}
+			else if (sign_ < other.sign_)
+			{
+				sign_ = other.sign_;
+				other.sign_ -= units_;
+			}
+			else
+			{
+				sign_ = false;
+				units_ = 0;
+			}
+		}
+		return *this;
+	}
+
+	Integer& operator-=(Integer other)
+	{
+		if (sign_ == other.sign_)
+		{
+			sign_ = sign_;
+			units_ -= other.units_;
+		}
+		else
+		{
+			if (sign_ > other.sign_)
+			{
+				sign_ = sign_;
+				units_ += other.units_;
+			}
+			else if (sign_ < other.sign_)
+			{
+				sign_ = other.sign_;
+				other.sign_ += units_;
+			}
+			else
+			{
+				sign_ = false;
+				units_ = 0;
+			}
+		}
+		return *this;
+	}
+
+	Integer& operator*=(Integer other)
+	{
+		if (sign_ == other.sign_)
+		{
+			sign_ = sign_;
+			units_ *= other.units_;
+		}
+		else
+		{
+			if (sign_ > other.sign_)
+			{
+				sign_ = sign_;
+				units_ *= other.units_;
+			}
+			else if (sign_ < other.sign_)
+			{
+				sign_ = other.sign_;
+				other.sign_ *= units_;
+			}
+			else
+			{
+				sign_ = false;
+				units_ = 0;
+			}
+		}
+		return *this;
+	}
+
+	Integer& operator/=(Integer other)
+	{
+		if (sign_ == other.sign_)
+		{
+			sign_ = sign_;
+			units_ /= other.units_;
+		}
+		else
+		{
+			if (sign_ > other.sign_)
+			{
+				sign_ = sign_;
+				units_ /= other.units_;
+			}
+			else if (sign_ < other.sign_)
+			{
+				sign_ = other.sign_;
+				other.sign_ /= units_;
+			}
+			else
+			{
+				sign_ = false;
+				units_ = 0;
+			}
+		}
+		return *this;
+	}
 
 
+
+	// Оператор вывода
+	friend std::ostream& operator<<(std::ostream& out, const Integer& obj)
+	{
+		return out;
+	}
+
+	// поля класса
 private:
 	bool sign_;
 	unsigned int units_;
@@ -223,7 +359,8 @@ private:
 
 
 
-int main() {
+int main() 
+{
 
 	return 0;
 }
