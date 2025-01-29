@@ -343,6 +343,63 @@ public:
 	}
 
 
+	// операторы инкремент и декремент
+
+	// постфиксные инкремент и декремент
+	Integer operator++()
+	{
+		if (sign_ == true)
+		{
+			units_ ++;
+		}
+		else
+		{
+			units_ --;
+		}
+		return units_;
+	}
+
+	Integer operator--()
+	{
+		if (sign_ == true)
+		{
+			units_ --;
+		}
+		else
+		{
+			units_ ++;
+		}
+		return units_;
+	}
+
+	// префиксные инкремент и декремент
+	Integer operatorPlusBefore()
+	{
+		if (sign_ == true)
+		{
+			++(units_);
+		}
+		else
+		{
+			--(units_);
+		}
+		return units_;
+	}
+
+	Integer operatorMinusBefore()
+	{
+		if (sign_ == true)
+		{
+			--(units_);
+		}
+		else
+		{
+			++(units_);
+		}
+		return units_;
+	}
+
+
 
 	// Оператор вывода
 	friend std::ostream& operator<<(std::ostream& out, const Integer& obj)
@@ -361,6 +418,11 @@ private:
 
 int main() 
 {
+	Integer num1 = 11;
+	Integer num2 = 12;
+
+	std::cout << num2.isOdd();
+
 
 	return 0;
 }
