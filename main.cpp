@@ -418,10 +418,10 @@ private:
 
 int main() 
 {
-	Integer num1 = 11;
-	Integer num2 = 12;
+	//Integer num1 = 11;
+	//Integer num2 = 12;
 
-	std::cout << num2.isOdd();
+	//std::cout << num2.isOdd();
 
 
 	return 0;
