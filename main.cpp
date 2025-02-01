@@ -38,23 +38,26 @@ public:
 
 	// number check
 
+	// проверка на четность
 	bool isOdd()const
 	{
 		return units_ % 2 == 0;
 	}
 
+	// проверка на положительность
 	bool isPositive()const
 	{
 		return units_ > 0;
 	}
 
+	// проверка является ли число простым
 	bool isSimple()const
 	{
 		if (units_ < 2)
 		{
 			return false;
 		}
-		for (int i = 0; i < i * i <= units_; i++)
+		for (int i = 2; i * i <= units_; i++)
 		{
 			if (units_ % i == 0)
 			{
@@ -64,16 +67,19 @@ public:
 		return true;
 	}
 
+	// проверка являются ли числа взаимнопростыми
 	bool isCoprime(Integer other)const
 	{
 		return std::gcd(units_, other.units_) == 1;
 	}
 
+	// нахождение наибольшего общего делителя
 	int Nod(Integer other)const
 	{
 		return std::gcd(units_, other.units_);
 	}
 
+	// нахождение наибольшего общего кратного
 	int Nok(Integer other)const
 	{
 		return std::lcm(units_, other.units_);
@@ -82,8 +88,9 @@ public:
 
 	// operators
 
-
 	// Арифметические операторы  
+
+	// Сумма
 	friend Integer operator+(const Integer& a,const Integer& b)
 	{
 		Integer result;
@@ -113,6 +120,7 @@ public:
 		return result;
 	}
 
+	// Разность
 	friend Integer operator-(const Integer& a, const Integer& b)
 	{
 		Integer result;
@@ -142,6 +150,7 @@ public:
 		return result;
 	}
 
+	// Произведение
 	friend Integer operator*(const Integer& a, const Integer& b)
 	{
 		Integer result;
@@ -169,6 +178,7 @@ public:
 		return result;
 	}
 
+	// Частное
 	friend Integer operator/(const Integer& a, const Integer& b)
 	{
 		Integer result;
@@ -198,6 +208,7 @@ public:
 		return result;
 	}
 
+	// Деление по модулю
 	friend Integer operator%(const Integer& a, const Integer& b)
 	{
 		Integer result;
@@ -418,11 +429,13 @@ private:
 
 int main() 
 {
-	//Integer num1 = 11;
-	//Integer num2 = 12;
+	Integer num1 = 10;
+	Integer num2 = 15;
 
-	//std::cout << num2.isOdd();
-
+	std::cout << operator+(num1, num2);
+	std::cout << operator-(num1, num2);
+	std::cout << operator*(num1, num2);
+	std::cout << operator/(num1, num2);
 
 	return 0;
 }
