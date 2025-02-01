@@ -18,7 +18,7 @@ class Integer
 {
 public:
 
-	// constructors
+	// constructors (конструктор по умолчанию и  конструкторы с параметрами)
 	Integer() :Integer(false, 0u) { }
 	Integer(bool sign, unsigned units) :sign_(sign), units_(units) { }
 	Integer(int number)
@@ -36,7 +36,7 @@ public:
 	}
 
 
-	// number check
+	// number check (проверка числа)
 
 	// проверка на четность
 	bool isOdd()const
@@ -445,11 +445,12 @@ private:
 int main() 
 {
 	Integer num1 = 10;
-	Integer num2 = 15;
+	Integer num2 = 10;
 
 	// во всех этих операторах ошибки и нужно их исправить
+	// Возможно ошибки есть и в других операторах, но я еще не проверял
 	//std::cout << num1 + num2;
-	//std::cout << num1 - num2;
+	/*std::cout << num1 - num2;*/
 	//std::cout << num1 * num2;
 	//std::cout << num1 / num2;
 
