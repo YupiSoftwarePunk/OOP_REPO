@@ -419,10 +419,19 @@ public:
 
 
 	// Оператор вывода
-	friend std::ostream& operator<<(std::ostream& out, const Integer& obj)
+	friend std::ostream& operator<<(std::ostream& out, const Integer& other) 
 	{
+		if (other.sign_ == true)
+		{
+			out << other.units_;
+		}
+		else
+		{
+			out << '-' << other.units_;
+		}
 		return out;
 	}
+
 
 	// поля класса
 private:
@@ -439,10 +448,10 @@ int main()
 	Integer num2 = 15;
 
 	// во всех этих операторах ошибки и нужно их исправить
-	std::cout << operator+(num1, num2);
-	std::cout << operator-(num1, num2);
-	std::cout << operator*(num1, num2);
-	std::cout << operator/(num1, num2);
+	//std::cout << num1 + num2;
+	//std::cout << num1 - num2;
+	//std::cout << num1 * num2;
+	//std::cout << num1 / num2;
 
 	return 0;
 }
