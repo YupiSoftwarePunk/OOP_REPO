@@ -357,6 +357,8 @@ public:
 	// операторы инкремент и декремент
 
 	// постфиксные инкремент и декремент
+
+	// постфиксный инкремент
 	Integer operator++()
 	{
 		if (sign_ == true)
@@ -370,6 +372,7 @@ public:
 		return units_;
 	}
 
+	// постфиксный декремент
 	Integer operator--()
 	{
 		if (sign_ == true)
@@ -384,6 +387,8 @@ public:
 	}
 
 	// префиксные инкремент и декремент
+
+	// префиксный инкремент
 	Integer operatorPlusBefore()
 	{
 		if (sign_ == true)
@@ -397,6 +402,7 @@ public:
 		return units_;
 	}
 
+	// префиксный декремент
 	Integer operatorMinusBefore()
 	{
 		if (sign_ == true)
@@ -432,6 +438,7 @@ int main()
 	Integer num1 = 10;
 	Integer num2 = 15;
 
+	// во всех этих операторах ошибки и нужно их исправить
 	std::cout << operator+(num1, num2);
 	std::cout << operator-(num1, num2);
 	std::cout << operator*(num1, num2);
