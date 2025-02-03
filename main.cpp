@@ -24,6 +24,32 @@ public:
 	}
 
 
+	// сеттеры и геттеры
+	 
+	//setters
+	bool SetSign(bool sign)
+	{
+		this->sign_ = sign;
+	}
+
+	void SetUnits(unsigned units)
+	{
+		this->units_ = units;
+	}
+
+	// getters
+	bool GetSign()
+	{
+		return sign_;
+	}
+
+	unsigned GetUnits()
+	{
+		return units_;
+	}
+
+
+
 	// number check (проверка числа)
 
 	// проверка на четность
@@ -72,6 +98,7 @@ public:
 	{
 		return std::lcm(units_, other.units_);
 	}
+
 
 
 	// operators
@@ -172,8 +199,8 @@ public:
 		if (b == 0)
 		{
 			std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
-			::exit(-1);
-			//throw - 1;
+			::exit(-1);		// принудетельное завершение программы (1 способ)
+			//throw - 1;	// принудетельное завершение программы (2 способ)
 		}
 
 		Integer result;
@@ -233,6 +260,7 @@ public:
 		}
 		return result;
 	}
+
 
 
 	// Операторы присваивания
@@ -350,6 +378,7 @@ public:
 	}
 
 
+
 	// операторы инкремент и декремент
 
 	// постфиксные инкремент и декремент
@@ -414,6 +443,7 @@ public:
 	}
 
 
+
 	//Операторы сравнения
 
 	bool operator==(Integer other) const
@@ -473,7 +503,6 @@ public:
 		return true;
 	}
 
-	// тут в чем-то ошибка
 	bool operator>= (Integer other) const
 	{
 		if (sign_ == other.sign_)
@@ -486,6 +515,19 @@ public:
 		}
 		return false;
 	}
+
+
+	// Унарные операторы
+
+	//сделать
+	//Унарный плюс
+	// + -> +
+	// - -> -
+
+	// Унарный минус
+	// - -> +
+	// + -> -
+
 
 
 
