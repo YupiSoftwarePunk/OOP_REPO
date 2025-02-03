@@ -7,8 +7,8 @@ class Integer
 public:
 
 	// constructors (конструктор по умолчанию и  конструкторы с параметрами)
-	Integer() :Integer(false, 0u) { }
-	Integer(bool sign, unsigned units) :sign_(sign), units_(units) { }
+	Integer() :Integer(false, 0u) {}
+	Integer(bool sign, unsigned units) :sign_(sign), units_(units) {}
 	Integer(int number)
 	{
 		if (number < 0)
@@ -425,6 +425,67 @@ public:
 		return false;
 	}
 
+	bool operator!=(Integer other) const
+	{
+		if (sign_ == other.sign_)
+		{
+			return units_ != other.units_;
+		}
+		return true;
+	}
+
+	bool operator<(Integer other) const
+	{
+		if (sign_ == other.sign_)
+		{
+			return units_ < other.units_;
+		}
+		else if (sign_ == true && other.sign_ == false)
+		{
+			return false;
+		}
+		return true;
+	}
+
+	bool operator>(Integer other) const
+	{
+		if (sign_ == other.sign_)
+		{
+			return units_ > other.units_;
+		}
+		else if (sign_ == true && other.sign_ == false)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	bool operator<=(Integer other) const
+	{
+		if (sign_ == other.sign_)
+		{
+			return units_ <= other.units_;
+		}
+		else if (sign_ == true && other.sign_ == false)
+		{
+			return false;
+		}
+		return true;
+	}
+
+	//bool opeartor (Integer other) const
+	//{
+	//	if (sign_ == other.sign_)
+	//	{
+	//		return units_ >= other.units_;
+	//	}
+	//	else if (sign_ == true && other.sign_ == false)
+	//	{
+	//		return true;
+	//	}
+	//	return false;
+	//}
+
 
 
 	// Оператор вывода
@@ -481,6 +542,14 @@ int main()
 	std::cout << num1 << "\n";
 	--num1;
 	std::cout << num1 << "\n";
+
+	std::cout << "\n\n\n";
+
+	std::cout << (num1 < num2) << "\n";
+	std::cout << (num1 > num2) << "\n";
+	std::cout << (num1 <= num2) << "\n";
+	//std::cout << (num1 >= num2) << "\n";
+
 
 	return 0;
 }
