@@ -519,15 +519,33 @@ public:
 
 	// Унарные операторы
 
-	//сделать
 	//Унарный плюс
 	// + -> +
 	// - -> -
+
+	Integer operator+()
+	{
+		return units_;
+	}
+
 
 	// Унарный минус
 	// - -> +
 	// + -> -
 
+	Integer operator-()
+	{
+		if (sign_ == true)
+		{
+			sign_ = false;
+			return units_;
+		}
+		else
+		{
+			sign_ = true;
+			return units_;
+		}
+	}
 
 
 
@@ -592,6 +610,11 @@ int main()
 	std::cout << (num1 > num2) << "\n";
 	std::cout << (num1 <= num2) << "\n";
 	std::cout << (num1 >= num2) << "\n";
+
+	std::cout << "\n\n\n";
+
+	std::cout << -(num1) << "\n";
+	std::cout << +(num1) << "\n";
 
 
 	return 0;
