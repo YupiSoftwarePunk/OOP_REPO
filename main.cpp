@@ -474,18 +474,18 @@ public:
 	}
 
 	// тут в чем-то ошибка
-	//bool opeartor>= (Integer other) const
-	//{
-	//	if (sign_ == other.sign_)
-	//	{
-	//		return units_ >= other.units_;
-	//	}
-	//	else if (sign_ == true && other.sign_ == false)
-	//	{
-	//		return true;
-	//	}
-	//	return false;
-	//}
+	bool operator>= (Integer other) const
+	{
+		if (sign_ == other.sign_)
+		{
+			return units_ >= other.units_;
+		}
+		else if (sign_ == true && other.sign_ == false)
+		{
+			return true;
+		}
+		return false;
+	}
 
 
 
@@ -549,7 +549,7 @@ int main()
 	std::cout << (num1 < num2) << "\n";
 	std::cout << (num1 > num2) << "\n";
 	std::cout << (num1 <= num2) << "\n";
-	//std::cout << (num1 >= num2) << "\n";
+	std::cout << (num1 >= num2) << "\n";
 
 
 	return 0;
