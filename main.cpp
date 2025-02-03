@@ -2,18 +2,6 @@
 #include <numeric>
 
 
-class Demo
-{
-public:
-	friend std::ostream& operator<<
-		(
-			std::ostream& out,
-			const Demo& obj
-			);
-};
-
-
-
 class Integer
 {
 public:
