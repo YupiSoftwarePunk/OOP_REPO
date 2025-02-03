@@ -460,6 +460,33 @@ public:
 		return false;
 	}
 
+	bool operator<=(Integer other) const
+	{
+		if (sign_ == other.sign_)
+		{
+			return units_ <= other.units_;
+		}
+		else if (sign_ == true && other.sign_ == false)
+		{
+			return false;
+		}
+		return true;
+	}
+
+	// тут в чем-то ошибка
+	//bool opeartor>= (Integer other) const
+	//{
+	//	if (sign_ == other.sign_)
+	//	{
+	//		return units_ >= other.units_;
+	//	}
+	//	else if (sign_ == true && other.sign_ == false)
+	//	{
+	//		return true;
+	//	}
+	//	return false;
+	//}
+
 
 
 	// Оператор вывода
