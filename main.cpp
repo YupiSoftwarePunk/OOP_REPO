@@ -473,6 +473,7 @@ public:
 		return true;
 	}
 
+	// тут в чем-то ошибка
 	//bool opeartor (Integer other) const
 	//{
 	//	if (sign_ == other.sign_)
