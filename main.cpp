@@ -6,7 +6,7 @@ class Demo
 {
 public:
 	friend std::ostream& operator<<
-		    (
+		(
 			std::ostream& out,
 			const Demo& obj
 			);
@@ -91,7 +91,7 @@ public:
 	// Арифметические операторы  
 
 	// Сумма
-	friend Integer operator+(const Integer& a,const Integer& b)
+	friend Integer operator+(const Integer& a, const Integer& b)
 	{
 		Integer result;
 		if (a.sign_ == b.sign_)
@@ -181,17 +181,25 @@ public:
 	// Частное
 	friend Integer operator/(const Integer& a, const Integer& b)
 	{
+		if (b == 0)
+		{
+			std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+			::exit(-1);
+			//throw - 1;
+		}
+
 		Integer result;
 		if (a.sign_ == b.sign_)
 		{
 			result.sign_ = a.sign_;
-			result.units_ = a.sign_ / b.sign_;
+			result.units_ = a.units_ / b.units_;
 		}
 		else
 		{
 			if (a.sign_ > b.sign_)
 			{
 				result.sign_ = a.sign_;
+
 				result.units_ = a.units_ / b.units_;
 			}
 			else if (a.sign_ < b.sign_)
@@ -215,7 +223,7 @@ public:
 		if (a.sign_ == b.sign_)
 		{
 			result.sign_ = a.sign_;
-			result.units_ = a.sign_ % b.sign_;
+			result.units_ = a.units_ % b.units_;
 		}
 		else
 		{
@@ -242,7 +250,7 @@ public:
 	// Операторы присваивания
 	Integer& operator+=(Integer other)
 	{
-		
+
 		if (sign_ == other.sign_)
 		{
 			sign_ = sign_;
@@ -359,37 +367,38 @@ public:
 	// постфиксные инкремент и декремент
 
 	// постфиксный инкремент
-	Integer operator++()
+	Integer operator++(int)
 	{
 		if (sign_ == true)
 		{
-			units_ ++;
+			units_++;
 		}
 		else
 		{
-			units_ --;
+			units_--;
 		}
 		return units_;
 	}
 
 	// постфиксный декремент
-	Integer operator--()
+	Integer operator--(int)
 	{
 		if (sign_ == true)
 		{
-			units_ --;
+			units_--;
 		}
 		else
 		{
-			units_ ++;
+			units_++;
 		}
 		return units_;
 	}
 
 	// префиксные инкремент и декремент
 
+
 	// префиксный инкремент
-	Integer operatorPlusBefore()
+	Integer operator++()
 	{
 		if (sign_ == true)
 		{
@@ -403,7 +412,7 @@ public:
 	}
 
 	// префиксный декремент
-	Integer operatorMinusBefore()
+	Integer operator--()
 	{
 		if (sign_ == true)
 		{
@@ -417,17 +426,29 @@ public:
 	}
 
 
+	//Операторы сравнения
+
+	bool operator==(Integer other) const
+	{
+		if (sign_ == other.sign_)
+		{
+			return units_ == other.units_;
+		}
+		return false;
+	}
+
+
 
 	// Оператор вывода
-	friend std::ostream& operator<<(std::ostream& out, const Integer& other) 
+	friend std::ostream& operator<<(std::ostream& out, const Integer& other)
 	{
 		if (other.sign_ == true)
 		{
-			out << other.units_;
+			out << '-' << other.units_;
 		}
 		else
 		{
-			out << '-' << other.units_;
+			out << other.units_;
 		}
 		return out;
 	}
@@ -442,17 +463,36 @@ private:
 
 
 
-int main() 
+int main()
 {
-	Integer num1 = 10;
+	Integer num1 = 90;
 	Integer num2 = 10;
 
-	// во всех этих операторах ошибки и нужно их исправить
-	// Возможно ошибки есть и в других операторах, но я еще не проверял
-	//std::cout << num1 + num2;
-	/*std::cout << num1 - num2;*/
-	//std::cout << num1 * num2;
-	//std::cout << num1 / num2;
+	std::cout << num1 + num2 << "\n";
+	std::cout << num1 - num2 << "\n";
+	std::cout << num1 * num2 << "\n";
+	std::cout << num1 / num2 << "\n";
+	std::cout << num1 % num2 << "\n";
+
+	std::cout << "\n\n";
+
+
+	num1 += 10;
+	std::cout << num1 << "\n";
+	num1 -= 10;
+	std::cout << num1 << "\n";
+	num1 *= 10;
+	std::cout << num1 << "\n";
+	num1 /= 10;
+	std::cout << num1 << "\n";
+	num1++;
+	std::cout << num1 << "\n";
+	num1--;
+	std::cout << num1 << "\n";
+	++num1;
+	std::cout << num1 << "\n";
+	--num1;
+	std::cout << num1 << "\n";
 
 	return 0;
 }
