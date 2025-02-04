@@ -1,4 +1,5 @@
 #include "Integer.hpp"
+#include "Fraction.hpp"
 
 
 
