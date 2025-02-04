@@ -25,7 +25,7 @@ public:
 
 
 	// сеттеры и геттеры
-	 
+
 	//setters
 	bool SetSign(bool sign)
 	{
@@ -535,16 +535,16 @@ public:
 
 	Integer operator-()
 	{
+		Integer res = { *this };
 		if (sign_ == true)
 		{
-			sign_ = false;
-			return units_;
+			res.sign_ = false;
 		}
 		else
 		{
-			sign_ = true;
-			return units_;
+			res.sign_ = true;
 		}
+		return res;
 	}
 
 
@@ -613,8 +613,8 @@ int main()
 
 	std::cout << "\n\n\n";
 
-	std::cout << -(num1) << "\n";
-	std::cout << +(num1) << "\n";
+	std::cout << -num1 << "\n";
+	std::cout << +num1 << "\n";
 
 
 	return 0;
