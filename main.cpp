@@ -46,6 +46,8 @@ int main()
 	std::cout << -num1 << "\n";
 	std::cout << +num1 << "\n";
 
+	std::cout << "\n\n\n";
+	//std::cout << num1.isOdd();
 
 	return 0;
 }
