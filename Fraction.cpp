@@ -3,8 +3,8 @@
 
 // constructors
 Fraction::Fraction() : Fraction(false, Integer(1)) {}
-Fraction::Fraction(bool sign, Integer num) :sign_(sign), num_(num){}
-Fraction::Fraction(Integer number) 
+Fraction::Fraction(bool sign, Integer num) :sign_(sign), num_(num) {}
+Fraction::Fraction(Integer number)
 {
 	if (number < 0)
 	{
@@ -70,5 +70,3 @@ bool Fraction::isSame() const
 {
 	return num_ == denum_;
 }
-
-

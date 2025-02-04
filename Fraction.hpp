@@ -31,4 +31,3 @@ private:
 	Integer num_;
 	Integer denum_;
 };
-
