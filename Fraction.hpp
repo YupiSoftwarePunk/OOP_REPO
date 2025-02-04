@@ -10,17 +10,19 @@ public:
 	Fraction(Integer number);
 
 	// setters
-	void SetSign(bool sign);
+	void SetSignNum(bool sign);
+	void SetSignDenum(bool sign);
 	void SetNumerator(Integer num);
 	void SetDenominator(Integer denum);
 
 	// getters
-	bool GetSign();
+	bool GetSignNum();
+	bool GetSignDenum();
 	Integer GetNumerator();
 	Integer GetDenominator();
 
 	// Проверка дроби
-	bool isCorrect()const;
+	bool isProper()const;
 	bool isNumPositive()const;
 	bool isSame()const;
 
@@ -28,6 +30,8 @@ public:
 	// поля
 private:
 	bool sign_;
+	bool signNum_;
+	bool signDenum_;
 	Integer num_;
 	Integer denum_;
 };

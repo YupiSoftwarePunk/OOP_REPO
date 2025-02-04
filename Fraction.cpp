@@ -21,10 +21,17 @@ Fraction::Fraction(Integer number)
 }
 
 
+// setters and getters
+
 //setters
-void Fraction::SetSign(bool sign)
+void Fraction::SetSignNum(bool sign)
 {
-	this->sign_ = sign;
+	this->signNum_ = sign;
+}
+
+void Fraction::SetSignDenum(bool sign)
+{
+	this->signDenum_ = sign;
 }
 
 void Fraction::SetNumerator(Integer num)
@@ -39,9 +46,14 @@ void Fraction::SetDenominator(Integer denum)
 
 
 // getters
-bool Fraction::GetSign()
+bool Fraction::GetSignNum()
 {
-	return sign_;
+	return signNum_;
+}
+
+bool Fraction::GetSignDenum()
+{
+	return signDenum_;
 }
 
 Integer Fraction::GetNumerator()
@@ -58,15 +70,15 @@ Integer Fraction::GetDenominator()
 // // Проверка дроби
 bool Fraction::isNumPositive() const
 {
-	return sign_ < 1;
+	return signNum_ < 1 && signDenum_ < 1;
 }
 
-bool Fraction::isCorrect() const
+bool Fraction::isProper() const
 {
 	return num_ < denum_;
 }
 
 bool Fraction::isSame() const
 {
-	return num_ == denum_;
+	return num_ == denum_ && signNum_ == signDenum_;
 }

@@ -47,7 +47,13 @@ int main()
 	std::cout << +num1 << "\n";
 
 	std::cout << "\n\n\n";
-	std::cout << num1.isPositive();
+
+	std::cout << num1.isPositive() << "\n";
+	std::cout << num1.isOdd() << "\n";
+	std::cout << num1.isSimple() << "\n";
+	std::cout << num1.isCoprime(num2) << "\n";
+	std::cout << num1.Nod(num2) << "\n";
+	std::cout << num1.Nok(num2) << "\n";
 
 	return 0;
 }

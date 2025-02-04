@@ -18,7 +18,7 @@ Integer::Integer(int number)
 }
 
 
-// сеттеры и геттеры
+// setters and getters
 
 //setters
 void Integer::SetSign(bool sign)
