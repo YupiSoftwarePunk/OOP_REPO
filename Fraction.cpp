@@ -189,7 +189,31 @@ Fraction Fraction::operator*(const Fraction& other)
 
 Fraction Fraction::operator/(const Fraction& other)
 {
-	// сделать
+	Integer numerator;
+	Integer denominator;
+	Fraction result;
+	if (sign_ == false && other.sign_ == false)
+	{
+		numerator = num_ * other.denum_;
+		denominator = denum_ * other.num_;
+		result.sign_ == false;
+	}
+	else if (sign_ == true && other.sign_ == false)
+	{
+		numerator = num_ * other.denum_;
+		denominator = denum_ * other.num_;
+		result.sign_ == true;
+	}
+	else
+	{
+		numerator = num_ * other.denum_;
+		denominator = denum_ * other.num_;
+		result.sign_ == true;
+	}
+	result.num_ = numerator;
+	result.denum_ = denominator;
+
+	return result;
 }
 
 
