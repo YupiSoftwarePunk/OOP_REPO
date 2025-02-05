@@ -22,6 +22,9 @@ public:
 	Integer GetNumerator();
 	Integer GetDenominator();
 
+	// операторо вывода
+	friend std::ostream& operator<<(std::ostream out, const Fraction obj);
+
 	// Проверка дроби
 	bool isProper()const;
 	bool isNumPositive()const;

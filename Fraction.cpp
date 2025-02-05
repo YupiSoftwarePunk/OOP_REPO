@@ -67,7 +67,7 @@ Integer Fraction::GetDenominator()
 }
 
 
-// // Проверка дроби
+// Проверка дроби
 bool Fraction::isNumPositive() const
 {
 	return signNum_ == signDenum_;
@@ -91,4 +91,11 @@ void Fraction::ReduceFraction()
 	num_ /= nod;
 	denum_ /= nod;
 	std::cout << num_ << "/" << denum_ << "\n";
+}
+
+
+// оператор вывода
+std::ostream& operator<<(std::ostream out, const Fraction obj)
+{
+	return out << obj.num_ << "/" << obj.denum_;
 }
