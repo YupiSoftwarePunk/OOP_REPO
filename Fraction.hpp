@@ -48,6 +48,10 @@ public:
 
 	Fraction operator-(const Fraction& other);
 
+	Fraction operator*(const Fraction& other);
+
+	Fraction operator/(const Fraction& other);
+
 
 	// поля
 private:

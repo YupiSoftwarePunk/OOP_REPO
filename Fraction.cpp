@@ -158,6 +158,41 @@ Fraction Fraction::operator-(const Fraction& other)
 	return result;
 }
 
+Fraction Fraction::operator*(const Fraction& other)
+{
+	Integer numerator;
+	Integer denominator;
+	Fraction result;
+	if (sign_ == false && other.sign_ == false)
+	{
+		numerator = num_ * other.num_;
+		denominator = denum_ * other.denum_;
+		result.sign_ == false;
+	}
+	else if (sign_ == true && other.sign_ == false)
+	{
+		numerator = num_ * other.num_;
+		denominator = denum_ * other.denum_;
+		result.sign_ == true;
+	}
+	else
+	{
+		numerator = num_ * other.num_;
+		denominator = denum_ * other.denum_;
+		result.sign_ == true;
+	}
+	result.num_ = numerator;
+	result.denum_ = denominator;
+
+	return result;
+}
+
+Fraction Fraction::operator/(const Fraction& other)
+{
+	// сделать
+}
+
+
 
 // оператор вывода
 std::ostream& operator<<(std::ostream out, const Fraction obj)
