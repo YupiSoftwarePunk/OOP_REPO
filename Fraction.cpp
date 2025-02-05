@@ -2,8 +2,8 @@
 
 
 // constructors
-Fraction::Fraction() : Fraction(false, Integer(1)) {}
-Fraction::Fraction(bool sign, Integer num) :sign_(sign), num_(num) {}
+Fraction::Fraction() : Fraction(false, Integer(1), Integer(1)) {}
+Fraction::Fraction(bool sign, Integer num, Integer denum) :sign_(sign), num_(num), denum_(denum) {}
 Fraction::Fraction(Integer number)
 {
 	if (number < 0)
@@ -24,14 +24,9 @@ Fraction::Fraction(Integer number)
 // setters and getters
 
 //setters
-void Fraction::SetSignNum(bool sign)
+void Fraction::SetSign(bool sign)
 {
-	this->signNum_ = sign;
-}
-
-void Fraction::SetSignDenum(bool sign)
-{
-	this->signDenum_ = sign;
+	this->sign_ = sign;
 }
 
 void Fraction::SetNumerator(Integer num)
@@ -46,14 +41,9 @@ void Fraction::SetDenominator(Integer denum)
 
 
 // getters
-bool Fraction::GetSignNum()
+bool Fraction::GetSign()
 {
-	return signNum_;
-}
-
-bool Fraction::GetSignDenum()
-{
-	return signDenum_;
+	return sign_;
 }
 
 Integer Fraction::GetNumerator()
@@ -70,7 +60,7 @@ Integer Fraction::GetDenominator()
 // Проверка дроби
 bool Fraction::isNumPositive() const
 {
-	return signNum_ == signDenum_;
+	return sign_ == false;
 }
 
 bool Fraction::isProper() const
@@ -78,9 +68,9 @@ bool Fraction::isProper() const
 	return num_ < denum_;
 }
 
-bool Fraction::isSame() const
+bool Fraction::isSame(Fraction other) const
 {
-	return num_ == denum_ && signNum_ == signDenum_;
+	return sign_ == other.sign_ && num_ == other.num_ && denum_ == other.denum_;
 }
 
 
@@ -93,9 +83,41 @@ void Fraction::ReduceFraction()
 	std::cout << num_ << "/" << denum_ << "\n";
 }
 
+Fraction Fraction::ReverseFraction()
+{
+	Integer temp;
+	temp = num_;
+	num_ = denum_;
+	denum_ = temp;
+	return *this;
+}
+
+Integer Fraction::CountUnits() const
+{
+	Integer units = num_ / denum_;
+	return units;
+}
+
 
 // оператор вывода
 std::ostream& operator<<(std::ostream out, const Fraction obj)
 {
-	return out << obj.num_ << "/" << obj.denum_;
+	if (obj.sign_ == false)
+	{
+		if (obj.denum_ == 1) {
+
+			out << obj.num_;
+		}
+		else {
+			out << obj.num_ << "/" << obj.denum_;
+		}
+	}
+	else
+	{
+		if (obj.denum_ == 1) 
+		{
+			out << '-' << obj.num_;
+		}
+	}
+	return out;
 }

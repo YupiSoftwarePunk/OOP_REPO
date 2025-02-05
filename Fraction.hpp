@@ -1,24 +1,23 @@
 #pragma once
 
 #include "Integer.hpp"
+#include <cmath>
 
 class Fraction
 {
 public:
 	// constructors
 	Fraction();
-	Fraction(bool sign, Integer num);
+	Fraction(bool sign, Integer num, Integer denum);
 	Fraction(Integer number);
 
 	// setters
-	void SetSignNum(bool sign);
-	void SetSignDenum(bool sign);
+	void SetSign(bool sign);
 	void SetNumerator(Integer num);
 	void SetDenominator(Integer denum);
 
 	// getters
-	bool GetSignNum();
-	bool GetSignDenum();
+	bool GetSign();
 	Integer GetNumerator();
 	Integer GetDenominator();
 
@@ -28,19 +27,23 @@ public:
 	// Проверка дроби
 	bool isProper()const;
 	bool isNumPositive()const;
-	bool isSame()const;
+	bool isSame(Fraction other)const;
 
 	// Методы для получения значений
 
 	// сокращенная дробь
 	void ReduceFraction();
 
+	// обратная дробь
+	Fraction ReverseFraction();
+
+	// Счет целых чисел в дроби
+	Integer CountUnits() const;
+
 
 	// поля
 private:
 	bool sign_;
-	bool signNum_;
-	bool signDenum_;
 	Integer num_;
 	Integer denum_;
 };

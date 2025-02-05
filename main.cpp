@@ -55,5 +55,9 @@ int main()
 	std::cout << num1.Nod(num2) << "\n";
 	std::cout << num1.Nok(num2) << "\n";
 
+	std::cout << "\n\n\n";
+
+
+
 	return 0;
 }
