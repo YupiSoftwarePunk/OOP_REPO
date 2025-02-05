@@ -40,6 +40,14 @@ public:
 	// —чет целых чисел в дроби
 	Integer CountUnits() const;
 
+	// —чет остатка от целового числа в дроби
+	// сделать
+
+	// јрифметические операции
+	Fraction operator+(const Fraction& other);
+
+	Fraction operator-(const Fraction& other);
+
 
 	// пол€
 private:
