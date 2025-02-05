@@ -70,7 +70,7 @@ Integer Fraction::GetDenominator()
 // // ѕроверка дроби
 bool Fraction::isNumPositive() const
 {
-	return signNum_ < 1 && signDenum_ < 1;
+	return signNum_ == signDenum_;
 }
 
 bool Fraction::isProper() const
@@ -81,4 +81,14 @@ bool Fraction::isProper() const
 bool Fraction::isSame() const
 {
 	return num_ == denum_ && signNum_ == signDenum_;
+}
+
+
+// методы получени€ значений
+void Fraction::ReduceFraction()
+{
+	Integer nod = num_.Nod(denum_);
+	num_ /= nod;
+	denum_ /= nod;
+	std::cout << num_ << "/" << denum_ << "\n";
 }

@@ -5,6 +5,7 @@
 class Fraction
 {
 public:
+	// constructors
 	Fraction();
 	Fraction(bool sign, Integer num);
 	Fraction(Integer number);
@@ -25,6 +26,11 @@ public:
 	bool isProper()const;
 	bool isNumPositive()const;
 	bool isSame()const;
+
+	// Методы для получения значений
+
+	// сокращенная дробь
+	void ReduceFraction();
 
 
 	// поля
