@@ -78,6 +78,10 @@ public:
 
 	Fraction operator-=(Fraction& other);
 
+	Fraction operator*=(Fraction& other);
+
+	Fraction operator/=(Fraction& other);
+
 
 	// поля
 private:

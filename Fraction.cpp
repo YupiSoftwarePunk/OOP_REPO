@@ -115,19 +115,19 @@ Fraction Fraction::operator+(const Fraction& other)
 	{
 		numerator = num_ * other.denum_ + other.num_ * denum_;
 		denominator = denum_ * other.denum_;
-		result.sign_ == false;
+		result.sign_ = false;
 	}
 	else if (sign_ == true && other.sign_ == false)
 	{
 		numerator = num_ * other.denum_ - other.num_ * denum_;
 		denominator = denum_ * other.denum_;
-		result.sign_ == true;
+		result.sign_ = true;
 	}
 	else
 	{
 		numerator = num_ * other.denum_ - other.num_ * denum_;
 		denominator = denum_ * other.denum_;
-		result.sign_ == true;
+		result.sign_ = true;
 	}
 	result.num_ = numerator;
 	result.denum_ = denominator;
@@ -144,19 +144,19 @@ Fraction Fraction::operator-(const Fraction& other)
 	{
 		numerator = num_ * other.denum_ - other.num_ * denum_;
 		denominator = denum_ * other.denum_;
-		result.sign_ == false;
+		result.sign_ = false;
 	}
 	else if (sign_ == true && other.sign_ == false)
 	{
 		numerator = num_ * other.denum_ + other.num_ * denum_;
 		denominator = denum_ * other.denum_;
-		result.sign_ == true;
+		result.sign_ = true;
 	}
 	else
 	{
 		numerator = num_ * other.denum_ + other.num_ * denum_;
 		denominator = denum_ * other.denum_;
-		result.sign_ == true;
+		result.sign_ = true;
 	}
 	result.num_ = numerator;
 	result.denum_ = denominator;
@@ -173,19 +173,19 @@ Fraction Fraction::operator*(const Fraction& other)
 	{
 		numerator = num_ * other.num_;
 		denominator = denum_ * other.denum_;
-		result.sign_ == false;
+		result.sign_ = false;
 	}
 	else if (sign_ == true && other.sign_ == false)
 	{
 		numerator = num_ * other.num_;
 		denominator = denum_ * other.denum_;
-		result.sign_ == true;
+		result.sign_ = true;
 	}
 	else
 	{
 		numerator = num_ * other.num_;
 		denominator = denum_ * other.denum_;
-		result.sign_ == true;
+		result.sign_ = true;
 	}
 	result.num_ = numerator;
 	result.denum_ = denominator;
@@ -207,19 +207,19 @@ Fraction Fraction::operator/(const Fraction& other)
 	{
 		numerator = num_ * other.denum_;
 		denominator = denum_ * other.num_;
-		result.sign_ == false;
+		result.sign_ = false;
 	}
 	else if (sign_ == true && other.sign_ == false)
 	{
 		numerator = num_ * other.denum_;
 		denominator = denum_ * other.num_;
-		result.sign_ == true;
+		result.sign_ = true;
 	}
 	else
 	{
 		numerator = num_ * other.denum_;
 		denominator = denum_ * other.num_;
-		result.sign_ == true;
+		result.sign_ = true;
 	}
 	result.num_ = numerator;
 	result.denum_ = denominator;
@@ -364,7 +364,7 @@ Fraction Fraction::operator+=(Fraction& other)
 			denominator = denum_ * other.denum_;
 			sign_ = true; 
 		}
-		else // другой больше по модулю
+		else
 		{
 			numerator = other.num_ * denum_ + num_ * other.denum_;
 			denominator = denum_ * other.denum_;
@@ -418,7 +418,7 @@ Fraction Fraction::operator-=(Fraction& other)
 			denominator = denum_ * other.denum_;
 			sign_ = true;
 		}
-		else // другой больше по модулю
+		else
 		{
 			numerator = other.num_ * denum_ - num_ * other.denum_;
 			denominator = denum_ * other.denum_;
@@ -432,6 +432,67 @@ Fraction Fraction::operator-=(Fraction& other)
 		sign_ = true;
 	}
 
+	num_ = numerator;
+	denum_ = denominator;
+
+	return *this;
+}
+
+Fraction Fraction::operator*=(Fraction& other)
+{
+	Integer numerator;
+	Integer denominator;
+	if (sign_ == false && other.sign_ == false)
+	{
+		numerator = num_ * other.num_;
+		denominator = denum_ * other.denum_;
+		sign_ = false;
+	}
+	else if (sign_ == true && other.sign_ == false)
+	{
+		numerator = num_ * other.num_;
+		denominator = denum_ * other.denum_;
+		sign_ = true;
+	}
+	else
+	{
+		numerator = num_ * other.num_;
+		denominator = denum_ * other.denum_;
+		sign_ = true;
+	}
+	num_ = numerator;
+	denum_ = denominator;
+
+	return *this;
+}
+
+Fraction Fraction::operator/=(Fraction& other)
+{
+	Integer numerator;
+	Integer denominator;
+	if (denum_ == 0 || other.num_ == 0)
+	{
+		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+		::exit(-1);
+	}
+	if (sign_ == false && other.sign_ == false)
+	{
+		numerator = num_ * other.denum_;
+		denominator = denum_ * other.num_;
+		sign_ = false;
+	}
+	else if (sign_ == true && other.sign_ == false)
+	{
+		numerator = num_ * other.denum_;
+		denominator = denum_ * other.num_;
+		sign_ = true;
+	}
+	else
+	{
+		numerator = num_ * other.denum_;
+		denominator = denum_ * other.num_;
+		sign_ = true;
+	}
 	num_ = numerator;
 	denum_ = denominator;
 

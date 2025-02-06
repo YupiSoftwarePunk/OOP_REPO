@@ -345,6 +345,11 @@ Integer& Integer::operator*=(Integer other)
 
 Integer& Integer::operator/=(Integer other)
 {
+	if (other.units_ == 0)
+	{
+		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+		::exit(-1);
+	}
 	if (sign_ == other.sign_)
 	{
 		sign_ = sign_;
