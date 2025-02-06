@@ -2,21 +2,27 @@
 
 
 // constructors
-Fraction::Fraction() : Fraction(false, Integer(1), Integer(1)) {}
-Fraction::Fraction(bool sign, Integer num, Integer denum) :sign_(sign), num_(num), denum_(denum) {}
+Fraction::Fraction() : Fraction(false, Integer(0), Integer(1)) {}
+Fraction::Fraction(bool sign, Integer num, Integer denum) :sign_(sign), num_(num), denum_(denum) 
+{
+	if (denum < Integer(1))
+	{
+		throw std::invalid_argument("Знаменатель не может быть отрицательным");
+	}
+}
 Fraction::Fraction(Integer number)
 {
 	if (number < 0)
 	{
 		sign_ = true;
-		this->num_ = number;
-		this->denum_ = static_cast<int>(1);
+		this->num_ = Integer(-static_cast<Integer>(number));
+		this->denum_ = static_cast<Integer>(1);
 	}
 	else
 	{
 		sign_ = false;
 		this->num_ = number;
-		this->denum_ = static_cast<int>(1);
+		this->denum_ = static_cast<Integer>(1);
 	}
 }
 
