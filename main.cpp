@@ -8,6 +8,9 @@ int main()
 	Integer num1 = 90;
 	Integer num2 = 10;
 
+	Fraction num11 = 5;
+	Fraction num22 = 7;
+
 	std::cout << num1 + num2 << "\n";
 	std::cout << num1 - num2 << "\n";
 	std::cout << num1 * num2 << "\n";

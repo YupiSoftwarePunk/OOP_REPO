@@ -10,13 +10,13 @@ Fraction::Fraction(Integer number)
 	{
 		sign_ = true;
 		this->num_ = number;
-		this->denum_ = static_cast<Integer>(1);
+		this->denum_ = static_cast<int>(1);
 	}
 	else
 	{
 		sign_ = false;
 		this->num_ = number;
-		this->denum_ = static_cast<Integer>(1);
+		this->denum_ = static_cast<int>(1);
 	}
 }
 
@@ -192,6 +192,11 @@ Fraction Fraction::operator/(const Fraction& other)
 	Integer numerator;
 	Integer denominator;
 	Fraction result;
+	if (denum_ == 0 || other.num_ == 0)
+	{
+		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+		::exit(-1);
+	}
 	if (sign_ == false && other.sign_ == false)
 	{
 		numerator = num_ * other.denum_;
