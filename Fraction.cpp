@@ -330,10 +330,113 @@ bool Fraction::operator>=(const Fraction& other)
 
 
 // Операторы присваивания
-//Fraction Fraction::operator+=(Fraction other)
-//{
-//
-//}
+Fraction Fraction::operator+=(Fraction& other)
+{
+	Integer numerator;
+	Integer denominator;
+
+	if (sign_ == false && other.sign_ == false) 
+	{
+		numerator = num_ * other.denum_ + other.num_ * denum_;
+		denominator = denum_ * other.denum_;
+		sign_ = false; 
+	}
+	else if (sign_ == true && other.sign_ == false) 
+	{
+		if (num_ * other.denum_ >= other.num_ * denum_) 
+		{
+			numerator = num_ * other.denum_ - other.num_ * denum_;
+			denominator = denum_ * other.denum_;
+			sign_ = true; 
+		}
+		else 
+		{
+			numerator = other.num_ * denum_ - num_ * other.denum_;
+			denominator = denum_ * other.denum_;
+			sign_ = true; 
+		}
+	}
+	else if (sign_ == false && other.sign_ == true) 
+	{
+		if (num_ * other.denum_ >= other.num_ * denum_) 
+		{
+			numerator = num_ * other.denum_ + other.num_ * denum_;
+			denominator = denum_ * other.denum_;
+			sign_ = true; 
+		}
+		else // другой больше по модулю
+		{
+			numerator = other.num_ * denum_ + num_ * other.denum_;
+			denominator = denum_ * other.denum_;
+			sign_ = true; 
+		}
+	}
+	else 
+	{
+		numerator = num_ * other.denum_ + other.num_ * denum_;
+		denominator = denum_ * other.denum_;
+		sign_ = true; 
+	}
+
+	num_ = numerator;
+	denum_ = denominator;
+
+	return *this; 
+}
+
+Fraction Fraction::operator-=(Fraction& other)
+{
+	Integer numerator;
+	Integer denominator;
+
+	if (sign_ == false && other.sign_ == false)
+	{
+		numerator = num_ * other.denum_ - other.num_ * denum_;
+		denominator = denum_ * other.denum_;
+		sign_ = false;
+	}
+	else if (sign_ == true && other.sign_ == false)
+	{
+		if (num_ * other.denum_ >= other.num_ * denum_)
+		{
+			numerator = num_ * other.denum_ + other.num_ * denum_;
+			denominator = denum_ * other.denum_;
+			sign_ = true;
+		}
+		else
+		{
+			numerator = other.num_ * denum_ + num_ * other.denum_;
+			denominator = denum_ * other.denum_;
+			sign_ = true;
+		}
+	}
+	else if (sign_ == false && other.sign_ == true)
+	{
+		if (num_ * other.denum_ >= other.num_ * denum_)
+		{
+			numerator = num_ * other.denum_ - other.num_ * denum_;
+			denominator = denum_ * other.denum_;
+			sign_ = true;
+		}
+		else // другой больше по модулю
+		{
+			numerator = other.num_ * denum_ - num_ * other.denum_;
+			denominator = denum_ * other.denum_;
+			sign_ = true;
+		}
+	}
+	else
+	{
+		numerator = num_ * other.denum_ + other.num_ * denum_;
+		denominator = denum_ * other.denum_;
+		sign_ = true;
+	}
+
+	num_ = numerator;
+	denum_ = denominator;
+
+	return *this;
+}
 
 
 
