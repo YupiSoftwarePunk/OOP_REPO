@@ -16,13 +16,11 @@ public:
 
 	//setters
 	void SetSign(bool sign);
-
 	void SetUnits(unsigned units);
 
 
 	// getters
 	bool GetSign();
-
 	unsigned GetUnits();
 
 
@@ -47,9 +45,6 @@ public:
 	// нахождение наибольшего общего кратного
 	int Nok(Integer other)const;
 
-
-
-	// operators
 
 	// Арифметические операторы  
 
