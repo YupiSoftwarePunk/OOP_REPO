@@ -248,6 +248,46 @@ bool Fraction::operator!=(const Fraction& other)
 	return false;
 }
 
+bool Fraction::operator<(const Fraction& other)
+{
+	Integer num1;
+	Integer num2;
+	if (sign_ == other.sign_)
+	{
+		num1 = num_ * other.denum_;
+		num2 = denum_ * other.num_;
+		return num1 < num2;
+	}
+	else if (sign_ < other.sign_)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool Fraction::operator>(const Fraction& other)
+{
+	Integer num1;
+	Integer num2;
+	if (sign_ == other.sign_)
+	{
+		num1 = num_ * other.denum_;
+		num2 = denum_ * other.num_;
+		return num1 > num2;
+	}
+	else if (sign_ > other.sign_)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 
 
 // оператор вывода

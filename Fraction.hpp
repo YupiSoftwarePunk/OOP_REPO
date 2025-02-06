@@ -58,6 +58,10 @@ public:
 
 	bool operator!=(const Fraction& other);
 
+	bool operator<(const Fraction& other);
+
+	bool operator>(const Fraction& other);
+
 
 	// поля
 private:
