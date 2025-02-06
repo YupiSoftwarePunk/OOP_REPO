@@ -72,8 +72,8 @@ int main()
 	std::cout << num3.isNumPositive() << "\n";
 	std::cout << num3.isSame(num4) << "\n";   // mistake
 	std::cout << num4.isProper() << "\n"; // mistake (idk how to solve it)
-	//std::cout << num3.ReduceFraction() << "\n";     // mistake
-	//std::cout << num3.ReverseFraction() << "\n";    // mistake
+	//std::cout << num3.ReduceFraction() << "\n";     // mistake    need to fix operator<< 
+	//std::cout << num3.ReverseFraction() << "\n";    // mistake    need to fix operator<< 
 	std::cout << num3.CountUnits() << "\n"; // mistake
 
 	std::cout << "\n\n\n";

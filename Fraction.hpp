@@ -73,6 +73,9 @@ public:
 
 	bool operator>=(const Fraction& other);
 
+	// Операторы присваивания
+	Fraction operator+=(Fraction other);
+
 
 	// поля
 private:

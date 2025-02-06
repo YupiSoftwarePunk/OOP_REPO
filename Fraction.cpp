@@ -329,26 +329,23 @@ bool Fraction::operator>=(const Fraction& other)
 }
 
 
+// Операторы присваивания
+//Fraction Fraction::operator+=(Fraction other)
+//{
+//
+//}
+
+
 
 // оператор вывода
 std::ostream& operator<<(std::ostream out, const Fraction obj)
 {
-	if (obj.sign_ == false)
+	if (obj.sign_ == true) 
 	{
-		if (obj.denum_ == 1) {
-
-			out << obj.num_;
-		}
-		else {
-			out << obj.num_ << "/" << obj.denum_;
-		}
+		return out << "-(" << obj.num_ << "/" << obj.denum_ << ")";
 	}
 	else
 	{
-		if (obj.denum_ == 1) 
-		{
-			out << '-' << obj.num_;
-		}
+		return out << obj.num_ << "/" << obj.denum_;
 	}
-	return out;
 }
