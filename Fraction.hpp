@@ -53,6 +53,12 @@ public:
 	Fraction operator/(const Fraction& other);
 
 
+	// Операторы сравнения
+	bool operator==(const Fraction& other);
+
+	bool operator!=(const Fraction& other);
+
+
 	// поля
 private:
 	bool sign_;

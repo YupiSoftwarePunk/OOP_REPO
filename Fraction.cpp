@@ -228,6 +228,27 @@ Fraction Fraction::operator/(const Fraction& other)
 }
 
 
+// Операторы сравнения
+bool Fraction::operator==(const Fraction& other)
+{
+	if (sign_ == other.sign_)
+	{
+		return num_ == other.num_ && denum_ == other.denum_;
+	}
+	return false;
+
+}
+
+bool Fraction::operator!=(const Fraction& other)
+{
+	if (sign_ == other.sign_)
+	{
+		return num_ != other.num_ && denum_ != other.denum_;
+	}
+	return false;
+}
+
+
 
 // оператор вывода
 std::ostream& operator<<(std::ostream out, const Fraction obj)
