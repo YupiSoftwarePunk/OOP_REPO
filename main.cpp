@@ -5,11 +5,20 @@
 
 int main()
 {
-	Integer num1 = 90;
-	Integer num2 = 10;
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 
-	//Fraction num11 = 5;
-	//Fraction num22 = 7;
+	Integer num1 = 12;
+	Integer num2 = 7;
+
+	Integer num11 = 5;
+	Integer num22 = 7;
+
+	Fraction num3 = (num1, num2);
+
+	Fraction num4 = (num11, num22);
+
+	std::cout << "Целые числа\n\n";
 
 	std::cout << num1 + num2 << "\n";
 	std::cout << num1 - num2 << "\n";
@@ -58,9 +67,22 @@ int main()
 	std::cout << num1.Nod(num2) << "\n";
 	std::cout << num1.Nok(num2) << "\n";
 
+	std::cout << "\n\n\t\tДроби\n\n";
+
+	std::cout << num3.isNumPositive() << "\n";
+	std::cout << num3.isSame(num4) << "\n";
+	std::cout << num3.isProper() << "\n"; // mistake
+	//std::cout << num3.ReduceFraction() << "\n";     // mistake
+	//std::cout << num3.ReverseFraction() << "\n";    // mistake
+	std::cout << num3.CountUnits() << "\n"; // mistake
+
 	std::cout << "\n\n\n";
 
-
+	// mistakes!! need to fix operator<<
+	//std::cout << num3 + num4 << "\n";
+	//std::cout << num3 - num4 << "\n";
+	//std::cout << num3 * num4 << "\n";
+	//std::cout << num3 / num4 << "\n";
 
 	return 0;
 }

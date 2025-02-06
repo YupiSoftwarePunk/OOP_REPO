@@ -2,6 +2,7 @@
 
 #include "Integer.hpp"
 #include <cmath>
+#include <Windows.h>
 
 class Fraction
 {
@@ -25,8 +26,14 @@ public:
 	friend std::ostream& operator<<(std::ostream out, const Fraction obj);
 
 	// Проверка дроби
+
+	// Правильная ли дробь
 	bool isProper()const;
+
+	// Положительная ли дробь
 	bool isNumPositive()const;
+
+	// являются ли 2 числа одним и тем же объектом в программе
 	bool isSame(Fraction other)const;
 
 	// Методы для получения значений
