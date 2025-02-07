@@ -22,35 +22,38 @@ public:
 	Integer GetNumerator();
 	Integer GetDenominator();
 
-	// операторо вывода
+	// РѕРїРµСЂР°С‚РѕСЂРѕ РІС‹РІРѕРґР°
 	friend std::ostream& operator<<(std::ostream out, const Fraction obj);
 
-	// Проверка дроби
+	// РџСЂРѕРІРµСЂРєР° РґСЂРѕР±Рё
 
-	// Правильная ли дробь
+	// РџСЂР°РІРёР»СЊРЅР°СЏ Р»Рё РґСЂРѕР±СЊ
 	bool isProper()const;
 
-	// Положительная ли дробь
+	// РџРѕР»РѕР¶РёС‚РµР»СЊРЅР°СЏ Р»Рё РґСЂРѕР±СЊ
 	bool isNumPositive()const;
 
-	// являются ли 2 числа одним и тем же объектом в программе
+	// РћС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ Р»Рё РґСЂРѕР±СЊ
+	bool isNumNegative()const;
+
+	// СЏРІР»СЏСЋС‚СЃСЏ Р»Рё 2 С‡РёСЃР»Р° РѕРґРЅРёРј Рё С‚РµРј Р¶Рµ РѕР±СЉРµРєС‚РѕРј РІ РїСЂРѕРіСЂР°РјРјРµ
 	bool isSame(Fraction other)const;
 
-	// Методы для получения значений
+	// РњРµС‚РѕРґС‹ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ Р·РЅР°С‡РµРЅРёР№
 
-	// сокращенная дробь
+	// СЃРѕРєСЂР°С‰РµРЅРЅР°СЏ РґСЂРѕР±СЊ
 	void ReduceFraction();
 
-	// обратная дробь
+	// РѕР±СЂР°С‚РЅР°СЏ РґСЂРѕР±СЊ
 	Fraction ReverseFraction();
 
-	// Счет целых чисел в дроби
+	// РЎС‡РµС‚ С†РµР»С‹С… С‡РёСЃРµР» РІ РґСЂРѕР±Рё
 	Integer CountUnits() const;
 
-	// Счет остатка от целового числа в дроби
-	// сделать
+	// РЎС‡РµС‚ РѕСЃС‚Р°С‚РєР° РѕС‚ С†РµР»РѕРІРѕРіРѕ С‡РёСЃР»Р° РІ РґСЂРѕР±Рё
+	// СЃРґРµР»Р°С‚СЊ
 
-	// Арифметические операции
+	// РђСЂРёС„РјРµС‚РёС‡РµСЃРєРёРµ РѕРїРµСЂР°С†РёРё
 	Fraction operator+(const Fraction& other);
 
 	Fraction operator-(const Fraction& other);
@@ -60,7 +63,7 @@ public:
 	Fraction operator/(const Fraction& other);
 
 
-	// Операторы сравнения
+	// РћРїРµСЂР°С‚РѕСЂС‹ СЃСЂР°РІРЅРµРЅРёСЏ
 	bool operator==(const Fraction& other);
 
 	bool operator!=(const Fraction& other);
@@ -73,7 +76,7 @@ public:
 
 	bool operator>=(const Fraction& other);
 
-	// Операторы присваивания
+	// РћРїРµСЂР°С‚РѕСЂС‹ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	Fraction operator+=(Fraction& other);
 
 	Fraction operator-=(Fraction& other);
@@ -83,7 +86,7 @@ public:
 	Fraction operator/=(Fraction& other);
 
 
-	// поля
+	// РїРѕР»СЏ
 private:
 	bool sign_;
 	Integer num_;
