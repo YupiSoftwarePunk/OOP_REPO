@@ -1,6 +1,6 @@
 #include "Integer.hpp"
 
-//constructors(конструктор по умолчанию и  конструкторы с параметрами)
+//constructors(РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Рё  РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё)
 Integer::Integer() :Integer(false, 0u) {}
 Integer::Integer(bool sign, unsigned units) :sign_(sign), units_(units) {}
 Integer::Integer(int number)
@@ -44,21 +44,33 @@ unsigned Integer::GetUnits()
 
 
 
-// number check (проверка числа)
+// number check (РїСЂРѕРІРµСЂРєР° С‡РёСЃР»Р°)
 
-// проверка на четность
+// РїСЂРѕРІРµСЂРєР° РЅР° РЅРµС‡РµС‚РЅРѕСЃС‚СЊ
 bool Integer::isOdd()const
+{
+	return units_ % 2 != 0;
+}
+
+// РїСЂРѕРІРµСЂРєР° РЅР° С‡РµС‚РЅРѕСЃС‚СЊ
+bool Integer::isEven()const
 {
 	return units_ % 2 == 0;
 }
 
-// проверка на положительность
+// РїСЂРѕРІРµСЂРєР° РЅР° РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ
 bool Integer::isPositive()const
 {
 	return sign_ < 1;
 }
 
-// проверка является ли число простым
+// РїСЂРѕРІРµСЂРєР° РЅР° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕСЃС‚СЊ
+bool Integer::isNegative()const
+{
+	return sign_ > 0;
+}
+
+// РїСЂРѕРІРµСЂРєР° СЏРІР»СЏРµС‚СЃСЏ Р»Рё С‡РёСЃР»Рѕ РїСЂРѕСЃС‚С‹Рј
 bool Integer::isSimple()const
 {
 	if (units_ < 2)
@@ -75,19 +87,19 @@ bool Integer::isSimple()const
 	return true;
 }
 
-// проверка являются ли числа взаимнопростыми
+// РїСЂРѕРІРµСЂРєР° СЏРІР»СЏСЋС‚СЃСЏ Р»Рё С‡РёСЃР»Р° РІР·Р°РёРјРЅРѕРїСЂРѕСЃС‚С‹РјРё
 bool Integer::isCoprime(Integer other)const
 {
 	return std::gcd(units_, other.units_) == 1;
 }
 
-// нахождение наибольшего общего делителя
+// РЅР°С…РѕР¶РґРµРЅРёРµ РЅР°РёР±РѕР»СЊС€РµРіРѕ РѕР±С‰РµРіРѕ РґРµР»РёС‚РµР»СЏ
 int Integer::Nod(Integer other)const
 {
 	return std::gcd(units_, other.units_);
 }
 
-// нахождение наибольшего общего кратного
+// РЅР°С…РѕР¶РґРµРЅРёРµ РЅР°РёР±РѕР»СЊС€РµРіРѕ РѕР±С‰РµРіРѕ РєСЂР°С‚РЅРѕРіРѕ
 int Integer::Nok(Integer other)const
 {
 	return std::lcm(units_, other.units_);
@@ -97,9 +109,9 @@ int Integer::Nok(Integer other)const
 
 // operators
 
-// Арифметические операторы  
+// РђСЂРёС„РјРµС‚РёС‡РµСЃРєРёРµ РѕРїРµСЂР°С‚РѕСЂС‹  
 
-// Сумма
+// РЎСѓРјРјР°
 Integer operator+(const Integer& a, const Integer& b)
 {
 	Integer result;
@@ -129,7 +141,7 @@ Integer operator+(const Integer& a, const Integer& b)
 	return result;
 }
 
-// Разность
+// Р Р°Р·РЅРѕСЃС‚СЊ
 Integer operator-(const Integer& a, const Integer& b)
 {
 	Integer result;
@@ -159,7 +171,7 @@ Integer operator-(const Integer& a, const Integer& b)
 	return result;
 }
 
-// Произведение
+// РџСЂРѕРёР·РІРµРґРµРЅРёРµ
 Integer operator*(const Integer& a, const Integer& b)
 {
 	Integer result;
@@ -187,14 +199,14 @@ Integer operator*(const Integer& a, const Integer& b)
 	return result;
 }
 
-// Частное
+// Р§Р°СЃС‚РЅРѕРµ
 Integer operator/(const Integer& a, const Integer& b)
 {
 	if (b == 0)
 	{
-		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
-		::exit(-1);		// принудетельное завершение программы (1 способ)
-		//throw - 1;	// принудетельное завершение программы (2 способ)
+		std::cout << "РћС€РёР±РєР°!! Р”РµР»РµРЅРёРµ РЅР° 0 Р·Р°РїСЂРµС‰РµРЅРѕ!!\n\n";
+		::exit(-1);		// РїСЂРёРЅСѓРґРµС‚РµР»СЊРЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹ (1 СЃРїРѕСЃРѕР±)
+		//throw - 1;	// РїСЂРёРЅСѓРґРµС‚РµР»СЊРЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹ (2 СЃРїРѕСЃРѕР±)
 	}
 
 	Integer result;
@@ -225,7 +237,7 @@ Integer operator/(const Integer& a, const Integer& b)
 	return result;
 }
 
-// Деление по модулю
+// Р”РµР»РµРЅРёРµ РїРѕ РјРѕРґСѓР»СЋ
 Integer operator%(const Integer& a, const Integer& b)
 {
 	Integer result;
@@ -257,7 +269,7 @@ Integer operator%(const Integer& a, const Integer& b)
 
 
 
-// Операторы присваивания
+// РћРїРµСЂР°С‚РѕСЂС‹ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 Integer& Integer::operator+=(Integer other)
 {
 
@@ -347,7 +359,7 @@ Integer& Integer::operator/=(Integer other)
 {
 	if (other.units_ == 0)
 	{
-		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+		std::cout << "РћС€РёР±РєР°!! Р”РµР»РµРЅРёРµ РЅР° 0 Р·Р°РїСЂРµС‰РµРЅРѕ!!\n\n";
 		::exit(-1);
 	}
 	if (sign_ == other.sign_)
@@ -378,11 +390,11 @@ Integer& Integer::operator/=(Integer other)
 
 
 
-// операторы инкремент и декремент
+// РѕРїРµСЂР°С‚РѕСЂС‹ РёРЅРєСЂРµРјРµРЅС‚ Рё РґРµРєСЂРµРјРµРЅС‚
 
-// постфиксные инкремент и декремент
+// РїРѕСЃС‚С„РёРєСЃРЅС‹Рµ РёРЅРєСЂРµРјРµРЅС‚ Рё РґРµРєСЂРµРјРµРЅС‚
 
-// постфиксный инкремент
+// РїРѕСЃС‚С„РёРєСЃРЅС‹Р№ РёРЅРєСЂРµРјРµРЅС‚
 Integer Integer::operator++(int)
 {
 	if (sign_ == true)
@@ -396,7 +408,7 @@ Integer Integer::operator++(int)
 	return units_;
 }
 
-// постфиксный декремент
+// РїРѕСЃС‚С„РёРєСЃРЅС‹Р№ РґРµРєСЂРµРјРµРЅС‚
 Integer Integer::operator--(int)
 {
 	if (sign_ == true)
@@ -410,10 +422,10 @@ Integer Integer::operator--(int)
 	return units_;
 }
 
-// префиксные инкремент и декремент
+// РїСЂРµС„РёРєСЃРЅС‹Рµ РёРЅРєСЂРµРјРµРЅС‚ Рё РґРµРєСЂРµРјРµРЅС‚
 
 
-// префиксный инкремент
+// РїСЂРµС„РёРєСЃРЅС‹Р№ РёРЅРєСЂРµРјРµРЅС‚
 Integer Integer::operator++()
 {
 	if (sign_ == true)
@@ -427,7 +439,7 @@ Integer Integer::operator++()
 	return units_;
 }
 
-// префиксный декремент
+// РїСЂРµС„РёРєСЃРЅС‹Р№ РґРµРєСЂРµРјРµРЅС‚
 Integer Integer::operator--()
 {
 	if (sign_ == true)
@@ -443,7 +455,7 @@ Integer Integer::operator--()
 
 
 
-//Операторы сравнения
+//РћРїРµСЂР°С‚РѕСЂС‹ СЃСЂР°РІРЅРµРЅРёСЏ
 
 bool Integer::operator==(Integer other) const
 {
@@ -516,9 +528,9 @@ bool Integer::operator>= (Integer other) const
 }
 
 
-// Унарные операторы
+// РЈРЅР°СЂРЅС‹Рµ РѕРїРµСЂР°С‚РѕСЂС‹
 
-//Унарный плюс
+//РЈРЅР°СЂРЅС‹Р№ РїР»СЋСЃ
 // + -> +
 // - -> -
 
@@ -528,7 +540,7 @@ Integer Integer::operator+()
 }
 
 
-// Унарный минус
+// РЈРЅР°СЂРЅС‹Р№ РјРёРЅСѓСЃ
 // - -> +
 // + -> -
 
@@ -548,7 +560,7 @@ Integer Integer::operator-()
 
 
 
-// Оператор вывода
+// РћРїРµСЂР°С‚РѕСЂ РІС‹РІРѕРґР°
 std::ostream& operator<<(std::ostream& out, const Integer& other)
 {
 	if (other.sign_ == true)
