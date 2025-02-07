@@ -7,7 +7,7 @@ Fraction::Fraction(bool sign, Integer num, Integer denum) :sign_(sign), num_(num
 {
 	if (denum < Integer(1))
 	{
-		throw std::invalid_argument("Знаменатель не может быть отрицательным");
+		throw std::invalid_argument("Р—РЅР°РјРµРЅР°С‚РµР»СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рј");
 	}
 }
 Fraction::Fraction(Integer number)
@@ -63,10 +63,15 @@ Integer Fraction::GetDenominator()
 }
 
 
-// Проверка дроби
+// РџСЂРѕРІРµСЂРєР° РґСЂРѕР±Рё
 bool Fraction::isNumPositive() const
 {
 	return sign_ == false;
+}
+
+bool Fraction::isNumNegative()const
+{
+	return sign_ == true;
 }
 
 bool Fraction::isProper() const
@@ -80,7 +85,7 @@ bool Fraction::isSame(Fraction other) const
 }
 
 
-// методы получения значений
+// РјРµС‚РѕРґС‹ РїРѕР»СѓС‡РµРЅРёСЏ Р·РЅР°С‡РµРЅРёР№
 void Fraction::ReduceFraction()
 {
 	Integer nod = num_.Nod(denum_);
@@ -105,7 +110,7 @@ Integer Fraction::CountUnits() const
 }
 
 
-// Арифметические операции
+// РђСЂРёС„РјРµС‚РёС‡РµСЃРєРёРµ РѕРїРµСЂР°С†РёРё
 Fraction Fraction::operator+(const Fraction& other)
 {
 	Integer numerator;
@@ -200,7 +205,7 @@ Fraction Fraction::operator/(const Fraction& other)
 	Fraction result;
 	if (denum_ == 0 || other.num_ == 0)
 	{
-		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+		std::cout << "РћС€РёР±РєР°!! Р”РµР»РµРЅРёРµ РЅР° 0 Р·Р°РїСЂРµС‰РµРЅРѕ!!\n\n";
 		::exit(-1);
 	}
 	if (sign_ == false && other.sign_ == false)
@@ -228,7 +233,7 @@ Fraction Fraction::operator/(const Fraction& other)
 }
 
 
-// Операторы сравнения
+// РћРїРµСЂР°С‚РѕСЂС‹ СЃСЂР°РІРЅРµРЅРёСЏ
 bool Fraction::operator==(const Fraction& other)
 {
 	if (sign_ == other.sign_)
@@ -329,7 +334,7 @@ bool Fraction::operator>=(const Fraction& other)
 }
 
 
-// Операторы присваивания
+// РћРїРµСЂР°С‚РѕСЂС‹ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 Fraction Fraction::operator+=(Fraction& other)
 {
 	Integer numerator;
@@ -472,7 +477,7 @@ Fraction Fraction::operator/=(Fraction& other)
 	Integer denominator;
 	if (denum_ == 0 || other.num_ == 0)
 	{
-		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+		std::cout << "РћС€РёР±РєР°!! Р”РµР»РµРЅРёРµ РЅР° 0 Р·Р°РїСЂРµС‰РµРЅРѕ!!\n\n";
 		::exit(-1);
 	}
 	if (sign_ == false && other.sign_ == false)
@@ -501,7 +506,7 @@ Fraction Fraction::operator/=(Fraction& other)
 
 
 
-// оператор вывода
+// РѕРїРµСЂР°С‚РѕСЂ РІС‹РІРѕРґР°
 std::ostream& operator<<(std::ostream out, const Fraction obj)
 {
 	if (obj.sign_ == true) 
