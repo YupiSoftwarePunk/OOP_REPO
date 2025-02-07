@@ -27,11 +27,17 @@ public:
 
 	// number check (проверка числа)
 
-	// проверка на четность
+	// проверка на нечетность
 	bool isOdd()const;
+
+	// проверка на четность
+	bool isEven()const;
 
 	// проверка на положительность
 	bool isPositive()const;
+
+	// проверка на отрицательность
+	bool isNegative()const;
 
 	// проверка является ли число простым
 	bool isSimple()const;
