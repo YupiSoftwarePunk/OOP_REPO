@@ -23,12 +23,15 @@ public:
 	Integer GetDenominator();
 
 	// операторо вывода
-	friend std::ostream& operator<<(std::ostream out, const Fraction obj);
+	friend std::ostream& operator<<(std::ostream &out, const Fraction &obj);
 
 	// Проверка дроби
 
 	// Правильная ли дробь
 	bool isProper()const;
+
+	// Неправильная ли дробь
+	bool isImProper()const;
 
 	// Положительная ли дробь
 	bool isNumPositive()const;
@@ -38,6 +41,9 @@ public:
 
 	// являются ли 2 числа одним и тем же объектом в программе
 	bool isSame(Fraction other)const;
+
+	// Проверка на эквивалентность
+	bool isEqual(Fraction other)const;
 
 	// Методы для получения значений
 

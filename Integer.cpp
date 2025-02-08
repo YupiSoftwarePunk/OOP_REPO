@@ -547,14 +547,7 @@ Integer Integer::operator+()
 Integer Integer::operator-()
 {
 	Integer res = { *this };
-	if (sign_ == true)
-	{
-		res.sign_ = false;
-	}
-	else
-	{
-		res.sign_ = true;
-	}
+	res.sign_ = !sign_;
 	return res;
 }
 

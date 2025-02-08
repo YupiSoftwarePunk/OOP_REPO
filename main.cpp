@@ -8,7 +8,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Integer num1 = 2;
+	Integer num1 = 6;
 	Integer num2 = 2;
 
 	Integer num11 = 1;
@@ -78,11 +78,10 @@ int main()
 
 	std::cout << "\n\n\n";
 
-	// mistakes!! need to fix operator<<     (idk how to solve it)
-	//std::cout << num3 + num4 << "\n";
-	//std::cout << num3 - num4 << "\n";
-	//std::cout << num3 * num4 << "\n";
-	//std::cout << num3 / num4 << "\n";
+	std::cout << num3 + num4 << "\n";
+	std::cout << num3 - num4 << "\n";
+	std::cout << num3 * num4 << "\n";
+	std::cout << num3 / num4 << "\n";
 
 	return 0;
 }

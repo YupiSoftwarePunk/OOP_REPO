@@ -69,7 +69,7 @@ bool Fraction::isNumPositive() const
 	return sign_ == false;
 }
 
-bool Fraction::isNumNegative()const
+bool Fraction::isNumNegative() const
 {
 	return sign_ == true;
 }
@@ -79,7 +79,17 @@ bool Fraction::isProper() const
 	return num_ < denum_;
 }
 
+bool Fraction::isImProper() const
+{
+	return num_ > denum_;
+}
+
 bool Fraction::isSame(Fraction other) const
+{
+	return this == &other;
+}
+
+bool Fraction::isEqual(Fraction other)const
 {
 	return sign_ == other.sign_ && num_ == other.num_ && denum_ == other.denum_;
 }
@@ -507,7 +517,7 @@ Fraction Fraction::operator/=(Fraction& other)
 
 
 // оператор вывода
-std::ostream& operator<<(std::ostream out, const Fraction obj)
+std::ostream& operator<<(std::ostream &out, const Fraction &obj)
 {
 	if (obj.sign_ == true) 
 	{
