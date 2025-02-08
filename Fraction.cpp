@@ -76,12 +76,12 @@ bool Fraction::isNumNegative() const
 
 bool Fraction::isProper() const
 {
-	return num_ < denum_;
+	return num_ > denum_;
 }
 
 bool Fraction::isImProper() const
 {
-	return num_ > denum_;
+	return num_ < denum_;
 }
 
 bool Fraction::isSame(Fraction other) const
@@ -244,7 +244,7 @@ Fraction Fraction::operator/(const Fraction& other)
 
 
 // Операторы сравнения
-bool Fraction::operator==(const Fraction& other)
+bool Fraction::operator==(const Fraction& other) const
 {
 	if (sign_ == other.sign_)
 	{
@@ -254,16 +254,27 @@ bool Fraction::operator==(const Fraction& other)
 
 }
 
-bool Fraction::operator!=(const Fraction& other)
+bool Fraction::operator!=(const Fraction& other) const
 {
 	if (sign_ == other.sign_)
 	{
-		return num_ != other.num_ && denum_ != other.denum_;
+		if (num_ != other.num_ && denum_ != other.denum_)
+		{
+			return true;
+		}
+		else if (num_ == other.num_ && denum_ != other.denum_)
+		{
+			return true;
+		}
+		else if (num_ != other.num_ && denum_ == other.denum_)
+		{
+			return true;
+		}
 	}
 	return false;
 }
 
-bool Fraction::operator<(const Fraction& other)
+bool Fraction::operator<(const Fraction& other) const
 {
 	Integer num1;
 	Integer num2;
@@ -283,7 +294,7 @@ bool Fraction::operator<(const Fraction& other)
 	}
 }
 
-bool Fraction::operator>(const Fraction& other)
+bool Fraction::operator>(const Fraction& other) const
 {
 	Integer num1;
 	Integer num2;
@@ -303,7 +314,7 @@ bool Fraction::operator>(const Fraction& other)
 	}
 }
 
-bool Fraction::operator<=(const Fraction& other)
+bool Fraction::operator<=(const Fraction& other) const
 {
 	Integer num1;
 	Integer num2;
@@ -323,7 +334,7 @@ bool Fraction::operator<=(const Fraction& other)
 	}
 }
 
-bool Fraction::operator>=(const Fraction& other)
+bool Fraction::operator>=(const Fraction& other) const
 {
 	Integer num1;
 	Integer num2;

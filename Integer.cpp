@@ -77,7 +77,7 @@ bool Integer::isSimple()const
 	{
 		return false;
 	}
-	for (int i = 2; i * i <= units_; i++)
+	for (int i = 2; i <= units_ / 2; i++)
 	{
 		if (units_ % i == 0)
 		{
@@ -88,19 +88,19 @@ bool Integer::isSimple()const
 }
 
 // проверка являются ли числа взаимнопростыми
-bool Integer::isCoprime(Integer other)const
+bool Integer::isCoprime(const Integer &other)const
 {
 	return std::gcd(units_, other.units_) == 1;
 }
 
 // нахождение наибольшего общего делителя
-int Integer::Nod(Integer other)const
+int Integer::Nod(const Integer &other)const
 {
 	return std::gcd(units_, other.units_);
 }
 
 // нахождение наибольшего общего кратного
-int Integer::Nok(Integer other)const
+int Integer::Nok(const Integer &other)const
 {
 	return std::lcm(units_, other.units_);
 }
@@ -457,7 +457,7 @@ Integer Integer::operator--()
 
 //Операторы сравнения
 
-bool Integer::operator==(Integer other) const
+bool Integer::operator==(const Integer &other) const
 {
 	if (sign_ == other.sign_)
 	{
@@ -466,7 +466,7 @@ bool Integer::operator==(Integer other) const
 	return false;
 }
 
-bool Integer::operator!=(Integer other) const
+bool Integer::operator!=(const Integer &other) const
 {
 	if (sign_ == other.sign_)
 	{
@@ -475,7 +475,7 @@ bool Integer::operator!=(Integer other) const
 	return true;
 }
 
-bool Integer::operator<(Integer other) const
+bool Integer::operator<(const Integer &other) const
 {
 	if (sign_ == other.sign_)
 	{
@@ -488,7 +488,7 @@ bool Integer::operator<(Integer other) const
 	return true;
 }
 
-bool Integer::operator>(Integer other) const
+bool Integer::operator>(const Integer &other) const
 {
 	if (sign_ == other.sign_)
 	{
@@ -501,7 +501,7 @@ bool Integer::operator>(Integer other) const
 	return false;
 }
 
-bool Integer::operator<=(Integer other) const
+bool Integer::operator<=(const Integer &other) const
 {
 	if (sign_ == other.sign_)
 	{
@@ -514,7 +514,7 @@ bool Integer::operator<=(Integer other) const
 	return true;
 }
 
-bool Integer::operator>= (Integer other) const
+bool Integer::operator>= (const Integer &other) const
 {
 	if (sign_ == other.sign_)
 	{

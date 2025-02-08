@@ -43,13 +43,13 @@ public:
 	bool isSimple()const;
 
 	// проверка являются ли числа взаимнопростыми
-	bool isCoprime(Integer other)const;
+	bool isCoprime(const Integer &other)const;
 
 	// нахождение наибольшего общего делителя
-	int Nod(Integer other)const;
+	int Nod(const Integer &other)const;
 
 	// нахождение наибольшего общего кратного
-	int Nok(Integer other)const;
+	int Nok(const Integer &other)const;
 
 
 	// Арифметические операторы  
@@ -105,17 +105,17 @@ public:
 
 	//Операторы сравнения
 
-	bool operator==(Integer other) const;
+	bool operator==(const Integer &other) const;
 
-	bool operator!=(Integer other) const;
+	bool operator!=(const Integer &other) const;
 
-	bool operator<(Integer other) const;
+	bool operator<(const Integer &other) const;
 
-	bool operator>(Integer other) const;
+	bool operator>(const Integer &other) const;
 
-	bool operator<=(Integer other) const;
+	bool operator<=(const Integer &other) const;
 
-	bool operator>= (Integer other) const;
+	bool operator>= (const Integer &other) const;
 
 
 	// Унарные операторы

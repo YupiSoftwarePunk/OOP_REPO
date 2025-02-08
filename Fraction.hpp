@@ -70,17 +70,17 @@ public:
 
 
 	// Операторы сравнения
-	bool operator==(const Fraction& other);
+	bool operator==(const Fraction& other) const;
 
-	bool operator!=(const Fraction& other);
+	bool operator!=(const Fraction& other) const;
 
-	bool operator<(const Fraction& other);
+	bool operator<(const Fraction& other) const;
 
-	bool operator>(const Fraction& other);
+	bool operator>(const Fraction& other) const;
 
-	bool operator<=(const Fraction & other);
+	bool operator<=(const Fraction & other) const;
 
-	bool operator>=(const Fraction& other);
+	bool operator>=(const Fraction& other) const;
 
 	// Операторы присваивания
 	Fraction operator+=(Fraction& other);
