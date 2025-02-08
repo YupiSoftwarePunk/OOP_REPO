@@ -84,24 +84,25 @@ bool Fraction::isImProper() const
 	return num_ < denum_;
 }
 
-bool Fraction::isSame(Fraction other) const
+bool Fraction::isSame(const Fraction &other) const
 {
 	return this == &other;
 }
 
-bool Fraction::isEqual(Fraction other)const
+bool Fraction::isEqual(const Fraction& obj, const Fraction& other)
 {
-	return sign_ == other.sign_ && num_ == other.num_ && denum_ == other.denum_;
+	//return ReduceFraction(obj) == ReduceFraction(other);
+	::exit(-1);   // пока так
 }
 
 
 // методы получения значений
-void Fraction::ReduceFraction()
+Fraction Fraction::ReduceFraction()
 {
 	Integer nod = num_.Nod(denum_);
 	num_ /= nod;
 	denum_ /= nod;
-	std::cout << num_ << "/" << denum_ << "\n";
+	::exit(-1);   // пока так
 }
 
 Fraction Fraction::ReverseFraction()

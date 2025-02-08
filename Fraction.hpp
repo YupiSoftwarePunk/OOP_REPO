@@ -25,6 +25,7 @@ public:
 	// операторо вывода
 	friend std::ostream& operator<<(std::ostream &out, const Fraction &obj);
 
+
 	// Проверка дроби
 
 	// Правильная ли дробь
@@ -40,15 +41,16 @@ public:
 	bool isNumNegative()const;
 
 	// являются ли 2 числа одним и тем же объектом в программе
-	bool isSame(Fraction other)const;
+	bool isSame(const Fraction &other)const;
 
 	// Проверка на эквивалентность
-	bool isEqual(Fraction other)const;
+	bool isEqual(const Fraction &obj, const Fraction &other);
+
 
 	// Методы для получения значений
 
 	// сокращенная дробь
-	void ReduceFraction();
+	Fraction ReduceFraction();
 
 	// обратная дробь
 	Fraction ReverseFraction();
@@ -58,6 +60,7 @@ public:
 
 	// Счет остатка от целового числа в дроби
 	// сделать
+
 
 	// Арифметические операции
 	Fraction operator+(const Fraction& other);
@@ -81,6 +84,7 @@ public:
 	bool operator<=(const Fraction & other) const;
 
 	bool operator>=(const Fraction& other) const;
+
 
 	// Операторы присваивания
 	Fraction operator+=(Fraction& other);

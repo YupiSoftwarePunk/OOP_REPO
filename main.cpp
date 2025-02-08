@@ -8,14 +8,13 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Integer num1 = 100;
-	Integer num2 = 9;
+	Integer num1 = 18;
+	Integer num2 = 4;
 
-	Integer num11 = 1;
-	Integer num22 = 2;
+	Integer num11 = 20;
+	Integer num22 = 5;
 
 	Fraction num3 = (num1, num2);
-
 	Fraction num4 = (num11, num22);
 
 	std::cout << "Целые числа\n\n";
@@ -27,7 +26,6 @@ int main()
 	std::cout << num1 % num2 << "\n";
 
 	std::cout << "\n\n";
-
 
 	num1 += 10;
 	std::cout << num1 << "\n";
@@ -73,11 +71,12 @@ int main()
 
 	std::cout << num3.isNumPositive() << "\n";
 	std::cout << num3.isSame(num4) << "\n";   // mistake
+	/*std::cout << num3.isEqual(num4) << "\n";     mistake*/
 	std::cout << num4.isProper() << "\n";
 	std::cout << num4.isImProper() << "\n";
 	//std::cout << num3.ReduceFraction() << "\n";     // mistake    need to fix operator<< 
 	//std::cout << num3.ReverseFraction() << "\n";    // mistake    need to fix operator<< 
-	std::cout << num3.CountUnits() << "\n"; // mistake
+	std::cout << num3.CountUnits() << "\n"; 
 
 	std::cout << "\n\n\n";
 
