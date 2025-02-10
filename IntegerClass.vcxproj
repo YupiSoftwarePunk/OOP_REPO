@@ -18,6 +18,49 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Fraction\Fraction.cpp" />
+    <ClCompile Include="Integer\Integer.cpp" />
+    <ClCompile Include="Main\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Fraction\Fraction.hpp" />
+    <ClInclude Include="Integer\Integer.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="Classes\x64\Debug\Classes.exe.recipe" />
+    <None Include="Classes\x64\Debug\Classes.ilk" />
+    <None Include="Classes\x64\Debug\Classes.tlog\CL.command.1.tlog" />
+    <None Include="Classes\x64\Debug\Classes.tlog\Classes.lastbuildstate" />
+    <None Include="Classes\x64\Debug\Classes.tlog\link.command.1.tlog" />
+    <None Include="Classes\x64\Debug\Classes.tlog\link.secondary.1.tlog" />
+    <None Include="Classes\x64\Debug\vc143.idb" />
+    <None Include="Classes\x64\Debug\vc143.pdb" />
+    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.command.1.tlog" />
+    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.read.1.tlog" />
+    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.write.1.tlog" />
+    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\IntegerClass.lastbuildstate" />
+    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\unsuccessfulbuild" />
+    <None Include="IntegerClass\x64\Debug\vc143.idb" />
+    <None Include="IntegerClass\x64\Debug\vc143.pdb" />
+    <None Include="x64\Debug\Classes.exe" />
+    <None Include="x64\Debug\Classes.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Classes\x64\Debug\Classes.log" />
+    <Text Include="IntegerClass\x64\Debug\IntegerClass.log" />
+    <Text Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Classes\x64\Debug\Fraction.obj" />
+    <Object Include="Classes\x64\Debug\Fraction1.obj" />
+    <Object Include="Classes\x64\Debug\Integer.obj" />
+    <Object Include="Classes\x64\Debug\Integer1.obj" />
+    <Object Include="Classes\x64\Debug\main.obj" />
+    <Object Include="IntegerClass\x64\Debug\Integer.obj" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -127,15 +170,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Fraction.cpp" />
-    <ClCompile Include="Integer.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Fraction.hpp" />
-    <ClInclude Include="Integer.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

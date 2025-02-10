@@ -3,6 +3,7 @@
 #include "Integer.hpp"
 #include <cmath>
 #include <Windows.h>
+#include "../Integer/Integer.hpp"
 
 class Fraction
 {
