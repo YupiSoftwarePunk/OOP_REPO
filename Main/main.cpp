@@ -8,8 +8,8 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Integer num1 = 10;
-	Integer num2 = 5;
+	Integer num1 = 44;
+	Integer num2 = 4;
 
 	Integer num11 = 20;
 	Integer num22 = 5;
@@ -61,7 +61,9 @@ int main()
 	std::cout << "\n\n\n";
 
 	std::cout << num1.isPositive() << "\n";
+	std::cout << num1.isNegative() << "\n";
 	std::cout << num1.isOdd() << "\n";
+	std::cout << num1.isEven() << "\n";
 	std::cout << num1.isSimple() << "\n";
 	std::cout << num1.isCoprime(num2) << "\n";
 	std::cout << num1.Nod(num2) << "\n";
@@ -74,9 +76,9 @@ int main()
 	/*std::cout << num3.isEqual(num4) << "\n";     mistake*/
 	std::cout << num4.isProper() << "\n";
 	std::cout << num4.isImProper() << "\n";
-	//std::cout << num3.ReduceFraction() << "\n";     // mistake    need to fix operator<< 
-	//std::cout << num3.ReverseFraction() << "\n";    // mistake    need to fix operator<< 
-	std::cout << num3.CountUnits() << "\n";       // mistake иногда нужно прибавлять 1, а иногда правильно
+	//std::cout << num3.ReduceFraction() << "\n";     // mistake   
+	//std::cout << num3.ReverseFraction() << "\n";    // mistake    
+	std::cout << num3.CountUnits() << "\n";       // mistake всегда выдает 4
 
 	std::cout << "\n\n\n";
 
@@ -93,6 +95,17 @@ int main()
 	std::cout << (num3 >= num4) << "\n";
 	std::cout << (num3 == num4) << "\n";
 	std::cout << (num3 != num4) << "\n";   
+
+	std::cout << "\n\n\n";
+
+	num3 += num4;
+	std::cout << num3 << "\n";
+	num3 -= num4;
+	std::cout << num3 << "\n";
+	num3 *= num4;
+	std::cout << num3 << "\n";
+	num3 /= num4;
+	std::cout << num3 << "\n";
 
 	return 0;
 }

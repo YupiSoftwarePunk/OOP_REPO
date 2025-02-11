@@ -116,8 +116,23 @@ Fraction Fraction::ReverseFraction()
 
 Integer Fraction::CountUnits() const
 {
-	Integer units = num_ / denum_;
-	return units;
+	Integer units;
+	if (sign_ == false)
+	{
+		units = num_ / denum_;
+		return units;
+	}
+	else
+	{
+		units = num_ / denum_;
+		return units + Integer(1);
+	}
+}
+
+Integer Fraction::CountRemainder()const
+{
+	Integer remainder = num_ % denum_;
+	return remainder;
 }
 
 

@@ -60,7 +60,7 @@ public:
 	Integer CountUnits() const;
 
 	// Счет остатка от целового числа в дроби
-	// сделать
+	Integer CountRemainder()const;
 
 
 	// Арифметические операции
