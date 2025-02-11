@@ -8,8 +8,8 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Integer num1 = 18;
-	Integer num2 = 4;
+	Integer num1 = 10;
+	Integer num2 = 5;
 
 	Integer num11 = 20;
 	Integer num22 = 5;
@@ -76,7 +76,7 @@ int main()
 	std::cout << num4.isImProper() << "\n";
 	//std::cout << num3.ReduceFraction() << "\n";     // mistake    need to fix operator<< 
 	//std::cout << num3.ReverseFraction() << "\n";    // mistake    need to fix operator<< 
-	std::cout << num3.CountUnits() << "\n"; 
+	std::cout << num3.CountUnits() << "\n";       // mistake иногда нужно прибавлять 1, а иногда правильно
 
 	std::cout << "\n\n\n";
 

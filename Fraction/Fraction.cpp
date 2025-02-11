@@ -76,12 +76,12 @@ bool Fraction::isNumNegative() const
 
 bool Fraction::isProper() const
 {
-	return num_ > denum_;
+	return num_ < denum_;
 }
 
 bool Fraction::isImProper() const
 {
-	return num_ < denum_;
+	return num_ > denum_;
 }
 
 bool Fraction::isSame(const Fraction &other) const

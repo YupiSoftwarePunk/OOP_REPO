@@ -148,7 +148,7 @@ Integer operator-(const Integer& a, const Integer& b)
 	if (a.sign_ == b.sign_)
 	{
 		result.sign_ = a.sign_;
-		result.units_ = a.sign_ - b.sign_;
+		result.units_ = a.units_ - b.units_;
 	}
 	else
 	{
@@ -397,7 +397,7 @@ Integer& Integer::operator/=(Integer other)
 // постфиксный инкремент
 Integer Integer::operator++(int)
 {
-	if (sign_ == true)
+	if (sign_ == false)
 	{
 		units_++;
 	}
@@ -411,7 +411,7 @@ Integer Integer::operator++(int)
 // постфиксный декремент
 Integer Integer::operator--(int)
 {
-	if (sign_ == true)
+	if (sign_ == false)
 	{
 		units_--;
 	}
@@ -428,7 +428,7 @@ Integer Integer::operator--(int)
 // префиксный инкремент
 Integer Integer::operator++()
 {
-	if (sign_ == true)
+	if (sign_ == false)
 	{
 		++(units_);
 	}
@@ -442,7 +442,7 @@ Integer Integer::operator++()
 // префиксный декремент
 Integer Integer::operator--()
 {
-	if (sign_ == true)
+	if (sign_ == false)
 	{
 		--(units_);
 	}
