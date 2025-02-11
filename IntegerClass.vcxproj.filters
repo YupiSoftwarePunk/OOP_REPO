@@ -53,6 +53,7 @@
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.write.1.tlog" />
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\IntegerClass.lastbuildstate" />
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\unsuccessfulbuild" />
+    <None Include="desktop.ini" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LICENSE.txt" />

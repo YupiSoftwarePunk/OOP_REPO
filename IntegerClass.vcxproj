@@ -38,6 +38,7 @@
     <None Include="Classes\x64\Debug\Classes.tlog\link.secondary.1.tlog" />
     <None Include="Classes\x64\Debug\vc143.idb" />
     <None Include="Classes\x64\Debug\vc143.pdb" />
+    <None Include="desktop.ini" />
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.command.1.tlog" />
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.read.1.tlog" />
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.write.1.tlog" />
@@ -54,12 +55,7 @@
     <Text Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Object Include="Classes\x64\Debug\Fraction.obj" />
-    <Object Include="Classes\x64\Debug\Fraction1.obj" />
-    <Object Include="Classes\x64\Debug\Integer.obj" />
-    <Object Include="Classes\x64\Debug\Integer1.obj" />
-    <Object Include="Classes\x64\Debug\main.obj" />
-    <Object Include="IntegerClass\x64\Debug\Integer.obj" />
+
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

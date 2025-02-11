@@ -1,5 +1,3 @@
-#include "Integer.hpp"
-#include "Fraction.hpp"
 #include "../Fraction/Fraction.hpp"
 #include "../Integer/Integer.hpp"
 
