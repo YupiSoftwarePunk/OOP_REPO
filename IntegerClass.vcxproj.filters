@@ -54,18 +54,12 @@
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\IntegerClass.lastbuildstate" />
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\unsuccessfulbuild" />
     <None Include="desktop.ini" />
+    <None Include="x64\Debug\IntegerClass.exe" />
+    <None Include="x64\Debug\IntegerClass.pdb" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LICENSE.txt" />
     <Text Include="Classes\x64\Debug\Classes.log" />
     <Text Include="IntegerClass\x64\Debug\IntegerClass.log" />
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="Classes\x64\Debug\Fraction.obj" />
-    <Object Include="Classes\x64\Debug\Fraction1.obj" />
-    <Object Include="Classes\x64\Debug\Integer.obj" />
-    <Object Include="Classes\x64\Debug\Integer1.obj" />
-    <Object Include="Classes\x64\Debug\main.obj" />
-    <Object Include="IntegerClass\x64\Debug\Integer.obj" />
   </ItemGroup>
 </Project>
