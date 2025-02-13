@@ -115,6 +115,9 @@ public:
 	//Унарный плюс
 	Fraction operator+();
 
+	// Унарный минус
+	Fraction operator- ();
+
 
 	// поля
 private:

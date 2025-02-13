@@ -618,6 +618,13 @@ Fraction Fraction::operator+()
 	return *this;
 }
 
+Fraction Fraction::operator-()
+{
+	Fraction res = { *this };
+	res.sign_ != sign_;
+	return res;
+}
+
 
 
 // оператор вывода
