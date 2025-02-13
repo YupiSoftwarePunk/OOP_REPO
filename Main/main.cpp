@@ -107,5 +107,10 @@ int main()
 	num3 /= num4;
 	std::cout << num3 << "\n";
 
+	std::cout << "\n\n\n";
+
+	std::cout << -num3 << "\n";
+	std::cout << +num3 << "\n";
+
 	return 0;
 }

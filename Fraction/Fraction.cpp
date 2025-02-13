@@ -622,6 +622,8 @@ Fraction Fraction::operator-()
 {
 	Fraction res = { *this };
 	res.sign_ != sign_;
+	res.num_ = num_;
+	res.denum_ = denum_;
 	return res;
 }
 
