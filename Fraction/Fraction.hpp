@@ -97,6 +97,18 @@ public:
 	Fraction operator/=(Fraction& other);
 
 
+	// Инкремент и декремент
+	// Постфиксные
+	Fraction operator++(int);
+
+	Fraction operator--(int);
+
+	// Префиксные
+	Fraction operator++();
+
+	Fraction operator--();
+
+
 	// поля
 private:
 	bool sign_;

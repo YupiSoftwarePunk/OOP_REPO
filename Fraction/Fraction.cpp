@@ -86,7 +86,7 @@ bool Fraction::isImProper() const
 
 bool Fraction::isSame(const Fraction &other) const
 {
-	return this == &other;
+	return num_ * other.denum_ == other.num_ * denum_;
 }
 
 bool Fraction::isEqual(const Fraction& obj, const Fraction& other)
@@ -538,6 +538,71 @@ Fraction Fraction::operator/=(Fraction& other)
 	num_ = numerator;
 	denum_ = denominator;
 
+	return *this;
+}
+
+
+// Инкремент и декремент
+// Постфиксные
+Fraction Fraction::operator++(int)
+{
+	if (sign_ == false)
+	{
+		this->num_ += denum_;
+		this->denum_ = denum_;
+	}
+	else
+	{
+		this->num_ -= denum_;
+		this->denum_ = denum_;
+	}
+	return *this;
+}
+
+Fraction Fraction::operator--(int)
+{
+	if (sign_ == false)
+	{
+		this->num_ -= denum_;
+		this->denum_ = denum_;
+	}
+	else
+	{
+		this->num_ += denum_;
+		this->denum_ = denum_;
+	}
+	return *this;
+}
+
+
+// Префиксные
+Fraction Fraction::operator++()
+{
+	if (sign_ == false)
+	{
+		this->num_ += denum_;
+		this->denum_ = denum_;
+	}
+	else
+	{
+		this->num_ -= denum_;
+		this->denum_ = denum_;
+	}
+	return *this;
+}
+
+Fraction Fraction::operator--()
+{
+	if (sign_ == false)
+	{
+		this->num_ -= denum_;
+		this->denum_ = denum_;
+	}
+	else
+	{
+		this->num_ += denum_;
+		this->denum_ = denum_;
+	}
 	return *this;
 }
 

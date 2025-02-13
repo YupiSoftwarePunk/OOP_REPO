@@ -8,11 +8,11 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Integer num1 = 44;
-	Integer num2 = 4;
+	Integer num1 = 9;
+	Integer num2 = 2;
 
-	Integer num11 = 20;
-	Integer num22 = 5;
+	Integer num11 = 10;
+	Integer num22 = 2;
 
 	Fraction num3 = (num1, num2);
 	Fraction num4 = (num11, num22);
@@ -72,8 +72,8 @@ int main()
 	std::cout << "\n\n\t\tДроби\n\n";
 
 	std::cout << num3.isNumPositive() << "\n";
-	std::cout << num3.isSame(num4) << "\n";   // mistake
-	/*std::cout << num3.isEqual(num4) << "\n";     mistake*/
+	std::cout << num3.isSame(num4) << "\n";   // mistake   если знаменатель одинаковый, то выдает всегда 1
+	/*std::cout << num3.isEqual(num4) << "\n"; */    //mistake
 	std::cout << num4.isProper() << "\n";
 	std::cout << num4.isImProper() << "\n";
 	//std::cout << num3.ReduceFraction() << "\n";     // mistake   
