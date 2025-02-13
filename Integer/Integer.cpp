@@ -270,7 +270,7 @@ Integer operator%(const Integer& a, const Integer& b)
 
 
 // Операторы присваивания
-Integer& Integer::operator+=(Integer other)
+Integer& Integer::operator+=(Integer other) 
 {
 
 	if (sign_ == other.sign_)

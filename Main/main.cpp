@@ -109,7 +109,7 @@ int main()
 
 	std::cout << "\n\n\n";
 
-	std::cout << -num3 << "\n";
+	std::cout << -num3 << "\n";   // mistake 
 	std::cout << +num3 << "\n";
 
 	return 0;

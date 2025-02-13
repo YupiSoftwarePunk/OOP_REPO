@@ -23,6 +23,8 @@ public:
 	Integer GetNumerator();
 	Integer GetDenominator();
 
+
+
 	// операторо вывода
 	friend std::ostream& operator<<(std::ostream &out, const Fraction &obj);
 
@@ -60,17 +62,17 @@ public:
 	Integer CountUnits() const;
 
 	// Счет остатка от целового числа в дроби
-	Integer CountRemainder()const;
+	Integer CountRemainder() const;
 
 
 	// Арифметические операции
-	Fraction operator+(const Fraction& other);
+	Fraction operator+(const Fraction& other) const;
 
-	Fraction operator-(const Fraction& other);
+	Fraction operator-(const Fraction& other) const;
 
-	Fraction operator*(const Fraction& other);
+	Fraction operator*(const Fraction& other) const;
 
-	Fraction operator/(const Fraction& other);
+	Fraction operator/(const Fraction& other) const;
 
 
 	// Операторы сравнения
@@ -82,19 +84,19 @@ public:
 
 	bool operator>(const Fraction& other) const;
 
-	bool operator<=(const Fraction & other) const;
+	bool operator<=(const Fraction& other) const;
 
 	bool operator>=(const Fraction& other) const;
 
 
 	// Операторы присваивания
-	Fraction operator+=(Fraction& other);
+	Fraction operator+=(const Fraction& other);
 
-	Fraction operator-=(Fraction& other);
+	Fraction operator-=(const Fraction& other);
 
-	Fraction operator*=(Fraction& other);
+	Fraction operator*=(const Fraction& other);
 
-	Fraction operator/=(Fraction& other);
+	Fraction operator/=(const Fraction& other);
 
 
 	// Инкремент и декремент
@@ -117,6 +119,7 @@ public:
 
 	// Унарный минус
 	Fraction operator-();
+
 
 
 	// поля

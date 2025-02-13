@@ -137,7 +137,7 @@ Integer Fraction::CountRemainder()const
 
 
 // Арифметические операции
-Fraction Fraction::operator+(const Fraction& other)
+Fraction Fraction::operator+(const Fraction& other) const
 {
 	Integer numerator;
 	Integer denominator;
@@ -166,7 +166,7 @@ Fraction Fraction::operator+(const Fraction& other)
 	return result;
 }
 
-Fraction Fraction::operator-(const Fraction& other)
+Fraction Fraction::operator-(const Fraction& other) const
 {
 	Integer numerator;
 	Integer denominator;
@@ -195,7 +195,7 @@ Fraction Fraction::operator-(const Fraction& other)
 	return result;
 }
 
-Fraction Fraction::operator*(const Fraction& other)
+Fraction Fraction::operator*(const Fraction& other) const
 {
 	Integer numerator;
 	Integer denominator;
@@ -224,7 +224,7 @@ Fraction Fraction::operator*(const Fraction& other)
 	return result;
 }
 
-Fraction Fraction::operator/(const Fraction& other)
+Fraction Fraction::operator/(const Fraction& other) const
 {
 	Integer numerator;
 	Integer denominator;
@@ -372,7 +372,7 @@ bool Fraction::operator>=(const Fraction& other) const
 
 
 // Операторы присваивания
-Fraction Fraction::operator+=(Fraction& other)
+Fraction Fraction::operator+=(const Fraction& other)
 {
 	Integer numerator;
 	Integer denominator;
@@ -426,7 +426,7 @@ Fraction Fraction::operator+=(Fraction& other)
 	return *this; 
 }
 
-Fraction Fraction::operator-=(Fraction& other)
+Fraction Fraction::operator-=(const Fraction& other)
 {
 	Integer numerator;
 	Integer denominator;
@@ -480,7 +480,7 @@ Fraction Fraction::operator-=(Fraction& other)
 	return *this;
 }
 
-Fraction Fraction::operator*=(Fraction& other)
+Fraction Fraction::operator*=(const Fraction& other)
 {
 	Integer numerator;
 	Integer denominator;
@@ -508,7 +508,7 @@ Fraction Fraction::operator*=(Fraction& other)
 	return *this;
 }
 
-Fraction Fraction::operator/=(Fraction& other)
+Fraction Fraction::operator/=(const Fraction& other)
 {
 	Integer numerator;
 	Integer denominator;
