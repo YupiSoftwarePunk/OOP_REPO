@@ -608,6 +608,18 @@ Fraction Fraction::operator--()
 
 
 
+// Унарные операторы
+
+//Унарный плюс
+Fraction Fraction::operator+()
+{
+	this->num_ = num_;
+	this->denum_ = denum_;
+	return *this;
+}
+
+
+
 // оператор вывода
 std::ostream& operator<<(std::ostream &out, const Fraction &obj)
 {

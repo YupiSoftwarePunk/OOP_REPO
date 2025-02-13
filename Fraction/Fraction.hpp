@@ -98,6 +98,7 @@ public:
 
 
 	// Инкремент и декремент
+	
 	// Постфиксные
 	Fraction operator++(int);
 
@@ -107,6 +108,12 @@ public:
 	Fraction operator++();
 
 	Fraction operator--();
+
+
+	// Унарные операторы
+
+	//Унарный плюс
+	Fraction operator+();
 
 
 	// поля
