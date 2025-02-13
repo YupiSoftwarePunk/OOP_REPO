@@ -82,6 +82,7 @@ int main()
 
 	std::cout << "\n\n\n";
 
+	// Весь код ниже работает не корректно и нуждается в доработке и дебаге
 	std::cout << num3 + num4 << "\n";
 	std::cout << num3 - num4 << "\n";
 	std::cout << num3 * num4 << "\n";
