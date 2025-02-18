@@ -86,7 +86,6 @@ bool Fraction::isImProper() const
 
 bool Fraction::isSame(const Fraction &other) const      // нужно сравнить адреса параметров
 {
-	/*const Fraction *other1 = &other;*/
 	return this == &other;
 }
 
@@ -161,9 +160,17 @@ Fraction Fraction::operator+(const Fraction& other) const
 	//result.denum_ = denominator;
 
 	Fraction result;
-	result.denum_ = this->denum_ * other.denum_;
 
-	result.num_ = this->num_ * other.denum_ + other.num_ * this->denum_;
+	if (this->denum_ != other.denum_)
+	{
+		result.denum_ = this->denum_ * other.denum_;
+		result.num_ = this->num_ * other.denum_ + other.num_ * this->denum_;
+	}
+	else
+	{
+		result.denum_ = this->denum_;
+		result.num_ = this->num_ + other.num_;
+	}
 
 	return result;
 }

@@ -8,11 +8,11 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Integer num1 = 10;
-	Integer num2 = 2;
+	Integer num1 = 5;
+	Integer num2 = 10;
 
-	Integer num11 = 10;
-	Integer num22 = 2;
+	Integer num11 = 2;
+	Integer num22 = 10;
 
 	Fraction num3 = {/*false, */num1, num2};
 	Fraction num4 = {/*false, */num11, num22 };
