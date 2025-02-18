@@ -44,10 +44,10 @@ public:
 	bool isNumNegative()const;
 
 	// являются ли 2 числа одним и тем же объектом в программе
-	bool isSame(const Fraction &other)const;
+	bool isSame(const Fraction &other) const;
 
 	// Проверка на эквивалентность
-	bool isEqual(const Fraction &obj, const Fraction &other);
+	bool isEqual(const Fraction &other);
 
 
 	// Методы для получения значений

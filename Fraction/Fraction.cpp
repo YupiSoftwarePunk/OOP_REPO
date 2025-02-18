@@ -84,15 +84,15 @@ bool Fraction::isImProper() const
 	return num_ > denum_;
 }
 
-bool Fraction::isSame(const Fraction& other) const      // нужно сравнить адреса параметров
+bool Fraction::isSame(const Fraction &other) const      // нужно сравнить адреса параметров
 {
-	return num_  == other.num_ && denum_ == other.denum_;
+	/*const Fraction *other1 = &other;*/
+	return this == &other;
 }
 
-bool Fraction::isEqual(const Fraction& obj, const Fraction& other)
+bool Fraction::isEqual(const Fraction& other)
 {
-	//return ReduceFraction(obj) == ReduceFraction(other);
-	::exit(-1);   // пока так
+	return num_ == other.num_ && denum_ == other.denum_;
 }
 
 
