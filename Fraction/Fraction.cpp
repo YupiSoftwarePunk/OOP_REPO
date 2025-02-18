@@ -161,15 +161,15 @@ Fraction Fraction::operator+(const Fraction& other) const
 
 	Fraction result;
 
-	if (this->denum_ != other.denum_)
-	{
-		result.denum_ = this->denum_ * other.denum_;
-		result.num_ = this->num_ * other.denum_ + other.num_ * this->denum_;
-	}
-	else
+	if (this->denum_ == other.denum_)
 	{
 		result.denum_ = this->denum_;
 		result.num_ = this->num_ + other.num_;
+	}
+	else
+	{
+		result.denum_ = this->denum_ * other.denum_;
+		result.num_ = this->num_ * other.denum_ + other.num_ * this->denum_;
 	}
 
 	return result;
@@ -177,93 +177,43 @@ Fraction Fraction::operator+(const Fraction& other) const
 
 Fraction Fraction::operator-(const Fraction& other) const
 {
-	Integer numerator;
-	Integer denominator;
 	Fraction result;
-	if (sign_ == false && other.sign_ == false)
+
+	if (this->denum_ == other.denum_)
 	{
-		numerator = num_ * other.denum_ - other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		result.sign_ = false;
-	}
-	else if (sign_ == true && other.sign_ == false)
-	{
-		numerator = num_ * other.denum_ + other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		result.sign_ = true;
+		result.denum_ = this->denum_;
+		result.num_ = this->num_ - other.num_;
 	}
 	else
 	{
-		numerator = num_ * other.denum_ + other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		result.sign_ = true;
+		result.denum_ = this->denum_ * other.denum_;
+		result.num_ = this->num_ * other.denum_ - other.num_ * this->denum_;
 	}
-	result.num_ = numerator;
-	result.denum_ = denominator;
 
 	return result;
 }
 
 Fraction Fraction::operator*(const Fraction& other) const
 {
-	Integer numerator;
-	Integer denominator;
 	Fraction result;
-	if (sign_ == false && other.sign_ == false)
-	{
-		numerator = num_ * other.num_;
-		denominator = denum_ * other.denum_;
-		result.sign_ = false;
-	}
-	else if (sign_ == true && other.sign_ == false)
-	{
-		numerator = num_ * other.num_;
-		denominator = denum_ * other.denum_;
-		result.sign_ = true;
-	}
-	else
-	{
-		numerator = num_ * other.num_;
-		denominator = denum_ * other.denum_;
-		result.sign_ = true;
-	}
-	result.num_ = numerator;
-	result.denum_ = denominator;
+
+	result.denum_ = this->denum_ * other.denum_;
+	result.num_ = this->num_ * other.num_;
 
 	return result;
 }
 
 Fraction Fraction::operator/(const Fraction& other) const
 {
-	Integer numerator;
-	Integer denominator;
 	Fraction result;
 	if (denum_ == 0 || other.num_ == 0)
 	{
 		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
 		::exit(-1);
 	}
-	if (sign_ == false && other.sign_ == false)
-	{
-		numerator = num_ * other.denum_;
-		denominator = denum_ * other.num_;
-		result.sign_ = false;
-	}
-	else if (sign_ == true && other.sign_ == false)
-	{
-		numerator = num_ * other.denum_;
-		denominator = denum_ * other.num_;
-		result.sign_ = true;
-	}
-	else
-	{
-		numerator = num_ * other.denum_;
-		denominator = denum_ * other.num_;
-		result.sign_ = true;
-	}
-	result.num_ = numerator;
-	result.denum_ = denominator;
 
+	result.denum_ = this->denum_ * other.num_;
+	result.num_ = this->num_ * other.denum_;
 	return result;
 }
 
@@ -271,32 +221,28 @@ Fraction Fraction::operator/(const Fraction& other) const
 // Операторы сравнения
 bool Fraction::operator==(const Fraction& other) const
 {
-	if (sign_ == other.sign_)
-	{
-		return num_ == other.num_ && denum_ == other.denum_;
-	}
-	return false;
-
+	return num_ == other.num_ && denum_ == other.denum_;
 }
 
 bool Fraction::operator!=(const Fraction& other) const
 {
-	if (sign_ == other.sign_)
+	if (num_ != other.num_ && denum_ != other.denum_)
 	{
-		if (num_ != other.num_ && denum_ != other.denum_)
-		{
-			return true;
-		}
-		else if (num_ == other.num_ && denum_ != other.denum_)
-		{
-			return true;
-		}
-		else if (num_ != other.num_ && denum_ == other.denum_)
-		{
-			return true;
-		}
+		return true;
 	}
-	return false;
+	else if (num_ == other.num_ && denum_ != other.denum_)
+	{
+		return true;
+	}
+	else if (num_ != other.num_ && denum_ == other.denum_)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
 }
 
 bool Fraction::operator<(const Fraction& other) const
