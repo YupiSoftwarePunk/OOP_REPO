@@ -14,8 +14,8 @@ int main()
 	Integer num11 = 10;
 	Integer num22 = 2;
 
-	Fraction num3 = {false, num1, num2};
-	Fraction num4 = { false, num11, num22 };
+	Fraction num3 = {/*false, */num1, num2};
+	Fraction num4 = {/*false, */num11, num22 };
 
 	std::cout << "Целые числа\n\n";
 
@@ -69,16 +69,19 @@ int main()
 	std::cout << num1.Nod(num2) << "\n";
 	std::cout << num1.Nok(num2) << "\n";
 
+
+
 	std::cout << "\n\n\t\tДроби\n\n";
 
 	std::cout << num3.isNumPositive() << "\n";
+	std::cout << num3.isNumNegative() << "\n";
 	std::cout << num3.isSame(num4) << "\n";    
 	std::cout << num3.isEqual(num4) << "\n";     
 	std::cout << num4.isProper() << "\n";
 	std::cout << num4.isImProper() << "\n";
-	//std::cout << num3.ReduceFraction() << "\n";     // mistake   
-	//std::cout << num3.ReverseFraction() << "\n";    // mistake    
-	std::cout << num3.CountUnits() << "\n";       // mistake всегда выдает 4
+	std::cout << num3.ReduceFraction() << "\n";    
+	std::cout << num3.ReverseFraction() << "\n";    
+	std::cout << num3.CountUnits() << "\n";       // mistake 
 
 	std::cout << "\n\n\n";
 

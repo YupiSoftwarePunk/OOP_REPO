@@ -10,7 +10,7 @@ class Fraction
 public:
 	// constructors
 	Fraction();
-	Fraction(bool sign, Integer num, Integer denum);
+	Fraction(/*bool sign, */Integer num, Integer denum);
 	Fraction(Integer number);
 
 	// setters

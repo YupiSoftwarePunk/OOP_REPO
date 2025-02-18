@@ -2,12 +2,12 @@
 
 
 // constructors
-Fraction::Fraction() : Fraction(false, Integer(0), Integer(1)) {}
-Fraction::Fraction(bool sign, Integer num, Integer denum) :sign_(sign), num_(num), denum_(denum)
+Fraction::Fraction() : Fraction(/*false, */Integer(0), Integer(1)) {}
+Fraction::Fraction(/*bool sign, */Integer num, Integer denum) :/*sign_(sign), */num_(num), denum_(denum)
 {
-	if (denum < Integer(1))
+	if (denum == 0)
 	{
-		throw std::invalid_argument("Знаменатель не может быть отрицательным");
+		throw std::invalid_argument("\nЗнаменатель не может быть равен нулю!!\n");
 	}
 }
 Fraction::Fraction(Integer number)
@@ -107,11 +107,7 @@ Fraction Fraction::ReduceFraction()
 
 Fraction Fraction::ReverseFraction()
 {
-	// можно просто отправить в std::swap числитель и знаменатель
-	Fraction temp(*this);
-	//temp = num_;
-	//num_ = denum_;
-	//denum_ = temp;
+	std::swap(num_, denum_);
 	return *this;
 }
 
