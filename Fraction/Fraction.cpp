@@ -3,7 +3,7 @@
 
 // constructors
 Fraction::Fraction() : Fraction(false, Integer(0), Integer(1)) {}
-Fraction::Fraction(bool sign, Integer num, Integer denum) :sign_(sign), num_(num), denum_(denum) 
+Fraction::Fraction(bool sign, Integer num, Integer denum) :sign_(sign), num_(num), denum_(denum)
 {
 	if (denum < Integer(1))
 	{
@@ -84,9 +84,9 @@ bool Fraction::isImProper() const
 	return num_ > denum_;
 }
 
-bool Fraction::isSame(const Fraction &other) const
+bool Fraction::isSame(const Fraction& other) const      // нужно сравнить адреса параметров
 {
-	return num_ * other.denum_ == other.num_ * denum_;
+	return num_  == other.num_ && denum_ == other.denum_;
 }
 
 bool Fraction::isEqual(const Fraction& obj, const Fraction& other)
@@ -102,15 +102,16 @@ Fraction Fraction::ReduceFraction()
 	Integer nod = num_.Nod(denum_);
 	num_ /= nod;
 	denum_ /= nod;
-	::exit(-1);   // пока так
+	return *this;
 }
 
 Fraction Fraction::ReverseFraction()
 {
-	Integer temp;
-	temp = num_;
-	num_ = denum_;
-	denum_ = temp;
+	// можно просто отправить в std::swap числитель и знаменатель
+	Fraction temp(*this);
+	//temp = num_;
+	//num_ = denum_;
+	//denum_ = temp;
 	return *this;
 }
 
@@ -139,29 +140,34 @@ Integer Fraction::CountRemainder()const
 // Арифметические операции
 Fraction Fraction::operator+(const Fraction& other) const
 {
-	Integer numerator;
-	Integer denominator;
+	//Integer numerator;
+	//Integer denominator;
+	//
+	//if (sign_ == false && other.sign_ == false)
+	//{
+	//	numerator = num_ * other.denum_ + other.num_ * denum_;
+	//	denominator = denum_ * other.denum_;
+	//	result.sign_ = false;
+	//}
+	//else if (sign_ == true && other.sign_ == false)
+	//{
+	//	numerator = num_ * other.denum_ - other.num_ * denum_;
+	//	denominator = denum_ * other.denum_;
+	//	result.sign_ = true;
+	//}
+	//else
+	//{
+	//	numerator = num_ * other.denum_ - other.num_ * denum_;
+	//	denominator = denum_ * other.denum_;
+	//	result.sign_ = true;
+	//}
+	//result.num_ = numerator;
+	//result.denum_ = denominator;
+
 	Fraction result;
-	if (sign_ == false && other.sign_ == false)
-	{
-		numerator = num_ * other.denum_ + other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		result.sign_ = false;
-	}
-	else if (sign_ == true && other.sign_ == false)
-	{
-		numerator = num_ * other.denum_ - other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		result.sign_ = true;
-	}
-	else
-	{
-		numerator = num_ * other.denum_ - other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		result.sign_ = true;
-	}
-	result.num_ = numerator;
-	result.denum_ = denominator;
+	result.denum_ = this->denum_ * other.denum_;
+
+	result.num_ = this->num_ * other.denum_ + other.num_ * this->denum_;
 
 	return result;
 }
@@ -377,53 +383,53 @@ Fraction Fraction::operator+=(const Fraction& other)
 	Integer numerator;
 	Integer denominator;
 
-	if (sign_ == false && other.sign_ == false) 
+	if (sign_ == false && other.sign_ == false)
 	{
 		numerator = num_ * other.denum_ + other.num_ * denum_;
 		denominator = denum_ * other.denum_;
-		sign_ = false; 
+		sign_ = false;
 	}
-	else if (sign_ == true && other.sign_ == false) 
+	else if (sign_ == true && other.sign_ == false)
 	{
-		if (num_ * other.denum_ >= other.num_ * denum_) 
+		if (num_ * other.denum_ >= other.num_ * denum_)
 		{
 			numerator = num_ * other.denum_ - other.num_ * denum_;
 			denominator = denum_ * other.denum_;
-			sign_ = true; 
+			sign_ = true;
 		}
-		else 
+		else
 		{
 			numerator = other.num_ * denum_ - num_ * other.denum_;
 			denominator = denum_ * other.denum_;
-			sign_ = true; 
+			sign_ = true;
 		}
 	}
-	else if (sign_ == false && other.sign_ == true) 
+	else if (sign_ == false && other.sign_ == true)
 	{
-		if (num_ * other.denum_ >= other.num_ * denum_) 
+		if (num_ * other.denum_ >= other.num_ * denum_)
 		{
 			numerator = num_ * other.denum_ + other.num_ * denum_;
 			denominator = denum_ * other.denum_;
-			sign_ = true; 
+			sign_ = true;
 		}
 		else
 		{
 			numerator = other.num_ * denum_ + num_ * other.denum_;
 			denominator = denum_ * other.denum_;
-			sign_ = true; 
+			sign_ = true;
 		}
 	}
-	else 
+	else
 	{
 		numerator = num_ * other.denum_ + other.num_ * denum_;
 		denominator = denum_ * other.denum_;
-		sign_ = true; 
+		sign_ = true;
 	}
 
 	num_ = numerator;
 	denum_ = denominator;
 
-	return *this; 
+	return *this;
 }
 
 Fraction Fraction::operator-=(const Fraction& other)
@@ -630,9 +636,9 @@ Fraction Fraction::operator-()
 
 
 // оператор вывода
-std::ostream& operator<<(std::ostream &out, const Fraction &obj)
+std::ostream& operator<<(std::ostream& out, const Fraction& obj)
 {
-	if (obj.sign_ == true) 
+	if (obj.sign_ == true)
 	{
 		return out << "-(" << obj.num_ << "/" << obj.denum_ << ")";
 	}

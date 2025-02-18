@@ -14,8 +14,8 @@ int main()
 	Integer num11 = 10;
 	Integer num22 = 2;
 
-	Fraction num3 = (num1, num2);
-	Fraction num4 = (num11, num22);
+	Fraction num3 = {false, num1, num2};
+	Fraction num4 = { false, num11, num22 };
 
 	std::cout << "Целые числа\n\n";
 
