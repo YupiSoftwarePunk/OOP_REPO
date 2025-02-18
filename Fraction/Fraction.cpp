@@ -206,7 +206,7 @@ Fraction Fraction::operator*(const Fraction& other) const
 Fraction Fraction::operator/(const Fraction& other) const
 {
 	Fraction result;
-	if (denum_ == 0 || other.num_ == 0)
+	if ((denum_ == 0 || other.num_ == 0) || (denum_ == 0 && other.num_ == 0))
 	{
 		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
 		::exit(-1);
