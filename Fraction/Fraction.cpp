@@ -246,7 +246,7 @@ bool Fraction::operator!=(const Fraction& other) const
 
 }
 
-bool Fraction::operator<(const Fraction& other) const
+bool Fraction::operator>(const Fraction& other) const
 {
 	Integer num1;
 	Integer num2;
@@ -266,7 +266,7 @@ bool Fraction::operator<(const Fraction& other) const
 	}
 }
 
-bool Fraction::operator>(const Fraction& other) const
+bool Fraction::operator<(const Fraction& other) const
 {
 	Integer num1;
 	Integer num2;
@@ -286,7 +286,7 @@ bool Fraction::operator>(const Fraction& other) const
 	}
 }
 
-bool Fraction::operator<=(const Fraction& other) const
+bool Fraction::operator>=(const Fraction& other) const
 {
 	Integer num1;
 	Integer num2;
@@ -306,7 +306,7 @@ bool Fraction::operator<=(const Fraction& other) const
 	}
 }
 
-bool Fraction::operator>=(const Fraction& other) const
+bool Fraction::operator<=(const Fraction& other) const
 {
 	Integer num1;
 	Integer num2;

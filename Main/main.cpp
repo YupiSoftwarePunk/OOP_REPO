@@ -8,11 +8,11 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Integer num1 = 25;
-	Integer num2 = 10;
+	Integer num1 = 5;
+	Integer num2 = 2;
 
-	Integer num11 = 11;
-	Integer num22 = 10;
+	Integer num11 = 10;
+	Integer num22 = 2;
 
 	Fraction num3 = {num1, num2};
 	Fraction num4 = {num11, num22 };
@@ -90,7 +90,6 @@ int main()
 	std::cout << num3 - num4 << "\n";
 	std::cout << num3 * num4 << "\n";
 	std::cout << num3 / num4 << "\n";
-	// -------------------------------------------------------------------
 
 	std::cout << "\n\n\n";
 
@@ -116,6 +115,7 @@ int main()
 
 	std::cout << -num3 << "\n";   // mistake 
 	std::cout << +num3 << "\n";	  // mistake 
+	// ------------------------------------------------------------------- до сюда
 
 	return 0;
 }
