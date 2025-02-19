@@ -8,14 +8,14 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Integer num1 = 5;
+	Integer num1 = 2;
 	Integer num2 = 10;
 
-	Integer num11 = 2;
+	Integer num11 = 11;
 	Integer num22 = 10;
 
-	Fraction num3 = {/*false, */num1, num2};
-	Fraction num4 = {/*false, */num11, num22 };
+	Fraction num3 = {num1, num2};
+	Fraction num4 = {num11, num22 };
 
 	std::cout << "Целые числа\n\n";
 

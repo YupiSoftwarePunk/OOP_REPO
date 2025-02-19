@@ -2,8 +2,8 @@
 
 
 // constructors
-Fraction::Fraction() : Fraction(/*false, */Integer(0), Integer(1)) {}
-Fraction::Fraction(/*bool sign, */Integer num, Integer denum) :/*sign_(sign), */num_(num), denum_(denum)
+Fraction::Fraction() : Fraction(Integer(0), Integer(1)) {}
+Fraction::Fraction(Integer num, Integer denum) :num_(num), denum_(denum)
 {
 	if (denum == 0)
 	{
@@ -32,7 +32,8 @@ Fraction::Fraction(Integer number)
 //setters
 void Fraction::SetSign(bool sign)
 {
-	this->sign_ = sign;
+	num_.SetSign(sign);
+	denum_.SetSign(sign);
 }
 
 void Fraction::SetNumerator(Integer num)
@@ -49,7 +50,7 @@ void Fraction::SetDenominator(Integer denum)
 // getters
 bool Fraction::GetSign()
 {
-	return sign_;
+	return num_.GetSign() != denum_.GetSign();
 }
 
 Integer Fraction::GetNumerator()
@@ -66,12 +67,12 @@ Integer Fraction::GetDenominator()
 // Проверка дроби
 bool Fraction::isNumPositive() const
 {
-	return sign_ == false;
+	return num_.isPositive() == denum_.isPositive();
 }
 
 bool Fraction::isNumNegative() const
 {
-	return sign_ == true;
+	return num_.isPositive() != denum_.isPositive();
 }
 
 bool Fraction::isProper() const
