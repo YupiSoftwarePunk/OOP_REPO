@@ -116,19 +116,19 @@ Integer Fraction::CountUnits() const
 	Integer units;
 	if (sign_ == false)
 	{
-		units = num_ / denum_;
+		units = this->num_ / this->denum_;
 		return units;
 	}
 	else
 	{
-		units = num_ / denum_;
+		units = this->num_ / this->denum_;
 		return units + Integer(1);
 	}
 }
 
 Integer Fraction::CountRemainder()const
 {
-	Integer remainder = num_ % denum_;
+	Integer remainder = this->num_ % this->denum_;
 	return remainder;
 }
 

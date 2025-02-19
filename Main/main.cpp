@@ -8,7 +8,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Integer num1 = 2;
+	Integer num1 = 25;
 	Integer num2 = 10;
 
 	Integer num11 = 11;
@@ -90,6 +90,7 @@ int main()
 	std::cout << num3 - num4 << "\n";
 	std::cout << num3 * num4 << "\n";
 	std::cout << num3 / num4 << "\n";
+	// -------------------------------------------------------------------
 
 	std::cout << "\n\n\n";
 
@@ -114,7 +115,7 @@ int main()
 	std::cout << "\n\n\n";
 
 	std::cout << -num3 << "\n";   // mistake 
-	std::cout << +num3 << "\n";
+	std::cout << +num3 << "\n";	  // mistake 
 
 	return 0;
 }
