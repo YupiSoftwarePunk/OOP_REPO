@@ -24,6 +24,9 @@
     <ClCompile Include="Main\main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="SmartPointers\Auto_Unique.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fraction\Fraction.hpp">

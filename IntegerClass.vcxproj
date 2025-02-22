@@ -22,6 +22,7 @@
     <ClCompile Include="Fraction\Fraction.cpp" />
     <ClCompile Include="Integer\Integer.cpp" />
     <ClCompile Include="Main\main.cpp" />
+    <ClCompile Include="SmartPointers\Auto_Unique.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fraction\Fraction.hpp" />
