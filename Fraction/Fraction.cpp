@@ -10,7 +10,7 @@ Fraction::Fraction(Integer num, Integer denum) :num_(num), denum_(denum)
 		throw std::invalid_argument("\nЗнаменатель не может быть равен нулю!!\n");
 	}
 }
-Fraction::Fraction(Integer number)
+Fraction::Fraction(const Integer &number)
 {
 	if (number < 0)
 	{
