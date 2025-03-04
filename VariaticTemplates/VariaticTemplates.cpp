@@ -1,4 +1,4 @@
-﻿// если закоменторовать, то ошибка исчезает
+// если закоменторовать, то ошибка исчезает
 
 
 #include <iostream>
@@ -41,7 +41,7 @@ void Print(Type var, const Args&... args) {
 
 
 
-int main()
+void main5643535()
 {
 	std::vector<int, std::allocator<int>> vect;
 	DinArray<int> dinArr;
