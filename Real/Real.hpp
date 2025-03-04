@@ -41,6 +41,15 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const Real& obj);
 
 
+    // Проверки числа
+    bool isDecimalPositive() const;
+
+    bool isDecimalNegative() const;
+
+    bool isDecimalSame(const Real& other) const;
+
+    bool isDecimal() const;
+
     // поля класса
 private:
 
