@@ -26,8 +26,22 @@ public:
         fractional_(fractional) {};
 
 
+    // сеттеры и геттеры
 
-    // ���� ������
+//setters
+    void SetUnits(Integer units);
+    void SetFractional(Fraction fractional);
+
+// getters
+    Integer GetUnits();
+    Fraction GetFractional();
+
+
+    // Оператор вывода
+    friend std::ostream& operator<<(std::ostream& out, const Real& obj);
+
+
+    // поля класса
 private:
 
     Integer units_;
