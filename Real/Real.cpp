@@ -24,6 +24,28 @@ Fraction Real::GetFractional()
 }
 
 
+// Проверки числа
+bool Real::isDecimalPositive() const
+{
+	return units_.isPositive() && fractional_.isNumPositive();
+}
+
+bool Real::isDecimalNegative() const
+{
+	return units_.isNegative() && fractional_.isNumNegative();
+}
+
+bool Real::isDecimalSame(const Real& other) const
+{
+	return this == &other;
+}
+
+bool Real::isDecimal() const
+{
+	return fractional_ != Fraction(0);
+}
+
+
 // Оператор вывода
 std::ostream& operator<<(std::ostream& out, const Real& obj)
 {
