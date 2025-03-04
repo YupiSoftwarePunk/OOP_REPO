@@ -30,12 +30,18 @@
     <ClCompile Include="VariaticTemplates\VariaticTemplates.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Real\Real.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fraction\Fraction.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Integer\Integer.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Real\Real.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -52,12 +58,6 @@
     <None Include="Classes\x64\Debug\Classes.exe.recipe" />
     <None Include="x64\Debug\Classes.pdb" />
     <None Include="x64\Debug\Classes.exe" />
-    <None Include="IntegerClass\x64\Debug\vc143.idb" />
-    <None Include="IntegerClass\x64\Debug\vc143.pdb" />
-    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.command.1.tlog" />
-    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.read.1.tlog" />
-    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.write.1.tlog" />
-    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\IntegerClass.lastbuildstate" />
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\unsuccessfulbuild" />
     <None Include="desktop.ini" />
     <None Include="x64\Debug\IntegerClass.exe" />
@@ -66,6 +66,5 @@
   <ItemGroup>
     <Text Include="LICENSE.txt" />
     <Text Include="Classes\x64\Debug\Classes.log" />
-    <Text Include="IntegerClass\x64\Debug\IntegerClass.log" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #include "../Fraction/Fraction.hpp"
 #include "../Integer/Integer.hpp"
+#include "../Real/Real.hpp"
 
 
 
@@ -16,6 +17,8 @@ int main()
 
 	Fraction num3 = {num1, num2};
 	Fraction num4 = {num11, num22 };
+
+	Real num5 = { num1, num3 };
 
 	std::cout << "Целые числа\n\n";
 
@@ -116,6 +119,11 @@ int main()
 	std::cout << -num3 << "\n";   // mistake 
 	std::cout << +num3 << "\n";	  // mistake 
 	// ------------------------------------------------------------------- до сюда
+
+
+	std::cout << "\n\n\t\tДесятичные Дроби\n\n";
+
+	std::cout << num5;
 
 	return 0;
 }

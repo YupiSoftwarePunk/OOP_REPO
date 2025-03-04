@@ -22,12 +22,14 @@
     <ClCompile Include="Fraction\Fraction.cpp" />
     <ClCompile Include="Integer\Integer.cpp" />
     <ClCompile Include="Main\main.cpp" />
+    <ClCompile Include="Real\Real.cpp" />
     <ClCompile Include="SmartPointers\Auto_Unique.cpp" />
     <ClCompile Include="VariaticTemplates\VariaticTemplates.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fraction\Fraction.hpp" />
     <ClInclude Include="Integer\Integer.hpp" />
+    <ClInclude Include="Real\Real.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
@@ -41,13 +43,7 @@
     <None Include="Classes\x64\Debug\vc143.idb" />
     <None Include="Classes\x64\Debug\vc143.pdb" />
     <None Include="desktop.ini" />
-    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.command.1.tlog" />
-    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.read.1.tlog" />
-    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\CL.write.1.tlog" />
-    <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\IntegerClass.lastbuildstate" />
     <None Include="IntegerClass\x64\Debug\IntegerClass.tlog\unsuccessfulbuild" />
-    <None Include="IntegerClass\x64\Debug\vc143.idb" />
-    <None Include="IntegerClass\x64\Debug\vc143.pdb" />
     <None Include="x64\Debug\Classes.exe" />
     <None Include="x64\Debug\Classes.pdb" />
     <None Include="x64\Debug\IntegerClass.exe" />
@@ -55,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Classes\x64\Debug\Classes.log" />
-    <Text Include="IntegerClass\x64\Debug\IntegerClass.log" />
     <Text Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
