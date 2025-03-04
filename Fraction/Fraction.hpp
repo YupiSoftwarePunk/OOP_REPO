@@ -11,7 +11,7 @@ public:
 	// constructors
 	Fraction();
 	Fraction(Integer num, Integer denum);
-	Fraction(Integer number);
+	Fraction(const Integer &number);
 
 	// setters
 	void SetSign(bool sign);
