@@ -27,12 +27,12 @@ Fraction Real::GetFractional()
 // Проверки числа
 bool Real::isDecimalPositive() const
 {
-	return units_.isPositive() && fractional_.isNumPositive();
+	return units_.isPositive() == fractional_.isNumPositive();
 }
 
 bool Real::isDecimalNegative() const
 {
-	return units_.isNegative() && fractional_.isNumNegative();
+	return units_.isPositive() != fractional_.isNumPositive();
 }
 
 bool Real::isDecimalSame(const Real& other) const
