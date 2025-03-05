@@ -8,8 +8,9 @@ class Real
 public:
 
 	// constructors
-    Real() : Real(Integer(), Fraction()) {}
-    Real(const Integer& units, const Fraction& fractional);
+// All constructors need realization
+    Real() : Real(Integer(), Fraction()) {}   
+    Real(const Integer& units, const Fraction& fractional); 
     Real(const Fraction& obj);
     Real(const char*);
     Real(double);
