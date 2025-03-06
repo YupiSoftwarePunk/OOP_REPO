@@ -24,6 +24,7 @@ Fraction Real::GetFractional()
 }
 
 
+
 // Проверки числа
 bool Real::isDecimalPositive() const
 {
@@ -93,6 +94,59 @@ Real Real::operator/(const Real& other) const
 
 	return result;
 }
+
+
+
+// Операторы сравнения
+
+bool Real::operator<(const Real& other) const
+{
+	if (units_ == other.units_)
+	{
+		return fractional_ < other.fractional_;
+	}
+	else
+	{
+		return units_ < other.units_;
+	}
+}
+
+bool Real::operator>(const Real& other) const
+{
+	if (units_ == other.units_)
+	{
+		return fractional_ > other.fractional_;
+	}
+	else
+	{
+		return units_ > other.units_;
+	}
+}
+
+bool Real::operator<=(const Real& other) const
+{
+	if (units_ == other.units_)
+	{
+		return fractional_ <= other.fractional_;
+	}
+	else
+	{
+		return units_ <= other.units_;
+	}
+}
+
+bool Real::operator>=(const Real& other) const
+{
+	if (units_ == other.units_)
+	{
+		return fractional_ >= other.fractional_;
+	}
+	else
+	{
+		return units_ >= other.units_;
+	}
+}
+
 
 
 // Оператор вывода

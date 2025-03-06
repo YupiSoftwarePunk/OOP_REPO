@@ -56,9 +56,28 @@ public:
 
     // Арифметические операторы
     Real operator+(const Real& other) const;
+
     Real operator-(const Real& other) const;
+
     Real operator*(const Real& other) const;
+
     Real operator/(const Real& other) const;
+
+
+    // Операторы сравнения
+    bool operator<(const Real& other) const;
+
+    bool operator>(const Real& other) const;
+
+    bool operator<=(const Real& other) const;
+
+    bool operator>=(const Real& other) const;
+
+    bool operator==(const Real& other) const;
+
+    bool operator!=(const Real& other) const;
+
+
 
     // поля класса
 private:
