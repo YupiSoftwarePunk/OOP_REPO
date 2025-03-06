@@ -165,6 +165,23 @@ bool Real::operator!=(const Real& other) const
 }
 
 
+// Унарные операторы
+Real Real::operator+()
+{
+	this->units_ = units_;
+	this->fractional_ = fractional_;
+	return *this;
+}
+
+Real Real::operator-() const
+{
+	Real res = { *this };
+	res.units_ = units_ * -1;
+	res.fractional_ = fractional_;
+	return res;
+}
+
+
 
 // Оператор вывода
 std::ostream& operator<<(std::ostream& out, const Real& obj)

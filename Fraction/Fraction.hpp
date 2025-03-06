@@ -118,7 +118,7 @@ public:
 	Fraction operator+();
 
 	// Унарный минус
-	Fraction operator-();
+	Fraction operator-() const;
 
 
 

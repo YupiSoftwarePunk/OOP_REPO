@@ -567,14 +567,14 @@ Fraction Fraction::operator--()
 // Унарные операторы
 
 //Унарный плюс
-Fraction Fraction::operator+()
+Fraction Fraction::operator+() 
 {
 	this->num_ = num_;
 	this->denum_ = denum_;
 	return *this;
 }
 
-Fraction Fraction::operator-()
+Fraction Fraction::operator-() const
 {
 	Fraction res = { *this };
 	res.sign_ != sign_;

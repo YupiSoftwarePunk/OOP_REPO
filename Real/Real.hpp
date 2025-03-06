@@ -78,6 +78,11 @@ public:
     bool operator!=(const Real& other) const;
 
 
+    // Унарные операторы
+    Real operator+();
+    Real operator-() const;
+
+
 
     // поля класса
 private:
