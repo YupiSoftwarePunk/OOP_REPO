@@ -19,6 +19,7 @@ int main()
 	Fraction num4 = {num11, num22 };
 
 	Real num5 = { num1, num3 };
+	Real num6 = { num2, num4 };
 
 	std::cout << "Целые числа\n\n";
 
@@ -124,6 +125,8 @@ int main()
 	std::cout << "\n\n\t\tДесятичные Дроби\n\n";
 
 	std::cout << num5;
+	std::cout << num5.isDecimalPositive() << "\n";
+	std::cout << num5 + num6 << "\n";
 
 	return 0;
 }
