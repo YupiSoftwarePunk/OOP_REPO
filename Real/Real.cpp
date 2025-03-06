@@ -147,6 +147,23 @@ bool Real::operator>=(const Real& other) const
 	}
 }
 
+bool Real::operator==(const Real& other) const
+{
+	return units_ == other.units_ && fractional_ == other.fractional_;
+}
+
+bool Real::operator!=(const Real& other) const
+{
+	if (units_ == other.units_ && fractional_ == other.fractional_)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
 
 
 // Оператор вывода
