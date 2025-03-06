@@ -46,6 +46,49 @@ bool Real::isDecimal() const
 }
 
 
+
+// Арифметические операторы
+Real Real::operator+(const Real& other) const
+{
+	Real result;
+
+	result.units_ = units_ + other.units_;
+	result.fractional_ = fractional_ + other.fractional_;
+
+	return result;
+}
+
+Real Real::operator-(const Real& other) const
+{
+	Real result;
+
+	result.units_ = units_ - other.units_;
+	result.fractional_ = fractional_ - other.fractional_;
+
+	return result;
+}
+
+Real Real::operator*(const Real& other) const
+{
+	Real result;
+
+	result.units_ = units_ * other.units_;
+	result.fractional_ = fractional_ * other.fractional_;
+
+	return result;
+}
+
+Real Real::operator/(const Real& other) const
+{
+	Real result;
+
+	result.units_ = units_ / other.units_;
+	result.fractional_ = fractional_ / other.fractional_;
+
+	return result;
+}
+
+
 // Оператор вывода
 std::ostream& operator<<(std::ostream& out, const Real& obj)
 {

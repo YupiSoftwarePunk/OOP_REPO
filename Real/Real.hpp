@@ -51,6 +51,15 @@ public:
 
     bool isDecimal() const;
 
+
+    // Операторы
+
+    // Арифметические операторы
+    Real operator+(const Real& other) const;
+    Real operator-(const Real& other) const;
+    Real operator*(const Real& other) const;
+    Real operator/(const Real& other) const;
+
     // поля класса
 private:
 
