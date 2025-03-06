@@ -80,6 +80,12 @@ Real Real::operator*(const Real& other) const
 
 Real Real::operator/(const Real& other) const
 {
+	if ((other.units_ == 0 || other.fractional_ == Fraction(0)) || (other.units_ == 0 && other.fractional_ == Fraction(0)))
+	{
+		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+		::exit(-1);
+	}
+
 	Real result;
 
 	result.units_ = units_ / other.units_;
