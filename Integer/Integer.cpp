@@ -388,6 +388,34 @@ Integer& Integer::operator/=(Integer other)
 	return *this;
 }
 
+Integer& Integer::operator%=(Integer other)
+{
+	if (sign_ == other.sign_)
+	{
+		sign_ = sign_;
+		units_ %= other.units_;
+	}
+	else
+	{
+		if (sign_ > other.sign_)
+		{
+			sign_ = sign_;
+			units_ %= other.units_;
+		}
+		else if (sign_ < other.sign_)
+		{
+			sign_ = other.sign_;
+			other.sign_ %= units_;
+		}
+		else
+		{
+			sign_ = false;
+			units_ = 0;
+		}
+	}
+	return *this;
+}
+
 
 
 // операторы инкремент и декремент

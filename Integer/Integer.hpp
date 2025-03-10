@@ -80,6 +80,8 @@ public:
 
 	Integer& operator/=(Integer other);
 
+	Integer& operator%=(Integer other);
+
 
 
 	// операторы инкремент и декремент
