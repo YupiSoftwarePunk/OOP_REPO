@@ -1,5 +1,42 @@
 #include "Real.hpp"
 
+// constructors
+Real::Real(const Integer& units, const Fraction& fractional)
+{
+	units_ = units;
+	if (!fractional.isProper()) 
+	{
+		units_ = units_ + (Fraction(fractional).GetNumerator() / Fraction(fractional).GetDenominator());
+		Integer newNumerator = Fraction(fractional).GetNumerator() % Fraction(fractional).GetDenominator();
+		fractional_ = Fraction(newNumerator, Fraction(fractional).GetDenominator());
+	}
+	else 
+	{
+		fractional_ = fractional;
+	}
+}
+
+Real::Real(const Fraction& obj)
+{
+	if (obj.isProper()) {
+		units_ = 0;
+		fractional_ = obj;
+	}
+	else {
+		units_ = Fraction(obj).GetNumerator() / Fraction(obj).GetDenominator();
+		Integer newNumerator = Fraction(obj).GetNumerator() % Fraction(obj).GetDenominator();
+		if (newNumerator == 0) {
+			fractional_ = Fraction(0, 0);
+		}
+		else
+		{
+			fractional_ = Fraction(newNumerator, Fraction(obj).GetDenominator());
+		}
+	}
+}
+
+
+
 //setters
 void Real::SetUnits(Integer units)
 {
