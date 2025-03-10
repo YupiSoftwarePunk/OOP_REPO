@@ -186,5 +186,13 @@ Real Real::operator-() const
 // Оператор вывода
 std::ostream& operator<<(std::ostream& out, const Real& obj)
 {
-	return out << obj.units_ << '.' << obj.fractional_;
+	if (obj.fractional_ == Fraction(0))
+	{
+		return out << obj.units_ << '.0' << obj.fractional_;
+	}
+	else
+	{
+		return out << obj.units_ << '.' << obj.fractional_;
+	}
+	
 }
