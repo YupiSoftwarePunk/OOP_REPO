@@ -98,10 +98,10 @@ public:
 	// префиксные инкремент и декремент
 
 	// префиксный инкремент
-	Integer operator++();
+	Integer& operator++();
 
 	// префиксный декремент
-	Integer operator--();
+	Integer& operator--();
 
 
 

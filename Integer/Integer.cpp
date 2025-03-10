@@ -425,6 +425,7 @@ Integer& Integer::operator%=(Integer other)
 // постфиксный инкремент
 Integer Integer::operator++(int)
 {
+	Integer temp = *this;
 	if (sign_ == false)
 	{
 		units_++;
@@ -433,12 +434,14 @@ Integer Integer::operator++(int)
 	{
 		units_--;
 	}
-	return units_;
+	/*return units_;*/
+	return temp;
 }
 
 // постфиксный декремент
 Integer Integer::operator--(int)
 {
+	Integer temp = *this;
 	if (sign_ == false)
 	{
 		units_--;
@@ -447,14 +450,15 @@ Integer Integer::operator--(int)
 	{
 		units_++;
 	}
-	return units_;
+	/*return units_;*/
+	return temp;
 }
 
 // префиксные инкремент и декремент
 
 
 // префиксный инкремент
-Integer Integer::operator++()
+Integer& Integer::operator++()
 {
 	if (sign_ == false)
 	{
@@ -464,11 +468,12 @@ Integer Integer::operator++()
 	{
 		--(units_);
 	}
-	return units_;
+	/*return units_;*/
+	return *this;
 }
 
 // префиксный декремент
-Integer Integer::operator--()
+Integer& Integer::operator--()
 {
 	if (sign_ == false)
 	{
@@ -478,7 +483,8 @@ Integer Integer::operator--()
 	{
 		++(units_);
 	}
-	return units_;
+	/*return units_;*/
+	return *this;
 }
 
 
