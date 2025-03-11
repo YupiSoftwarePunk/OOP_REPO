@@ -41,6 +41,7 @@ int main()
 	std::cout << num1 << "\n";
 	num1++;
 	std::cout << num1 << "\n";
+	num1 = 0;
 	num1--;
 	std::cout << num1 << "\n";
 	++num1;
@@ -126,7 +127,8 @@ int main()
 
 	std::cout << num5;
 	std::cout << num5.isDecimalPositive() << "\n";
-	std::cout << num5 + num6 << "\n";
+	Real sum = num5 + num6;
+	std::cout << sum << "\n";
 
 	return 0;
 }

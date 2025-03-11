@@ -425,65 +425,99 @@ Integer& Integer::operator%=(Integer other)
 // постфиксный инкремент
 Integer Integer::operator++(int)
 {
-	Integer temp = *this;
-	if (sign_ == false)
+	Integer obj{ *this };
+
+	if (sign_) 
 	{
-		units_++;
+		if (units_ == 1 || units_ == 0) 
+		{
+			sign_ = false;
+			units_ -= 1;
+		}
+		else 
+		{
+			units_ += 1;
+		}
 	}
-	else
+	else 
 	{
-		units_--;
+		units_ += 1;
 	}
-	/*return units_;*/
-	return temp;
+
+	return obj;
 }
 
 // постфиксный декремент
 Integer Integer::operator--(int)
 {
-	Integer temp = *this;
-	if (sign_ == false)
+	Integer obj{ *this };
+
+	if (!sign_) 
 	{
-		units_--;
+		if (units_ == 1 || units_ == 0) 
+		{
+			sign_ = true;
+			units_ += 1;
+		}
+		else 
+		{
+			units_ += 1;
+		}
 	}
-	else
+	else 
 	{
-		units_++;
+		units_ += 1;
 	}
-	/*return units_;*/
-	return temp;
+
+	return obj;
 }
 
-// префиксные инкремент и декремент
 
+// префиксные инкремент и декремент
 
 // префиксный инкремент
 Integer& Integer::operator++()
 {
-	if (sign_ == false)
+	if (sign_) 
 	{
-		++(units_);
+		if (units_ == 1 || units_ == 0) 
+		{
+			sign_ = false;
+			units_ -= 1;
+		}
+		else 
+		{
+			units_ += 1;
+		}
 	}
-	else
+	else 
 	{
-		--(units_);
+		units_ += 1;
 	}
-	/*return units_;*/
+
 	return *this;
 }
 
 // префиксный декремент
 Integer& Integer::operator--()
 {
-	if (sign_ == false)
+	if (!sign_) 
 	{
-		--(units_);
+		if (units_ == 1 || units_ == 0) 
+		{
+			sign_ = true;
+			units_ += 1;
+		}
+		else 
+		{
+			units_ += 1;
+		}
 	}
-	else
+	else 
 	{
-		++(units_);
+		units_ += 1;
 	}
-	/*return units_;*/
+
 	return *this;
 }
 
