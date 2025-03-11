@@ -90,13 +90,13 @@ public:
 
 
 	// Операторы присваивания
-	Fraction operator+=(const Fraction& other);
+	void operator+=(const Fraction& other);
 
-	Fraction operator-=(const Fraction& other);
+	void operator-=(const Fraction& other);
 
-	Fraction operator*=(const Fraction& other);
+	void operator*=(const Fraction& other);
 
-	Fraction operator/=(const Fraction& other);
+	void operator/=(const Fraction& other);
 
 
 	// Инкремент и декремент

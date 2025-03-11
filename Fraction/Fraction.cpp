@@ -328,173 +328,24 @@ bool Fraction::operator<=(const Fraction& other) const
 
 
 // Операторы присваивания
-Fraction Fraction::operator+=(const Fraction& other)
+void Fraction::operator+=(const Fraction& other)
 {
-	Integer numerator;
-	Integer denominator;
-
-	if (sign_ == false && other.sign_ == false)
-	{
-		numerator = num_ * other.denum_ + other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		sign_ = false;
-	}
-	else if (sign_ == true && other.sign_ == false)
-	{
-		if (num_ * other.denum_ >= other.num_ * denum_)
-		{
-			numerator = num_ * other.denum_ - other.num_ * denum_;
-			denominator = denum_ * other.denum_;
-			sign_ = true;
-		}
-		else
-		{
-			numerator = other.num_ * denum_ - num_ * other.denum_;
-			denominator = denum_ * other.denum_;
-			sign_ = true;
-		}
-	}
-	else if (sign_ == false && other.sign_ == true)
-	{
-		if (num_ * other.denum_ >= other.num_ * denum_)
-		{
-			numerator = num_ * other.denum_ + other.num_ * denum_;
-			denominator = denum_ * other.denum_;
-			sign_ = true;
-		}
-		else
-		{
-			numerator = other.num_ * denum_ + num_ * other.denum_;
-			denominator = denum_ * other.denum_;
-			sign_ = true;
-		}
-	}
-	else
-	{
-		numerator = num_ * other.denum_ + other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		sign_ = true;
-	}
-
-	num_ = numerator;
-	denum_ = denominator;
-
-	return *this;
+	*this = *this + other;
 }
 
-Fraction Fraction::operator-=(const Fraction& other)
+void Fraction::operator-=(const Fraction& other)
 {
-	Integer numerator;
-	Integer denominator;
-
-	if (sign_ == false && other.sign_ == false)
-	{
-		numerator = num_ * other.denum_ - other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		sign_ = false;
-	}
-	else if (sign_ == true && other.sign_ == false)
-	{
-		if (num_ * other.denum_ >= other.num_ * denum_)
-		{
-			numerator = num_ * other.denum_ + other.num_ * denum_;
-			denominator = denum_ * other.denum_;
-			sign_ = true;
-		}
-		else
-		{
-			numerator = other.num_ * denum_ + num_ * other.denum_;
-			denominator = denum_ * other.denum_;
-			sign_ = true;
-		}
-	}
-	else if (sign_ == false && other.sign_ == true)
-	{
-		if (num_ * other.denum_ >= other.num_ * denum_)
-		{
-			numerator = num_ * other.denum_ - other.num_ * denum_;
-			denominator = denum_ * other.denum_;
-			sign_ = true;
-		}
-		else
-		{
-			numerator = other.num_ * denum_ - num_ * other.denum_;
-			denominator = denum_ * other.denum_;
-			sign_ = true;
-		}
-	}
-	else
-	{
-		numerator = num_ * other.denum_ + other.num_ * denum_;
-		denominator = denum_ * other.denum_;
-		sign_ = true;
-	}
-
-	num_ = numerator;
-	denum_ = denominator;
-
-	return *this;
+	*this = *this - other;
 }
 
-Fraction Fraction::operator*=(const Fraction& other)
+void Fraction::operator*=(const Fraction& other)
 {
-	Integer numerator;
-	Integer denominator;
-	if (sign_ == false && other.sign_ == false)
-	{
-		numerator = num_ * other.num_;
-		denominator = denum_ * other.denum_;
-		sign_ = false;
-	}
-	else if (sign_ == true && other.sign_ == false)
-	{
-		numerator = num_ * other.num_;
-		denominator = denum_ * other.denum_;
-		sign_ = true;
-	}
-	else
-	{
-		numerator = num_ * other.num_;
-		denominator = denum_ * other.denum_;
-		sign_ = true;
-	}
-	num_ = numerator;
-	denum_ = denominator;
-
-	return *this;
+	*this = *this * other;
 }
 
-Fraction Fraction::operator/=(const Fraction& other)
+void Fraction::operator/=(const Fraction& other)
 {
-	Integer numerator;
-	Integer denominator;
-	if (denum_ == 0 || other.num_ == 0)
-	{
-		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
-		::exit(-1);
-	}
-	if (sign_ == false && other.sign_ == false)
-	{
-		numerator = num_ * other.denum_;
-		denominator = denum_ * other.num_;
-		sign_ = false;
-	}
-	else if (sign_ == true && other.sign_ == false)
-	{
-		numerator = num_ * other.denum_;
-		denominator = denum_ * other.num_;
-		sign_ = true;
-	}
-	else
-	{
-		numerator = num_ * other.denum_;
-		denominator = denum_ * other.num_;
-		sign_ = true;
-	}
-	num_ = numerator;
-	denum_ = denominator;
-
-	return *this;
+	*this = *this / other;
 }
 
 
@@ -577,7 +428,7 @@ Fraction Fraction::operator+()
 Fraction Fraction::operator-() const
 {
 	Fraction res = { *this };
-	res.sign_ != sign_;
+	res.sign_ = !sign_;
 	res.num_ = num_;
 	res.denum_ = denum_;
 	return res;

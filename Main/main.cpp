@@ -104,6 +104,7 @@ int main()
 	std::cout << (num3 >= num4) << "\n";
 	std::cout << (num3 == num4) << "\n";
 	std::cout << (num3 != num4) << "\n";   
+	// ------------------------------------------------------------------- до сюда
 
 	std::cout << "\n\n\n";
 
@@ -119,16 +120,15 @@ int main()
 	std::cout << "\n\n\n";
 
 	std::cout << -num3 << "\n";   // mistake 
-	std::cout << +num3 << "\n";	  // mistake 
-	// ------------------------------------------------------------------- до сюда
+	std::cout << +num3 << "\n";	  
 
 
 	std::cout << "\n\n\t\tДесятичные Дроби\n\n";
 
-	std::cout << num5;
-	std::cout << num5.isDecimalPositive() << "\n";
-	Real sum = num5 + num6;
-	std::cout << sum << "\n";
+	std::cout << num5;  // mistake 
+	std::cout << num5.isDecimalPositive() << "\n";  
+	Real sum = num5 + num6;  
+	std::cout << sum << "\n";  // mistake 
 
 	return 0;
 }
