@@ -128,42 +128,10 @@ Integer Fraction::CountRemainder()const
 // Арифметические операции
 Fraction Fraction::operator+(const Fraction& other) const
 {
-	//Integer numerator;
-	//Integer denominator;
-	//
-	//if (sign_ == false && other.sign_ == false)
-	//{
-	//	numerator = num_ * other.denum_ + other.num_ * denum_;
-	//	denominator = denum_ * other.denum_;
-	//	result.sign_ = false;
-	//}
-	//else if (sign_ == true && other.sign_ == false)
-	//{
-	//	numerator = num_ * other.denum_ - other.num_ * denum_;
-	//	denominator = denum_ * other.denum_;
-	//	result.sign_ = true;
-	//}
-	//else
-	//{
-	//	numerator = num_ * other.denum_ - other.num_ * denum_;
-	//	denominator = denum_ * other.denum_;
-	//	result.sign_ = true;
-	//}
-	//result.num_ = numerator;
-	//result.denum_ = denominator;
-
 	Fraction result;
 
-	if (this->denum_ == other.denum_)
-	{
-		result.denum_ = this->denum_;
-		result.num_ = this->num_ + other.num_;
-	}
-	else
-	{
-		result.denum_ = this->denum_ * other.denum_;
-		result.num_ = this->num_ * other.denum_ + other.num_ * this->denum_;
-	}
+	result.denum_ = denum_ * other.denum_;
+	result.num_ = num_ * other.denum_ + other.num_ * denum_;
 
 	return result;
 }
@@ -172,16 +140,8 @@ Fraction Fraction::operator-(const Fraction& other) const
 {
 	Fraction result;
 
-	if (this->denum_ == other.denum_)
-	{
-		result.denum_ = this->denum_;
-		result.num_ = this->num_ - other.num_;
-	}
-	else
-	{
-		result.denum_ = this->denum_ * other.denum_;
-		result.num_ = this->num_ * other.denum_ - other.num_ * this->denum_;
-	}
+	result.denum_ = denum_ * other.denum_;
+	result.num_ = (num_ * other.denum_) - (other.num_ * denum_);
 
 	return result;
 }
@@ -190,8 +150,8 @@ Fraction Fraction::operator*(const Fraction& other) const
 {
 	Fraction result;
 
-	result.denum_ = this->denum_ * other.denum_;
-	result.num_ = this->num_ * other.num_;
+	result.denum_ = denum_ * other.denum_;
+	result.num_ = num_ * other.num_;
 
 	return result;
 }
@@ -205,8 +165,9 @@ Fraction Fraction::operator/(const Fraction& other) const
 		::exit(-1);
 	}
 
-	result.denum_ = this->denum_ * other.num_;
-	result.num_ = this->num_ * other.denum_;
+	result.denum_ = denum_ * other.num_;
+	result.num_ = num_ * other.denum_;
+
 	return result;
 }
 
