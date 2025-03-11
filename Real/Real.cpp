@@ -202,6 +202,53 @@ bool Real::operator!=(const Real& other) const
 }
 
 
+// Операторы присваивания
+Real Real::operator+=(const Real& other) const
+{
+	Real res = { *this };
+
+	res.units_ += other.units_;
+	res.fractional_ += other.fractional_;
+
+	return res;
+}
+
+Real Real::operator-=(const Real& other) const
+{
+	Real res = { *this };
+
+	res.units_ -= other.units_;
+	res.fractional_ -= other.fractional_;
+
+	return res;
+}
+
+Real Real::operator*=(const Real& other) const
+{
+	Real res = { *this };
+
+	res.units_ *= other.units_;
+	res.fractional_ *= other.fractional_;
+
+	return res;
+}
+
+Real Real::operator/=(const Real& other) const
+{
+	Real res = { *this };
+
+	if ((other.units_ == 0 || other.fractional_ == Fraction(0)) || (other.units_ == 0 && other.fractional_ == Fraction(0)))
+	{
+		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+		::exit(-1);
+	}
+	res.units_ /= other.units_;
+	res.fractional_ /= other.fractional_;
+
+	return res;
+}
+
+
 // Унарные операторы
 Real Real::operator+()
 {

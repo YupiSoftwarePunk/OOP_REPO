@@ -78,6 +78,16 @@ public:
     bool operator!=(const Real& other) const;
 
 
+    // Операторы присваивания
+    Real operator+=(const Real& other) const;
+
+    Real operator-=(const Real& other) const;
+
+    Real operator*=(const Real& other) const;
+
+    Real operator/=(const Real& other) const;
+
+
     // Унарные операторы
     Real operator+();
     Real operator-() const;
