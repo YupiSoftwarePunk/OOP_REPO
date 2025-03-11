@@ -86,7 +86,7 @@ int main()
 	std::cout << num4.isImProper() << "\n";
 	std::cout << num3.ReduceFraction() << "\n";    
 	std::cout << num3.ReverseFraction() << "\n";    
-	std::cout << num3.CountUnits() << "\n";       // mistake 
+	std::cout << num3.CountUnits() << "\n";      
 
 	std::cout << "\n\n\n";
 
@@ -95,6 +95,7 @@ int main()
 	std::cout << num3 - num4 << "\n";
 	std::cout << num3 * num4 << "\n";
 	std::cout << num3 / num4 << "\n";
+	// ------------------------------------------------------------------- до сюда
 
 	std::cout << "\n\n\n";
 
@@ -104,7 +105,6 @@ int main()
 	std::cout << (num3 >= num4) << "\n";
 	std::cout << (num3 == num4) << "\n";
 	std::cout << (num3 != num4) << "\n";   
-	// ------------------------------------------------------------------- до сюда
 
 	std::cout << "\n\n\n";
 
@@ -119,7 +119,7 @@ int main()
 
 	std::cout << "\n\n\n";
 
-	std::cout << -num3 << "\n";   // mistake 
+	std::cout << -num3 << "\n";   
 	std::cout << +num3 << "\n";	  
 
 

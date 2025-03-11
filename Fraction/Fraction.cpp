@@ -114,16 +114,8 @@ Fraction Fraction::ReverseFraction()
 Integer Fraction::CountUnits() const
 {
 	Integer units;
-	if (sign_ == false)
-	{
-		units = this->num_ / this->denum_;
-		return units;
-	}
-	else
-	{
-		units = this->num_ / this->denum_;
-		return units + Integer(1);
-	}
+	units = this->num_ % this->denum_;
+	return units;
 }
 
 Integer Fraction::CountRemainder()const
@@ -254,9 +246,9 @@ bool Fraction::operator>(const Fraction& other) const
 	{
 		num1 = num_ * other.denum_;
 		num2 = denum_ * other.num_;
-		return num1 < num2;
+		return num1 > num2;
 	}
-	else if (sign_ < other.sign_)
+	else if (sign_ > other.sign_)
 	{
 		return true;
 	}
@@ -274,9 +266,9 @@ bool Fraction::operator<(const Fraction& other) const
 	{
 		num1 = num_ * other.denum_;
 		num2 = denum_ * other.num_;
-		return num1 > num2;
+		return num1 < num2;
 	}
-	else if (sign_ > other.sign_)
+	else if (sign_ < other.sign_)
 	{
 		return true;
 	}
@@ -294,9 +286,9 @@ bool Fraction::operator>=(const Fraction& other) const
 	{
 		num1 = num_ * other.denum_;
 		num2 = denum_ * other.num_;
-		return num1 <= num2;
+		return num1 >= num2;
 	}
-	else if (sign_ < other.sign_)
+	else if (sign_ > other.sign_)
 	{
 		return true;
 	}
@@ -314,9 +306,9 @@ bool Fraction::operator<=(const Fraction& other) const
 	{
 		num1 = num_ * other.denum_;
 		num2 = denum_ * other.num_;
-		return num1 >= num2;
+		return num1 <= num2;
 	}
-	else if (sign_ > other.sign_)
+	else if (sign_ < other.sign_)
 	{
 		return true;
 	}
