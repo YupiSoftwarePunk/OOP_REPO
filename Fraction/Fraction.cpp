@@ -99,7 +99,7 @@ bool Fraction::isEqual(const Fraction& other)
 // методы получения значений
 Fraction Fraction::ReduceFraction()
 {
-	Integer nod = num_.Nod(denum_);
+	Integer nod = num_.Gcd(denum_);
 	num_ /= nod;
 	denum_ /= nod;
 	return *this;

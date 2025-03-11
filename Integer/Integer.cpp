@@ -94,13 +94,13 @@ bool Integer::isCoprime(const Integer &other)const
 }
 
 // нахождение наибольшего общего делителя
-int Integer::Nod(const Integer &other)const
+int Integer::Gcd(const Integer &other)const
 {
 	return std::gcd(units_, other.units_);
 }
 
 // нахождение наибольшего общего кратного
-int Integer::Nok(const Integer &other)const
+int Integer::Lcm(const Integer &other)const
 {
 	return std::lcm(units_, other.units_);
 }

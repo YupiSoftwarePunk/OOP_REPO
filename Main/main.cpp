@@ -71,8 +71,8 @@ int main()
 	std::cout << num1.isEven() << "\n";
 	std::cout << num1.isSimple() << "\n";
 	std::cout << num1.isCoprime(num2) << "\n";
-	std::cout << num1.Nod(num2) << "\n";
-	std::cout << num1.Nok(num2) << "\n";
+	std::cout << num1.Gcd(num2) << "\n";
+	std::cout << num1.Lcm(num2) << "\n";
 
 
 

@@ -46,10 +46,10 @@ public:
 	bool isCoprime(const Integer &other)const;
 
 	// нахождение наибольшего общего делителя
-	int Nod(const Integer &other)const;
+	int Gcd(const Integer &other)const;
 
 	// нахождение наибольшего общего кратного
-	int Nok(const Integer &other)const;
+	int Lcm(const Integer &other)const;
 
 
 	// Арифметические операторы  
