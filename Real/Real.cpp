@@ -241,37 +241,37 @@ bool Real::operator!=(const Real& other) const
 
 
 // Операторы присваивания
-Real Real::operator+=(const Real& other) const
+void Real::operator+=(const Real& other) const
 {
 	Real res = { *this };
 
 	res.units_ += other.units_;
 	res.fractional_ += other.fractional_;
 
-	return res;
+	/*return res;*/
 }
 
-Real Real::operator-=(const Real& other) const
+void Real::operator-=(const Real& other) const
 {
 	Real res = { *this };
 
 	res.units_ -= other.units_;
 	res.fractional_ -= other.fractional_;
 
-	return res;
+	/*return res;*/
 }
 
-Real Real::operator*=(const Real& other) const
+void Real::operator*=(const Real& other) const
 {
 	Real res = { *this };
 
 	res.units_ *= other.units_;
 	res.fractional_ *= other.fractional_;
 
-	return res;
+	/*return res;*/
 }
 
-Real Real::operator/=(const Real& other) const
+void Real::operator/=(const Real& other) const
 {
 	Real res = { *this };
 
@@ -283,7 +283,7 @@ Real Real::operator/=(const Real& other) const
 	res.units_ /= other.units_;
 	res.fractional_ /= other.fractional_;
 
-	return res;
+	/*return res;*/
 }
 
 

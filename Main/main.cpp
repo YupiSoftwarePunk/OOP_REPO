@@ -181,14 +181,14 @@ int main()
 	std::cout << "\n\n\n";
 
 	// некорректно работает код ниже
-	/*num5 += num6;
+	num5 += num6;
 	std::cout << num5 << "\n";
 	num5 -= num6;
 	std::cout << num5 << "\n";
 	num5 *= num6;
 	std::cout << num5 << "\n";
 	num5 /= num6;
-	std::cout << num5 << "\n";*/
+	std::cout << num5 << "\n";
 	//----------------------------------------
 
 	std::cout << "\n\n\n";

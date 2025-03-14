@@ -79,13 +79,13 @@ public:
 
 
     // Операторы присваивания
-    Real operator+=(const Real& other) const;
+    void operator+=(const Real& other) const;
 
-    Real operator-=(const Real& other) const;
+    void operator-=(const Real& other) const;
 
-    Real operator*=(const Real& other) const;
+    void operator*=(const Real& other) const;
 
-    Real operator/=(const Real& other) const;
+    void operator/=(const Real& other) const;
 
 
     // Унарные операторы
