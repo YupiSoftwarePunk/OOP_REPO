@@ -1,6 +1,7 @@
 #include "../Fraction/Fraction.hpp"
 #include "../Integer/Integer.hpp"
 #include "../Real/Real.hpp"
+#include "../Dictionary/Dictionary.hpp"
 
 
 
@@ -21,7 +22,24 @@ int main()
 	Real num5 = { num1, num3 };
 	Real num6 = { num2, num4 };
 
-	std::cout << "Целые числа\n\n";
+
+	std::cout << "\t\tСловарь\n\n";
+
+	/* 
+					задача заключалось в том, чтобы проверять есть ли слова из текста в словаре и возвратить число слов,
+					которые отсутствуют в словаре и перечислить их 
+	 */
+
+	std::string text = "One orange fox watched TV last night";
+
+	Dictionary dict;
+
+	std::cout << dict.InDict(text);
+	//----------------------------------------------------------------------
+
+
+
+	std::cout << "\n\n\t\tЦелые числа\n\n";
 
 	std::cout << num1 + num2 << "\n";
 	std::cout << num1 - num2 << "\n";
@@ -121,6 +139,7 @@ int main()
 
 	std::cout << -num3 << "\n";   
 	std::cout << +num3 << "\n";	  
+
 
 
 	std::cout << "\n\n\t\tДесятичные Дроби\n\n";

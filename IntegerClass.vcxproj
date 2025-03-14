@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dictionary\Dictionary.cpp" />
     <ClCompile Include="Fraction\Fraction.cpp" />
     <ClCompile Include="Integer\Integer.cpp" />
     <ClCompile Include="Main\main.cpp" />
@@ -27,6 +28,7 @@
     <ClCompile Include="VariaticTemplates\VariaticTemplates.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dictionary\Dictionary.hpp" />
     <ClInclude Include="Fraction\Fraction.hpp" />
     <ClInclude Include="Integer\Integer.hpp" />
     <ClInclude Include="Real\Real.hpp" />
@@ -141,7 +143,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
