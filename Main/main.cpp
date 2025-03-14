@@ -41,6 +41,11 @@ int main()
 
 	std::cout << "\n\n\t\tÖåëûå ÷èñëà\n\n";
 
+	std::cout << num1 << "\n";
+	std::cout << num2 << "\n";
+
+	std::cout << "\n\n\n";
+
 	std::cout << num1 + num2 << "\n";
 	std::cout << num1 - num2 << "\n";
 	std::cout << num1 * num2 << "\n";
@@ -96,6 +101,11 @@ int main()
 
 	std::cout << "\n\n\t\tÄğîáè\n\n";
 
+	std::cout << num3 << "\n";
+	std::cout << num4 << "\n";
+
+	std::cout << "\n\n\n";
+
 	std::cout << num3.isNumPositive() << "\n";
 	std::cout << num3.isNumNegative() << "\n";
 	std::cout << num3.isSame(num4) << "\n";    
@@ -142,6 +152,11 @@ int main()
 
 	std::cout << "\n\n\t\tÄåñÿòè÷íûå Äğîáè\n\n";
 
+	std::cout << num5 << "\n";
+	std::cout << num6 << "\n";
+
+	std::cout << "\n\n\n";
+
 	std::cout << num5.isDecimalPositive() << "\n";
 	std::cout << num5.isDecimalNegative() << "\n";
 	std::cout << num5.isDecimal() << "\n";
@@ -149,11 +164,37 @@ int main()
 
 	std::cout << "\n\n\n";
 
-	std::cout << num5 << "\n";
 	std::cout << num5 + num6 << "\n";
 	std::cout << num6 - num5 << "\n";
-	std::cout << num5 * num6 << "\n"; // mistake
+	std::cout << num5 * num6 << "\n"; 
 	std::cout << num6 / num5 << "\n";
+
+	std::cout << "\n\n\n";
+
+	std::cout << (num5 < num6) << "\n";
+	std::cout << (num5 > num6) << "\n";
+	std::cout << (num5 <= num6) << "\n";
+	std::cout << (num5 >= num6) << "\n";
+	std::cout << (num5 == num6) << "\n";
+	std::cout << (num5 != num6) << "\n";
+
+	std::cout << "\n\n\n";
+
+	// íåêîğğåêòíî ğàáîòàåò êîä íèæå
+	/*num5 += num6;
+	std::cout << num5 << "\n";
+	num5 -= num6;
+	std::cout << num5 << "\n";
+	num5 *= num6;
+	std::cout << num5 << "\n";
+	num5 /= num6;
+	std::cout << num5 << "\n";*/
+	//----------------------------------------
+
+	std::cout << "\n\n\n";
+
+	std::cout << -num5 << "\n";
+	std::cout << +num5 << "\n";
 
 	return 0;
 }
