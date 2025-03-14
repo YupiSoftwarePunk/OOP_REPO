@@ -4,13 +4,13 @@
 Real::Real(const Integer& units, const Fraction& fractional)
 {
 	units_ = units;
-	if (!fractional.isProper()) 
+	if (!fractional.isProper())
 	{
 		units_ = units_ + (Fraction(fractional).GetNumerator() / Fraction(fractional).GetDenominator());
 		Integer newNumerator = Fraction(fractional).GetNumerator() % Fraction(fractional).GetDenominator();
 		fractional_ = Fraction(newNumerator, Fraction(fractional).GetDenominator());
 	}
-	else 
+	else
 	{
 		fractional_ = fractional;
 	}
@@ -100,8 +100,23 @@ Real Real::operator-(const Real& other) const
 {
 	Real result;
 
-	result.units_ = units_ - other.units_;
-	result.fractional_ = fractional_ - other.fractional_;
+	if (units_ > other.units_)
+	{
+		result.units_ = units_ - other.units_;
+	}
+	else
+	{
+		result.units_ = other.units_ - units_;
+	}
+
+	if (fractional_ > other.fractional_)
+	{
+		result.fractional_ = fractional_ - other.fractional_;
+	}
+	else
+	{
+		result.fractional_ = other.fractional_ - fractional_;
+	}
 
 	return result;
 }
@@ -109,6 +124,8 @@ Real Real::operator-(const Real& other) const
 Real Real::operator*(const Real& other) const
 {
 	Real result;
+
+	// сначала преобразовать в неправильную дробь, потом умножить, а затем преобразовать в реал
 
 	result.units_ = units_ * other.units_;
 	result.fractional_ = fractional_ * other.fractional_;
@@ -125,6 +142,27 @@ Real Real::operator/(const Real& other) const
 	}
 
 	Real result;
+
+
+	// работает не корректно
+	/*if (units_ > other.units_)
+	{
+		result.units_ = units_ / other.units_;
+	}
+	else
+	{
+		result.units_ = other.units_ / units_;
+	}
+
+	if (fractional_ > other.fractional_)
+	{
+		result.fractional_ = fractional_ / other.fractional_;
+	}
+	else
+	{
+		result.fractional_ = other.fractional_ / fractional_;
+	}*/
+
 
 	result.units_ = units_ / other.units_;
 	result.fractional_ = fractional_ / other.fractional_;
@@ -272,11 +310,11 @@ std::ostream& operator<<(std::ostream& out, const Real& obj)
 {
 	if (obj.fractional_ == Fraction(0))
 	{
-		return out << obj.units_ << '.0' << obj.fractional_;
+		return out << obj.units_ << "(" << obj.fractional_ << ')';
 	}
 	else
 	{
-		return out << obj.units_ << '.' << obj.fractional_;
+		return out << obj.units_ << "(" << obj.fractional_ << ')';
 	}
-	
+
 }

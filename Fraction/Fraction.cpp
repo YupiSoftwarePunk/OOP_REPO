@@ -10,7 +10,7 @@ Fraction::Fraction(Integer num, Integer denum) :num_(num), denum_(denum)
 		throw std::invalid_argument("\nЗнаменатель не может быть равен нулю!!\n");
 	}
 }
-Fraction::Fraction(const Integer &number)
+Fraction::Fraction(const Integer& number)
 {
 	if (number < 0)
 	{
@@ -85,7 +85,7 @@ bool Fraction::isImProper() const
 	return num_ > denum_;
 }
 
-bool Fraction::isSame(const Fraction &other) const      // нужно сравнить адреса параметров
+bool Fraction::isSame(const Fraction& other) const     
 {
 	return this == &other;
 }
@@ -133,15 +133,22 @@ Fraction Fraction::operator+(const Fraction& other) const
 	result.denum_ = denum_ * other.denum_;
 	result.num_ = num_ * other.denum_ + other.num_ * denum_;
 
-	return result;
+	return result.ReduceFraction();
 }
 
 Fraction Fraction::operator-(const Fraction& other) const
 {
 	Fraction result;
 
+	if ((num_ * other.denum_) > (other.num_ * denum_))
+	{
+		result.num_ = (num_ * other.denum_) - (other.num_ * denum_);
+	}
+	else
+	{
+		result.num_ = (other.num_ * denum_) - (num_ * other.denum_);
+	}
 	result.denum_ = denum_ * other.denum_;
-	result.num_ = (num_ * other.denum_) - (other.num_ * denum_);
 
 	return result;
 }
@@ -371,7 +378,7 @@ Fraction Fraction::operator--()
 // Унарные операторы
 
 //Унарный плюс
-Fraction Fraction::operator+() 
+Fraction Fraction::operator+()
 {
 	this->num_ = num_;
 	this->denum_ = denum_;

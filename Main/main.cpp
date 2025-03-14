@@ -108,12 +108,10 @@ int main()
 
 	std::cout << "\n\n\n";
 
-	// Весь код ниже работает не корректно и нуждается в  дебаге
 	std::cout << num3 + num4 << "\n";
 	std::cout << num3 - num4 << "\n";
 	std::cout << num3 * num4 << "\n";
 	std::cout << num3 / num4 << "\n";
-	// ------------------------------------------------------------------- до сюда
 
 	std::cout << "\n\n\n";
 
@@ -144,10 +142,18 @@ int main()
 
 	std::cout << "\n\n\t\tДесятичные Дроби\n\n";
 
-	std::cout << num5;  // mistake 
-	std::cout << num5.isDecimalPositive() << "\n";  
-	Real sum = num5 + num6;  
-	std::cout << sum << "\n";  // mistake 
+	std::cout << num5.isDecimalPositive() << "\n";
+	std::cout << num5.isDecimalNegative() << "\n";
+	std::cout << num5.isDecimal() << "\n";
+	std::cout << num5.isDecimalSame(num6) << "\n";
+
+	std::cout << "\n\n\n";
+
+	std::cout << num5 << "\n";
+	std::cout << num5 + num6 << "\n";
+	std::cout << num6 - num5 << "\n";
+	std::cout << num5 * num6 << "\n"; // mistake
+	std::cout << num6 / num5 << "\n";
 
 	return 0;
 }
