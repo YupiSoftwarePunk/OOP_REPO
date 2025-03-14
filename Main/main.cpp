@@ -182,13 +182,13 @@ int main()
 
 	// некорректно работает код ниже
 	num5 += num6;
-	std::cout << num5 << "\n";
+	std::cout << num5 << "\n";  // всегда 7(1/2)
 	num5 -= num6;
-	std::cout << num5 << "\n";
+	std::cout << num5 << "\n";	// всегда 7(1/2)
 	num5 *= num6;
-	std::cout << num5 << "\n";
+	std::cout << num5 << "\n";	// всегда 7(1/2)
 	num5 /= num6;
-	std::cout << num5 << "\n";
+	std::cout << num5 << "\n";	// всегда выдается ошибка про деление на 0
 	//----------------------------------------
 
 	std::cout << "\n\n\n";

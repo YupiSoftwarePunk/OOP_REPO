@@ -275,11 +275,11 @@ void Real::operator/=(const Real& other) const
 {
 	Real res = { *this };
 
-	if ((other.units_ == 0 || other.fractional_ == Fraction(0)) || (other.units_ == 0 && other.fractional_ == Fraction(0)))
+	/*if ((other.units_ == 0 || other.fractional_ == Fraction(0)) || (other.units_ == 0 && other.fractional_ == Fraction(0)))
 	{
 		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
 		::exit(-1);
-	}
+	}*/
 	res.units_ /= other.units_;
 	res.fractional_ /= other.fractional_;
 

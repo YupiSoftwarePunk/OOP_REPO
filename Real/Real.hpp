@@ -8,7 +8,8 @@ class Real
 public:
 
 	// constructors
-// All constructors need realization
+    
+    // All constructors need realization
     Real() : Real(Integer(), Fraction()) {}   
     Real(const Integer& units, const Fraction& fractional); 
     Real(const Fraction& obj);
@@ -29,11 +30,11 @@ public:
 
     // сеттеры и геттеры
 
-//setters
+    //setters
     void SetUnits(Integer units);
     void SetFractional(Fraction fractional);
 
-// getters
+    // getters
     Integer GetUnits();
     Fraction GetFractional();
 
