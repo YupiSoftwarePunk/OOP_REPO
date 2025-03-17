@@ -31,6 +31,7 @@
     <ClInclude Include="Dictionary\Dictionary.hpp" />
     <ClInclude Include="Fraction\Fraction.hpp" />
     <ClInclude Include="Integer\Integer.hpp" />
+    <ClInclude Include="Matrix\Matrix.hpp" />
     <ClInclude Include="Real\Real.hpp" />
   </ItemGroup>
   <ItemGroup>
