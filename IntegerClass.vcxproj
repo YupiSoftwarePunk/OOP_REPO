@@ -23,6 +23,7 @@
     <ClCompile Include="Fraction\Fraction.cpp" />
     <ClCompile Include="Integer\Integer.cpp" />
     <ClCompile Include="Main\main.cpp" />
+    <ClCompile Include="Matrix\Matrix.cpp" />
     <ClCompile Include="Real\Real.cpp" />
     <ClCompile Include="SmartPointers\Auto_Unique.cpp" />
     <ClCompile Include="VariaticTemplates\VariaticTemplates.cpp" />

@@ -36,6 +36,9 @@
     <ClCompile Include="Dictionary\Dictionary.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Matrix\Matrix.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fraction\Fraction.hpp">
