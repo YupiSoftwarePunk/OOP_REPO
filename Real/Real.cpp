@@ -143,25 +143,22 @@ Real Real::operator/(const Real& other) const    // переписать опе�
 
 	Real result;
 
+	/*Fraction resUnits;
+	Fraction resFraction;
 
-	// работает не корректно
-	/*if (units_ > other.units_)
-	{
-		result.units_ = units_ / other.units_;
-	}
-	else
-	{
-		result.units_ = other.units_ / units_;
-	}
+	resUnits = Fraction(units_) / Fraction(other.units_);
+	resFraction = Fraction(fractional_) / Fraction(other.fractional_);
 
-	if (fractional_ > other.fractional_)
-	{
-		result.fractional_ = fractional_ / other.fractional_;
-	}
-	else
-	{
-		result.fractional_ = other.fractional_ / fractional_;
-	}*/
+	result.units_ = resUnits.WholePart();
+	result.fractional_ += resFraction.WholePart();
+
+	return result;*/
+
+
+	/*Integer unit = Real(units_).GetUnits() / Real(other.units_).GetUnits();
+	Fraction fractional = Real(fractional_).GetFractional() / Real(other.fractional_).GetFractional();
+
+	return Real(unit, fractional);*/
 
 
 	result.units_ = units_ / other.units_;
@@ -268,16 +265,6 @@ Real& Real::operator*=(const Real& other)
 Real& Real::operator/=(const Real& other)  // пофиксить
 {
 	*this = *this / other;
-
-	//Real res = { *this };
-
-	//if ((other.units_ == 0 || other.fractional_ == Fraction(0)) || (other.units_ == 0 && other.fractional_ == Fraction(0)))
-	//{
-	//	std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
-	//	::exit(-1);
-	//}*/
-	//res.units_ /= other.units_;
-	//res.fractional_ /= other.fractional_;
 
 	return *this;
 }
