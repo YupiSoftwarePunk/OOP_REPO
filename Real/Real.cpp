@@ -133,7 +133,7 @@ Real Real::operator*(const Real& other) const
 	return result;
 }
 
-Real Real::operator/(const Real& other) const
+Real Real::operator/(const Real& other) const    // переписать оператор
 {
 	if ((other.units_ == 0 || other.fractional_ == Fraction(0)) || (other.units_ == 0 && other.fractional_ == Fraction(0)))
 	{
@@ -241,49 +241,45 @@ bool Real::operator!=(const Real& other) const
 
 
 // Операторы присваивания
-void Real::operator+=(const Real& other) const
+Real& Real::operator+=(const Real& other)
 {
-	Real res = { *this };
-
-	res.units_ += other.units_;
-	res.fractional_ += other.fractional_;
-
-	/*return res;*/
+	units_ += other.units_;
+	fractional_ += other.fractional_;
+	units_ += fractional_.WholePart();
+	return *this;
 }
 
-void Real::operator-=(const Real& other) const
+Real& Real::operator-=(const Real& other) 
 {
-	Real res = { *this };
-
-	res.units_ -= other.units_;
-	res.fractional_ -= other.fractional_;
-
-	/*return res;*/
+	units_ -= other.units_;
+	fractional_ -= other.fractional_;
+	units_ += fractional_.WholePart();
+	return *this;
 }
 
-void Real::operator*=(const Real& other) const
+Real& Real::operator*=(const Real& other) 
 {
-	Real res = { *this };
-
-	res.units_ *= other.units_;
-	res.fractional_ *= other.fractional_;
-
-	/*return res;*/
+	units_ *= other.units_;
+	fractional_ *= other.fractional_;
+	units_ += fractional_.WholePart();
+	return *this;
 }
 
-void Real::operator/=(const Real& other) const
+Real& Real::operator/=(const Real& other)  // пофиксить
 {
-	Real res = { *this };
+	*this = *this / other;
 
-	/*if ((other.units_ == 0 || other.fractional_ == Fraction(0)) || (other.units_ == 0 && other.fractional_ == Fraction(0)))
-	{
-		std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
-		::exit(-1);
-	}*/
-	res.units_ /= other.units_;
-	res.fractional_ /= other.fractional_;
+	//Real res = { *this };
 
-	/*return res;*/
+	//if ((other.units_ == 0 || other.fractional_ == Fraction(0)) || (other.units_ == 0 && other.fractional_ == Fraction(0)))
+	//{
+	//	std::cout << "Ошибка!! Деление на 0 запрещено!!\n\n";
+	//	::exit(-1);
+	//}*/
+	//res.units_ /= other.units_;
+	//res.fractional_ /= other.fractional_;
+
+	return *this;
 }
 
 

@@ -11,7 +11,7 @@ public:
 	// constructors
 	Fraction();
 	Fraction(Integer num, Integer denum);
-	Fraction(const Integer &number);
+	Fraction(const Integer& number);
 
 	// setters
 	void SetSign(bool sign);
@@ -26,7 +26,7 @@ public:
 
 
 	// операторо вывода
-	friend std::ostream& operator<<(std::ostream &out, const Fraction &obj);
+	friend std::ostream& operator<<(std::ostream& out, const Fraction& obj);
 
 
 	// Проверка дроби
@@ -44,10 +44,10 @@ public:
 	bool isNumNegative()const;
 
 	// являются ли 2 числа одним и тем же объектом в программе
-	bool isSame(const Fraction &other) const;
+	bool isSame(const Fraction& other) const;
 
 	// Проверка на эквивалентность
-	bool isEqual(const Fraction &other);
+	bool isEqual(const Fraction& other);
 
 
 	// Методы для получения значений
@@ -60,6 +60,8 @@ public:
 
 	// Счет целых чисел в дроби
 	Integer CountUnits() const;
+
+	Integer WholePart()const { return num_ / denum_; }
 
 	// Счет остатка от целового числа в дроби
 	Integer CountRemainder() const;
@@ -100,7 +102,7 @@ public:
 
 
 	// Инкремент и декремент
-	
+
 	// Постфиксные
 	Fraction operator++(int);
 
