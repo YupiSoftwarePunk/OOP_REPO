@@ -33,6 +33,7 @@ Matrix<Type, Coll, Row>::Matrix(Matrix&& other)
 }
 
 
+
 // Деструктор
 template<typename Type, unsigned long long Coll, unsigned long long Row>
 Matrix<Type, Coll, Row>::~Matrix()

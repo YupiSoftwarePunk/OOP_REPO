@@ -23,17 +23,17 @@ template<typename Type, unsigned long long Coll, unsigned long long Row>
 class Matrix
 {
 public:
+	// конструкторы
 	Matrix();
-	//Matrix(/* набор параметров, который сюда можно передать */);
 	Matrix(const Matrix& other);
-	Matrix(Matrix&& other);
+	Matrix(Matrix&& other);  // конструктор переноса
+
+	// деструктор
 	~Matrix();
 
-	const Matrix& operator= (const Matrix& other);
-	const Matrix& operator= (Matrix&& other);
 
-	// operator[][]  сделать это самостоятельно
-	//  так же сюда должен быть добавлен метод at
+	const Matrix& operator= (const Matrix& other);  // конструктор копирования
+	const Matrix& operator= (Matrix&& other);   // конструктор перемещения
 
 
 	// Арифметические операторы
@@ -80,9 +80,17 @@ public:
 
 
 private:
+
+	// поля
 	Type data_[Coll][Row];
 };
 
+
+
+// структура данного трейта-хеширования полностью корректная
+// ваша задача исправить способ передачи шаблонных параметров
+// так чтобы это работало ну и методов в матрицу накидать без
+// которых эта дрянь не будет работать
 namespace std
 {
 	template<typename Type, unsigned long long Coll, unsigned long long Row>
