@@ -33,6 +33,24 @@ Matrix<Type, Coll, Row>::Matrix(Matrix&& other)
 }
 
 
+// Деструктор
+template<typename Type, unsigned long long Coll, unsigned long long Row>
+Matrix<Type, Coll, Row>::~Matrix()
+{
+	int capacity = sizeof(data_) / sizeof(int);
+	if (capacity > 0)
+	{
+		for (int i = 0; i < Row; i++)
+		{
+			for (int j = 0; j < Coll; j++)
+			{
+				delete data_[i][j];
+			}
+		}
+	}
+}
+
+
 
 // оператор вывода
 template<typename Type, unsigned long long Coll, unsigned long long Row>
