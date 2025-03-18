@@ -24,9 +24,9 @@ class Matrix
 {
 public:
 	Matrix();
-	Matrix(/* набор параметров, который сюда можно передать */);
+	//Matrix(/* набор параметров, который сюда можно передать */);
 	Matrix(const Matrix& other);
-	Matrix(Matrix&& dead);
+	Matrix(Matrix&& other);
 	~Matrix();
 
 	const Matrix& operator= (const Matrix& other);
@@ -57,14 +57,12 @@ public:
 	friend const bool operator!= (const Matrix& lso, const Matrix& rso);
 	friend const bool operator> (const Matrix& lso, const Matrix& rso);
 	friend const bool operator< (const Matrix& lso, const Matrix& rso);
-	friend const bool operator<= (const Matrix& lso, const Matrix& rso);
 	friend const bool operator>= (const Matrix& lso, const Matrix& rso);
-	friend const bool operator^= (const Matrix& lso, const Matrix& rso);
-	friend const bool operator=^ (const Matrix& lso, const Matrix& rso);
+	friend const bool operator<= (const Matrix& lso, const Matrix& rso);
 
 
-	// Оператор []
-	Type& operator[] (unsigned long long Coll, unsigned long long Row);
+	// Оператор [] - принимает только 1 параметр, а нам нужно 2, поэтому тут оператор ()
+	Type& operator() (unsigned long long Coll, unsigned long long Row);
 
 
 	// Оператор at
@@ -79,8 +77,6 @@ public:
 
 	// нужны методы для получения определителя матрицы
 	// транспонирования матрицы как модифицирующего так и нет
-
-
 
 
 private:
