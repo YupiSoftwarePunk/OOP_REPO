@@ -202,7 +202,18 @@ int main()
 	std::cout << "\n\n\t\tМатрицы\n\n";
 
 	Matrix<int, 3, 3> table;
+
 	table(0, 0) = 1;
+	table(0, 1) = 2;
+	table(0, 2) = 3;
+	table(1, 0) = 4;
+	table(1, 1) = 5;
+	table(1, 2) = 6;
+	table(2, 0) = 7;
+	table(2, 1) = 8;
+	table(2, 2) = 9;
+
+	std::cout << table(0, 0) << "\n";
 
 
 	return 0;

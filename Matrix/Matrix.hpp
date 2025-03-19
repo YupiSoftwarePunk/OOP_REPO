@@ -26,7 +26,7 @@ public:
 	// конструкторы
 	Matrix();
 	Matrix(const Matrix& other);
-	Matrix(Matrix&& other);  // конструктор переноса
+	Matrix(Matrix&& other) noexcept;  // конструктор переноса
 
 	// деструктор
 	~Matrix();
