@@ -1,9 +1,9 @@
 #include "../Matrix/Matrix.hpp"
 
 // Конструкторы
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-Matrix<Type, Coll, Row>::Matrix()
+Matrix<Type, Row, Coll>::Matrix()
 {
 	for (int i = 0; i < Row; i++)
 	{
@@ -16,9 +16,9 @@ Matrix<Type, Coll, Row>::Matrix()
 
 
 // Конструктор копирования
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-Matrix<Type, Coll, Row>::Matrix(const Matrix& other)
+Matrix<Type, Row, Coll>::Matrix(const Matrix& other)
 {
 	for (int i = 0; i < Row; i++)
 	{
@@ -30,9 +30,9 @@ Matrix<Type, Coll, Row>::Matrix(const Matrix& other)
 }
 
 
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-Matrix<Type, Coll, Row>::Matrix(Matrix&& other) noexcept
+Matrix<Type, Row, Coll>::Matrix(Matrix&& other) noexcept
 {
 	data_ = nullptr;
 	std::swap(data_, other.data_);
@@ -40,9 +40,9 @@ Matrix<Type, Coll, Row>::Matrix(Matrix&& other) noexcept
 
 
 // конструктор присваивания копирования
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-const Matrix& Matrix<Type, Coll, Row>::operator=(const Matrix& other)
+const Matrix& Matrix<Type, Row, Coll>::operator= (const Matrix& other)
 {
 	if (this == &other)
 	{
@@ -61,9 +61,9 @@ const Matrix& Matrix<Type, Coll, Row>::operator=(const Matrix& other)
 
 
 // конструктор переноса
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-const Matrix& Matrix<Type, Coll, Row>::operator=(Matrix&& other)
+const Matrix& Matrix<Type, Row, Coll>::operator= (Matrix&& other)
 {
 	for (int i = 0; i < Row; i++)
 	{
@@ -79,15 +79,15 @@ const Matrix& Matrix<Type, Coll, Row>::operator=(Matrix&& other)
 
 
 // деструктор
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-Matrix<Type, Coll, Row>::~Matrix() = default;
+Matrix<Type, Row, Coll>::~Matrix() = default;
 
 
 
 
 // оператор вывода
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
 std::ostream& opeartor << (std::ostream& outs, const Matrix& rso)
 {
@@ -107,7 +107,7 @@ std::ostream& opeartor << (std::ostream& outs, const Matrix& rso)
 
 
 // оператор ввода
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
 std::istream& opeartor >> (std::istream& ins, const Matrix& rso)
 {
@@ -120,18 +120,18 @@ std::istream& opeartor >> (std::istream& ins, const Matrix& rso)
 
 
 // Оператор []
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-Type& Matrix<Type, Coll, Row>::operator() (unsigned long long row, unsigned long long сoll)
+Type& Matrix<Type, Row, Coll>::operator() (unsigned long long row, unsigned long long сoll)
 {
 	return data_[row][coll];
 }
 
 
 // const Оператор []
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-const Type& Matrix<Type, Coll, Row>::operator() (unsigned long long row, unsigned long long сoll) const
+const Type& Matrix<Type, Row, Coll>::operator() (unsigned long long row, unsigned long long сoll) const
 {
 	return data_[row][coll];
 }
@@ -139,11 +139,11 @@ const Type& Matrix<Type, Coll, Row>::operator() (unsigned long long row, unsigne
 
 
 // Оператор at
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-Type& Matrix<Type, Coll, Row>::at(unsigned long long row, unsigned long long сoll)
+Type& Matrix<Type, Row, Coll>::at(unsigned long long row, unsigned long long сoll)
 {
-	if (сoll >= Coll || row >= Row)
+	if ((сoll >= Coll || row >= Row) || (сoll >= Coll && row >= Row))
 	{
 		std::cout << "Такого индекса нет в матрице!!";
 		::exit(-1);
@@ -153,11 +153,11 @@ Type& Matrix<Type, Coll, Row>::at(unsigned long long row, unsigned long long сol
 
 
 // const Оператор at
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-const Type& Matrix<Type, Coll, Row>::at(unsigned long long row, unsigned long long сoll) const
+const Type& Matrix<Type, Row, Coll>::at(unsigned long long row, unsigned long long сoll) const
 {
-	if (сoll >= Coll || row >= Row)
+	if ((сoll >= Coll || row >= Row) || (сoll >= Coll && row >= Row))
 	{
 		std::cout << "Такого индекса нет в матрице!!";
 		::exit(-1);

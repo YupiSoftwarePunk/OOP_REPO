@@ -11,14 +11,13 @@
 #include <initializer_list>
 
 
-// шаблонные классы
 // шаблон целочисленной матрицы
 
 // это шаблонный класс матрицы, который должен уметь работать только с целыми числами
 // в качестве хранимых типов. Для этого вам нада изучить тему assert функций,
 // специализацию шаблонов или constraint шаблонов. Любой из этих способов может ограничить область применения вашего шаблона.
 
-template<typename Type, unsigned long long Coll, unsigned long long Row>
+template<typename Type, unsigned long long Row, unsigned long long Coll>
 
 class Matrix
 {
@@ -78,7 +77,7 @@ public:
 
 private:
 
-	// поля
+	// поле
 	Type data_[Row][Coll];
 };
 
@@ -86,8 +85,8 @@ private:
 
 namespace std
 {
-	template<typename Type, unsigned long long Coll, unsigned long long Row>
-	struct hash<Matrix<Type, Coll, Row>>
+	template<typename Type, unsigned long long Row, unsigned long long Coll>
+	struct hash<Matrix<Type, Row, Coll>>
 	{
 		size_t operator()(Matrix<Type, unsigned long long, unsigned long long>& obj) {
 			size_t result{};
