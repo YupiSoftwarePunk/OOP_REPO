@@ -14,6 +14,8 @@ Matrix<Type, Coll, Row>::Matrix()
 	}
 }
 
+
+//  онструктор копировани€
 template<typename Type, unsigned long long Coll, unsigned long long Row>
 
 Matrix<Type, Coll, Row>::Matrix(const Matrix& other)
@@ -27,6 +29,7 @@ Matrix<Type, Coll, Row>::Matrix(const Matrix& other)
 	}
 }
 
+
 template<typename Type, unsigned long long Coll, unsigned long long Row>
 
 Matrix<Type, Coll, Row>::Matrix(Matrix&& other)
@@ -36,24 +39,32 @@ Matrix<Type, Coll, Row>::Matrix(Matrix&& other)
 }
 
 
-
-// ƒеструктор
+// конструктор присваивани€ копировани€
 template<typename Type, unsigned long long Coll, unsigned long long Row>
-
-Matrix<Type, Coll, Row>::~Matrix()
+const Matrix& Matrix<Type, Coll, Row>::operator=(const Matrix& other)
 {
-	int capacity = sizeof(data_) / sizeof(int);
-	if (capacity > 0)
+	if (this == &other)
 	{
-		for (int i = 0; i < Row; i++)
+		return *this;
+	}
+	for (int i = 0; i < Row; i++)
+	{
+		for (int j = 0; j < Coll; j++)
 		{
-			for (int j = 0; j < Coll; j++)
-			{
-				delete data_[i][j];
-			}
+			data_[i][j] = other.data_[i][j];
 		}
 	}
+
+	return *this;
 }
+
+
+
+// деструктор
+template<typename Type, unsigned long long Coll, unsigned long long Row>
+
+Matrix<Type, Coll, Row>::~Matrix() = default;
+
 
 
 

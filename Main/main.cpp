@@ -2,6 +2,7 @@
 #include "../Integer/Integer.hpp"
 #include "../Real/Real.hpp"
 #include "../Dictionary/Dictionary.hpp"
+#include "../Matrix/Matrix.hpp"
 
 
 
@@ -195,6 +196,14 @@ int main()
 
 	std::cout << -num5 << "\n";
 	std::cout << +num5 << "\n";
+
+
+
+	std::cout << "\n\n\t\tМатрицы\n\n";
+
+	Matrix<int, 3, 3> table;
+	table(0, 0) = 1;
+
 
 	return 0;
 }
