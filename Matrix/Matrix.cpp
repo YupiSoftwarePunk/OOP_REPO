@@ -60,9 +60,9 @@ Matrix<Type, Coll, Row>::~Matrix()
 // оператор вывода
 template<typename Type, unsigned long long Coll, unsigned long long Row>
 
-std::ostream& opeartor<< (std::ostream& outs, const Matrix& rso)
+std::ostream& opeartor << (std::ostream& outs, const Matrix& rso)
 {
-	for (int i = 0; i < Row; i++)
+	/*for (int i = 0; i < Row; i++)
 	{
 		for (int j = 0; j < Coll; j++)
 		{
@@ -70,8 +70,23 @@ std::ostream& opeartor<< (std::ostream& outs, const Matrix& rso)
 		}
 		outs << "\n";
 	}
-	return outs;
+	return outs;*/
+	outs << rso;
+	return out;
 }
+
+
+
+// оператор ввода
+template<typename Type, unsigned long long Coll, unsigned long long Row>
+
+std::istream& opeartor >> (std::istream& ins, const Matrix& rso)
+{
+	ins >> rso;
+	return ins;
+}
+
+
 
 
 

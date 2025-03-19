@@ -32,8 +32,8 @@ public:
 	~Matrix();
 
 
-	const Matrix& operator= (const Matrix& other);  // конструктор копировани€
-	const Matrix& operator= (Matrix&& other);   // конструктор перемещени€
+	const Matrix& operator= (const Matrix& other);  // конструктор присваивани€ копировани€
+	const Matrix& operator= (Matrix&& other);   // конструктор переноса
 
 
 	// јрифметические операторы
