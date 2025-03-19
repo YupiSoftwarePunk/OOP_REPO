@@ -89,9 +89,9 @@ Matrix<Type, Row, Coll>::~Matrix() = default;
 // оператор вывода
 template<typename Type, unsigned long long Row, unsigned long long Coll>
 
-std::ostream& opeartor << (std::ostream& outs, const Matrix& rso)
+std::ostream& opeartor << (std::ostream& outs, const Matrix<Type, Row, Coll>& rso)
 {
-	/*for (int i = 0; i < Row; i++)
+	for (int i = 0; i < Row; i++)
 	{
 		for (int j = 0; j < Coll; j++)
 		{
@@ -99,9 +99,10 @@ std::ostream& opeartor << (std::ostream& outs, const Matrix& rso)
 		}
 		outs << "\n";
 	}
-	return outs;*/
-	outs << rso;
-	return out;
+	return outs;
+
+	/*outs << rso;
+	return out;*/
 }
 
 
