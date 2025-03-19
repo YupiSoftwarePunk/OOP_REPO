@@ -75,11 +75,6 @@ public:
 	friend std::ostream& opeartor<<(std::ostream & outs, const Matrix & rso);
 	friend std::istream& opeartor>>(std::istream & ins, const Matrix & rso);
 
-	// какие-то из операторов выше нужны, а некоторые нет и нужно это обосновать
-
-	// нужны методы для получения определителя матрицы
-	// транспонирования матрицы как модифицирующего так и нет
-
 
 private:
 
@@ -89,10 +84,6 @@ private:
 
 
 
-// структура данного трейта-хеширования полностью корректная
-// ваша задача исправить способ передачи шаблонных параметров
-// так чтобы это работало ну и методов в матрицу накидать без
-// которых эта дрянь не будет работать
 namespace std
 {
 	template<typename Type, unsigned long long Coll, unsigned long long Row>
