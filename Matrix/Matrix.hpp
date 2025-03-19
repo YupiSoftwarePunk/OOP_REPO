@@ -62,11 +62,13 @@ public:
 
 
 	// Оператор [] - принимает только 1 параметр, а нам нужно 2, поэтому тут оператор ()
-	Type& operator() (unsigned long long Coll, unsigned long long Row);
+	Type& operator() (unsigned long long row, unsigned long long сoll);
+	const Type& operator() (unsigned long long row, unsigned long long сoll) const;
 
 
 	// Оператор at
-	Type& at(unsigned long long Coll, unsigned long long Row);
+	Type& at(unsigned long long row, unsigned long long сoll);
+	const Type& at(unsigned long long row, unsigned long long сoll) const;
 
 
 	// операторы ввода и вывода
@@ -82,7 +84,7 @@ public:
 private:
 
 	// поля
-	Type data_[Coll][Row];
+	Type data_[Row][Coll];
 };
 
 
