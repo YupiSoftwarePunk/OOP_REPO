@@ -45,17 +45,18 @@ public:
 	friend const Matrix& operator+ (const Matrix& lso, const Matrix& rso);
 	friend const Matrix& operator- (const Matrix& lso, const Matrix& rso);
 	friend const Matrix& operator* (const Matrix& lso, const Matrix& rso);
-	friend const Matrix& operator* (const Matrix& lso, int num);
+	friend const Matrix& operator* (const Matrix& lso, const int& num);
 	friend const Matrix& operator/ (const Matrix& lso, const Matrix& rso);
 	friend const Matrix& operator^ (const Matrix& lso, const Integer& rso);
 
 
 	// Присваивающие операторы
-	friend const Matrix& operator+= (const Matrix& lso, const Matrix& rso);
-	friend const Matrix& operator-= (const Matrix& lso, const Matrix& rso);
-	friend const Matrix& operator*= (const Matrix& lso, const Matrix& rso);
-	friend const Matrix& operator/= (const Matrix& lso, const Matrix& rso);
-	friend const Matrix& operator^= (const Matrix& lso, const Integer& rso);
+	friend const Matrix& operator+= (Matrix& lso, const Matrix& rso);
+	friend const Matrix& operator-= (Matrix& lso, const Matrix& rso);
+	friend const Matrix& operator*= (Matrix& lso, const Matrix& rso);
+	friend const Matrix& operator*= (Matrix& lso, const int& num);
+	friend const Matrix& operator/= (Matrix& lso, const Matrix& rso);
+	friend const Matrix& operator^= (Matrix& lso, const Integer& rso);
 
 
 	// Сравнительные операторы

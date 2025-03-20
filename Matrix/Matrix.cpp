@@ -198,6 +198,7 @@ const Matrix& operator+(const Matrix& lso, const Matrix& rso)
 				result[i][j] = lso[i][j] + rso[i][j];
 			}
 		}
+
 		return result;
 	}
 	else
@@ -221,6 +222,7 @@ const Matrix& operator-(const Matrix& lso, const Matrix& rso)
 				result[i][j] = lso[i][j] - rso[i][j];
 			}
 		}
+
 		return result;
 	}
 	else
@@ -248,6 +250,7 @@ const Matrix& operator*(const Matrix& lso, const Matrix& rso)
 				}
 			}
 		}
+
 		return result;
 	}
 	else
@@ -258,13 +261,13 @@ const Matrix& operator*(const Matrix& lso, const Matrix& rso)
 }
 
 
-const Matrix& operator*(const Matrix& lso, int num)
+const Matrix& operator*(const Matrix& lso, const int& num)
 {
 	Matrix<Type, lso.rowSize(), lso.collSize()> result;
 
 	for (int i = 0; i < lso.rowSize(); i++)
 	{
-		for (int j = 0; j < rso.collSize(); j++)
+		for (int j = 0; j < lso.collSize(); j++)
 		{
 			result[i][j] = lso[i][j] * num;
 		}
@@ -290,6 +293,7 @@ const Matrix& operator/(const Matrix& lso, const Matrix& rso)
 				}
 			}
 		}
+
 		return result;
 	}
 	else
@@ -344,4 +348,45 @@ const Matrix& operator-=(const Matrix& lso, const Matrix& rso)
 		std::cout << "Размеры матриц должны быть равны!!";
 		::exit(-1);
 	}
+}
+
+
+const Matrix& operator*=(Matrix& lso, const Matrix& rso)
+{
+	if (((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize())) || ((rso.collSize() - lso.collSize() == 1) && (rso.rowSize() - lso.rowSize() == 1)))
+	{
+
+		for (int i = 0; i < lso.rowSize(); i++)
+		{
+			for (int j = 0; j < rso.collSize(); j++)
+			{
+				lso[i][j] = 0;
+				for (int t = 0; t < lso.collSize(); t++)
+				{
+					lso[i][j] += lso[i][t] * rso[t][j];
+				}
+			}
+		}
+
+		return lso;
+	}
+	else
+	{
+		std::cout << "Размеры матриц должны быть равны или внутренние размеры матриц должны совпадать!!";
+		::exit(-1);
+	}
+}
+
+
+const Matrix& operator*=(Matrix& lso, const int& num)
+{
+	for (int i = 0; i < lso.rowSize(); i++)
+	{
+		for (int j = 0; j < lso.collSize(); j++)
+		{
+			lso[i][j] *= num;
+		}
+	}
+
+	return lso;
 }
