@@ -231,3 +231,26 @@ const Matrix& operator-(const Matrix& lso, const Matrix& rso)
 		::exit(-1);
 	}
 }
+
+
+const Matrix& operator*(const Matrix& lso, const Matrix& rso)
+{
+	// to do
+}
+
+
+const Matrix& operator*(const Matrix& lso, int num)
+{
+	unsigned long long newObj = lso.rowSize();
+	Matrix<Type, newObj, lso.collSize()> result;
+
+	for (int i = 0; i < lso.rowSize(); i++)
+	{
+		for (int j = 0; j < rso.collSize(); j++)
+		{
+			result[i][j] = lso[i][j] * num;
+		}
+	}
+
+	return result;
+}

@@ -45,6 +45,7 @@ public:
 	friend const Matrix& operator+ (const Matrix& lso, const Matrix& rso);
 	friend const Matrix& operator- (const Matrix& lso, const Matrix& rso);
 	friend const Matrix& operator* (const Matrix& lso, const Matrix& rso);
+	friend const Matrix& operator* (const Matrix& lso, int num);
 	friend const Matrix& operator/ (const Matrix& lso, const Matrix& rso);
 	friend const Matrix& operator^ (const Matrix& lso, const Integer& rso);
 
