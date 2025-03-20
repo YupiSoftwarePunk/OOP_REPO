@@ -311,7 +311,7 @@ const Matrix& operator/(const Matrix& lso, const Matrix& rso)
 
 
 // Присваивающие операторы
-const Matrix& operator+=(const Matrix& lso, const Matrix& rso)
+const Matrix& operator+=(Matrix& lso, const Matrix& rso)
 {
 	if ((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize()))
 	{
@@ -333,7 +333,7 @@ const Matrix& operator+=(const Matrix& lso, const Matrix& rso)
 }
 
 
-const Matrix& operator-=(const Matrix& lso, const Matrix& rso)
+const Matrix& operator-=(Matrix& lso, const Matrix& rso)
 {
 	if ((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize()))
 	{
