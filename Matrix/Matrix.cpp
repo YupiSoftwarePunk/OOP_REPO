@@ -85,6 +85,22 @@ Matrix<Type, Row, Coll>::~Matrix() = default;
 
 
 
+// размер колонок и строк
+template<typename Type, unsigned long long Row, unsigned long long Coll>
+unsigned long long Matrix<Type, Row, Coll>::collSize() const
+{
+	return Coll;
+}
+
+
+template<typename Type, unsigned long long Row, unsigned long long Coll>
+unsigned long long Matrix<Type, Row, Coll>::rowSize() const
+{
+	return Row;
+}
+
+
+
 
 // оператор вывода
 template<typename Type, unsigned long long Row, unsigned long long Coll>
@@ -164,4 +180,24 @@ const Type& Matrix<Type, Row, Coll>::at(unsigned long long row, unsigned long lo
 		::exit(-1);
 	}
 	return data_[row][сoll];
+}
+
+
+
+// Арифметические операторы
+const Matrix& operator+(const Matrix& lso, const Matrix& rso)
+{
+	if (sizeof(lso.data_) == sizeof(rso.data_))
+	{
+		unsigned long long newObj = rso.rowSize();
+		Matrix<Type, newObj, rso.collSize()> result;
+
+		for (int i = 0; i < rso.rowSize(); i++)
+		{
+			for (int j = 0; j < rso.collSize(); j++)
+			{
+				result[i][j] = lso[i][j] + rso[i][j];
+			}
+		}
+	}
 }

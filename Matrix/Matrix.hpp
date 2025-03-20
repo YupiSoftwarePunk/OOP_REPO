@@ -35,6 +35,12 @@ public:
 	const Matrix& operator= (Matrix&& other);   // конструктор переноса
 
 
+	// размер колонок и строк
+	unsigned long long collSize() const;
+	unsigned long long rowSize() const;
+
+
+
 	// Арифметические операторы
 	friend const Matrix& operator+ (const Matrix& lso, const Matrix& rso);
 	friend const Matrix& operator- (const Matrix& lso, const Matrix& rso);
