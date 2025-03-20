@@ -273,6 +273,7 @@ const Matrix& operator*(const Matrix& lso, int num)
 	return result;
 }
 
+
 const Matrix& operator/(const Matrix& lso, const Matrix& rso)
 {
 	if ((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize()))
@@ -290,6 +291,53 @@ const Matrix& operator/(const Matrix& lso, const Matrix& rso)
 			}
 		}
 		return result;
+	}
+	else
+	{
+		std::cout << "Размеры матриц должны быть равны!!";
+		::exit(-1);
+	}
+}
+
+
+
+
+// Присваивающие операторы
+const Matrix& operator+=(const Matrix& lso, const Matrix& rso)
+{
+	if ((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize()))
+	{
+		for (int i = 0; i < rso.rowSize(); i++)
+		{
+			for (int j = 0; j < rso.collSize(); j++)
+			{
+				lso[i][j] += rso[i][j];
+			}
+		}
+
+		return lso;
+	}
+	else
+	{
+		std::cout << "Размеры матриц должны быть равны!!";
+		::exit(-1);
+	}
+}
+
+
+const Matrix& operator-=(const Matrix& lso, const Matrix& rso)
+{
+	if ((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize()))
+	{
+		for (int i = 0; i < rso.rowSize(); i++)
+		{
+			for (int j = 0; j < rso.collSize(); j++)
+			{
+				lso[i][j] -= rso[i][j];
+			}
+		}
+
+		return lso;
 	}
 	else
 	{
