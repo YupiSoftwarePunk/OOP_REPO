@@ -235,7 +235,8 @@ const Matrix& operator-(const Matrix& lso, const Matrix& rso)
 
 const Matrix& operator*(const Matrix& lso, const Matrix& rso)
 {
-	if (((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize())) || ((rso.collSize() - lso.collSize() == 1) && (rso.rowSize() - lso.rowSize() == 1)))
+	if (((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize())) || 
+		((rso.collSize() - lso.collSize() == 1) && (rso.rowSize() - lso.rowSize() == 1)))
 	{
 		Matrix<Type, rso.rowSize(), rso.collSize()> result;
 
@@ -353,20 +354,23 @@ const Matrix& operator-=(const Matrix& lso, const Matrix& rso)
 
 const Matrix& operator*=(Matrix& lso, const Matrix& rso)
 {
-	if (((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize())) || ((rso.collSize() - lso.collSize() == 1) && (rso.rowSize() - lso.rowSize() == 1)))
+	if (((lso.collSize() == rso.collSize()) && (lso.rowSize() == rso.rowSize())) || 
+		((rso.collSize() - lso.collSize() == 1) && (rso.rowSize() - lso.rowSize() == 1)))
 	{
+		Matrix<Type, rso.rowSize(), rso.collSize()> result;
 
 		for (int i = 0; i < lso.rowSize(); i++)
 		{
 			for (int j = 0; j < rso.collSize(); j++)
 			{
-				lso[i][j] = 0;
+				result[i][j] = 0;
 				for (int t = 0; t < lso.collSize(); t++)
 				{
-					lso[i][j] += lso[i][t] * rso[t][j];
+					result[i][j] += lso[i][t] * rso[t][j];
 				}
 			}
 		}
+		lso = result;
 
 		return lso;
 	}
