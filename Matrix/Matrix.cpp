@@ -199,5 +199,35 @@ const Matrix& operator+(const Matrix& lso, const Matrix& rso)
 				result[i][j] = lso[i][j] + rso[i][j];
 			}
 		}
+		return result;
+	}
+	else
+	{
+		std::cout << "Размеры матриц должны быть равны!!";
+		::exit(-1);
+	}
+}
+
+
+const Matrix& operator-(const Matrix& lso, const Matrix& rso)
+{
+	if (sizeof(lso.data_) == sizeof(rso.data_))
+	{
+		unsigned long long newObj = rso.rowSize();
+		Matrix<Type, newObj, rso.collSize()> result;
+
+		for (int i = 0; i < rso.rowSize(); i++)
+		{
+			for (int j = 0; j < rso.collSize(); j++)
+			{
+				result[i][j] = lso[i][j] - rso[i][j];
+			}
+		}
+		return result;
+	}
+	else
+	{
+		std::cout << "Размеры матриц должны быть равны!!";
+		::exit(-1);
 	}
 }
