@@ -301,7 +301,7 @@ public:
 
 
 	// операторы ввода и вывода
-	friend std::ostream& opeartor << (std::ostream & outs, const Matrix & rso)
+	friend std::ostream& operator << (std::ostream & outs, const Matrix & rso)
 	{
 		for (int i = 0; i < Row; i++)
 		{
@@ -314,7 +314,7 @@ public:
 		return outs;
 	}
 
-	friend std::istream& opeartor >> (std::istream & ins, const Matrix & rso)
+	friend std::istream& operator >> (std::istream & ins, const Matrix & rso)
 	{
 		for (int i = 0; i < Row; i++)
 		{
@@ -341,7 +341,7 @@ namespace std
 	template<typename Type, unsigned long long Row, unsigned long long Coll>
 	struct hash<Matrix<Type, Row, Coll>>
 	{
-		size_t operator()(Matrix<Type, unsigned long long, unsigned long long>& obj) {
+		size_t operator()(const Matrix<Type, Coll, Row>& obj) {
 			size_t result{};
 			for (size_t i = 0; i < obj.rowSize(); i++) {
 				for (size_t j = 0; j < obj.collSize(); j++) {
