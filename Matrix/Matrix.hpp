@@ -78,13 +78,15 @@ public:
 
 
 	// Арифметические операторы
-	friend const Matrix& operator+ (const Matrix& lso, const Matrix& rso)
+	friend const Matrix& operator+ (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row, Coll>& rso)
 	{
-		Matrix<Type, rso.rowSize(), rso.collSize()> result;
+		Matrix<Type, Row, Coll> result;
 
-		for (int i = 0; i < rso.rowSize(); i++)
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < rso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				result[i][j] = lso[i][j] + rso[i][j];
 			}
@@ -93,13 +95,15 @@ public:
 		return result;
 	}
 
-	friend const Matrix& operator- (const Matrix& lso, const Matrix& rso)
+	friend const Matrix& operator- (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row, Coll>& rso)
 	{
-		Matrix<Type, rso.rowSize(), rso.collSize()> result;
+		Matrix<Type, Row, Coll> result;
 
-		for (int i = 0; i < rso.rowSize(); i++)
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < rso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				result[i][j] = lso[i][j] - rso[i][j];
 			}
@@ -108,17 +112,19 @@ public:
 		return result;
 	}
 
-	friend const Matrix& operator* (const Matrix& lso, const Matrix& rso)
+	friend const Matrix& operator* (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row, Coll>& rso)
 	{
-		Matrix<Type, rso.rowSize(), rso.collSize()> result;
+		Matrix<Type, Row, Coll> result;
 
-		for (int i = 0; i < lso.rowSize(); i++)
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < rso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				result[i][j] = 0;
 
-				for (int t = 0; t < lso.collSize(); t++)
+				for (int t = 0; t < Coll; t++)
 				{
 					result[i][j] += lso[i][t] * rso[t][j];
 				}
@@ -128,13 +134,13 @@ public:
 		return result;
 	}
 
-	friend const Matrix& operator* (const Matrix& lso, const int& num)
+	friend const Matrix& operator* (const Matrix<Type, Row, Coll>& lso, const int& num)
 	{
-		Matrix<Type, lso.rowSize(), lso.collSize()> result;
+		Matrix<Type, Row, Coll> result;
 
-		for (int i = 0; i < lso.rowSize(); i++)
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < lso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				result[i][j] = lso[i][j] * num;
 			}
@@ -143,17 +149,20 @@ public:
 		return result;
 	}
 
-	friend const Matrix& operator/ (const Matrix& lso, const Matrix& rso)
-	{
-		Matrix<Type, rso.rowSize(), rso.collSize()> result;
 
-		for (int i = 0; i < lso.rowSize(); i++)
+	friend const Matrix& operator/ (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row, Coll>& rso)
+	{
+		Matrix<Type, Row, Coll> result;
+
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < rso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				result[i][j] = 0;
 
-				for (int t = 0; t < lso.collSize(); t++)
+				for (int t = 0; t < Coll; t++)
 				{
 					result[i][j] += lso[i][t] * (1 / rso[t][j]);
 				}
@@ -164,12 +173,15 @@ public:
 	}
 
 
+
 	// Присваивающие операторы
-	friend const Matrix& operator+= (Matrix& lso, const Matrix& rso)
+	friend const Matrix& operator+= (
+		Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row, Coll>& rso)
 	{
-		for (int i = 0; i < rso.rowSize(); i++)
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < rso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				lso[i][j] += rso[i][j];
 			}
@@ -178,11 +190,13 @@ public:
 		return lso;
 	}
 
-	friend const Matrix& operator-= (Matrix& lso, const Matrix& rso)
+	friend const Matrix& operator-= (
+		Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row, Coll>& rso)
 	{
-		for (int i = 0; i < rso.rowSize(); i++)
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < rso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				lso[i][j] -= rso[i][j];
 			}
@@ -191,16 +205,18 @@ public:
 		return lso;
 	}
 
-	friend const Matrix& operator*= (Matrix& lso, const Matrix& rso)
+	friend const Matrix& operator*= (
+		Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row, Coll>& rso)
 	{
-		Matrix<Type, rso.rowSize(), rso.collSize()> result;
+		Matrix<Type, Row, Coll> result;
 
-		for (int i = 0; i < lso.rowSize(); i++)
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < rso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				result[i][j] = 0;
-				for (int t = 0; t < lso.collSize(); t++)
+				for (int t = 0; t < Coll; t++)
 				{
 					result[i][j] += lso[i][t] * rso[t][j];
 				}
@@ -211,11 +227,11 @@ public:
 		return lso;
 	}
 
-	friend const Matrix& operator*= (Matrix& lso, const int& num)
+	friend const Matrix& operator*= (Matrix<Type, Row, Coll>& lso, const int& num)
 	{
-		for (int i = 0; i < lso.rowSize(); i++)
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < lso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				lso[i][j] *= num;
 			}
@@ -224,17 +240,19 @@ public:
 		return lso;
 	}
 
-	friend const Matrix& operator/= (Matrix& lso, const Matrix& rso)
+	friend const Matrix& operator/= (
+		Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row, Coll>& rso)
 	{
-		Matrix<Type, rso.rowSize(), rso.collSize()> result;
+		Matrix<Type, Row, Coll> result;
 
-		for (int i = 0; i < lso.rowSize(); i++)
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < rso.collSize(); j++)
+			for (int j = 0; j < Coll; j++)
 			{
 				result[i][j] = 0;
 
-				for (int t = 0; t < lso.collSize(); t++)
+				for (int t = 0; t < Coll; t++)
 				{
 					result[i][j] += lso[i][t] * (1 / rso[t][j]);
 				}
