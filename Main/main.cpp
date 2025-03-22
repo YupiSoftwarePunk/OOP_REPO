@@ -201,7 +201,7 @@ int main()
 
 	std::cout << "\n\n\t\tМатрицы\n\n";
 
-	Matrix<int, 3, 3> table;
+	Matrix<Integer, 3, 3> table;
 
 	table(0, 0) = 1;
 	table(0, 1) = 2;

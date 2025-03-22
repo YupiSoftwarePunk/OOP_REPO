@@ -78,9 +78,10 @@ public:
 
 
 	// Арифметические операторы
+	template<unsigned long long Row2, unsigned long long Coll2>
 	friend const Matrix& operator+ (
 		const Matrix<Type, Row, Coll>& lso,
-		const Matrix<Type, Row, Coll>& rso)
+		const Matrix<Type, Row2, Coll2>& rso)
 	{
 		Matrix<Type, Row, Coll> result;
 
@@ -275,26 +276,26 @@ public:
 
 
 	// Оператор [] - принимает только 1 параметр, а нам нужно 2, поэтому тут оператор ()
-	Type& operator() (unsigned long long row, unsigned long long сoll)
+	Type& operator() (unsigned long long Row, unsigned long long Coll)
 	{
-		return data_[row][coll];
+		return data_[Row][Coll];
 	}
 
-	const Type& operator() (unsigned long long row, unsigned long long сoll) const
+	const Type& operator() (unsigned long long Row, unsigned long long Coll) const
 	{
-		return data_[row][coll];
+		return data_[Row][Coll];
 	}
 
 
 	// Оператор at
-	Type& at(unsigned long long row, unsigned long long сoll)
+	Type& at(unsigned long long Row, unsigned long long Coll)
 	{
-		return data_[row][coll];
+		return data_[Row][Coll];
 	}
 
-	const Type& at(unsigned long long row, unsigned long long сoll) const
+	const Type& at(unsigned long long Row, unsigned long long Coll) const
 	{
-		return data_[row][coll];
+		return data_[Row][Coll];
 	}
 
 
@@ -313,13 +314,13 @@ public:
 		return outs;
 	}
 
-	friend std::istream& opeartor >> (std::istream& ins, const Matrix& rso)
+	friend std::istream& opeartor >> (std::istream & ins, const Matrix & rso)
 	{
 		for (int i = 0; i < Row; i++)
 		{
 			for (int j = 0; j < Coll; j++)
 			{
-				ins >> rso[i][j];
+				ins >> rso[i][j] >> " ";
 			}
 			ins >> "\n";
 		}
@@ -342,8 +343,8 @@ namespace std
 	{
 		size_t operator()(Matrix<Type, unsigned long long, unsigned long long>& obj) {
 			size_t result{};
-			for (size_t i = 0; i < obj.rows(); i++) {
-				for (size_t j = 0; j < obj.columns(); j++) {
+			for (size_t i = 0; i < obj.rowSize(); i++) {
+				for (size_t j = 0; j < obj.collSize(); j++) {
 					result <<= 1;
 					result ^= hash<Type>()(obj[i][j]);
 				}
