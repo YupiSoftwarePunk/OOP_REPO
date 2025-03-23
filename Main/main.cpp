@@ -188,8 +188,8 @@ int main()
 	num5 *= num6;
 	std::cout << num5 << "\n";	
 	// некорректно работает код ниже
-	num5 /= num6;
-	std::cout << num5 << "\n";	// всегда выдается ошибка про деление на 0
+	/*num5 /= num6;
+	std::cout << num5 << "\n";*/	// всегда выдается ошибка про деление на 0
 	//----------------------------------------
 
 	std::cout << "\n\n\n";
@@ -213,8 +213,56 @@ int main()
 	table(2, 1) = 8;
 	table(2, 2) = 9;
 
+
+	Matrix<Integer, 3, 3> table2;
+
+	table2(0, 0) = 1;
+	table2(0, 1) = 2;
+	table2(0, 2) = 3;
+	table2(1, 0) = 4;
+	table2(1, 1) = 5;
+	table2(1, 2) = 6;
+	table2(2, 0) = 7;
+	table2(2, 1) = 8;
+	table2(2, 2) = 9;
+
 	std::cout << table(0, 0) << "\n";
 
+	std::cout << "\n\n\n";
+
+	Matrix<Integer, 3, 3> table3 = table + table2;
+	std::cout << table3 << "\n";
+	Matrix<Integer, 3, 3> table3 = table - table2;
+	std::cout << table3 << "\n";
+	Matrix<Integer, 3, 3> table3 = table * table2;
+	std::cout << table3 << "\n";
+	Matrix<Integer, 3, 3> table3 = table / table2;
+	std::cout << table3 << "\n";
+
+
+	std::cout << "\n\n\n";
+
+
+	std::cout << table << "\n";
+	table += table2;
+	std::cout << table << "\n";
+	table -= table2;
+	std::cout << table << "\n";
+	table *= table2;
+	std::cout << table << "\n";
+	table /= table2;
+	std::cout << table << "\n";
+
+
+	std::cout << "\n\n\n";
+
+
+	std::cout << (table == table2) << "\n";
+	std::cout << (table != table2) << "\n";
+	std::cout << (table > table2) << "\n";
+	std::cout << (table < table2) << "\n";
+	std::cout << (table >= table2) << "\n";
+	std::cout << (table <= table2) << "\n";
 
 	return 0;
 }
