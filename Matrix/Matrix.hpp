@@ -23,16 +23,7 @@ class Matrix
 {
 public:
 	// конструкторы
-	Matrix()
-	{
-		for (int i = 0; i < Row; i++)
-		{
-			for (int j = 0; j < Coll; j++)
-			{
-				data_[i][j] = Type{};
-			}
-		}
-	}
+	Matrix() {}
 
 	Matrix(const Matrix& other)
 	{
@@ -96,9 +87,10 @@ public:
 		return result;
 	}
 
+	template<unsigned long long Row2, unsigned long long Coll2>
 	friend const Matrix& operator- (
 		const Matrix<Type, Row, Coll>& lso,
-		const Matrix<Type, Row, Coll>& rso)
+		const Matrix<Type, Row2, Coll2>& rso)
 	{
 		Matrix<Type, Row, Coll> result;
 
@@ -113,9 +105,10 @@ public:
 		return result;
 	}
 
+	template<unsigned long long Row2, unsigned long long Coll2>
 	friend const Matrix& operator* (
 		const Matrix<Type, Row, Coll>& lso,
-		const Matrix<Type, Row, Coll>& rso)
+		const Matrix<Type, Row2, Coll2>& rso)
 	{
 		Matrix<Type, Row, Coll> result;
 
@@ -150,10 +143,10 @@ public:
 		return result;
 	}
 
-
+	template<unsigned long long Row2, unsigned long long Coll2>
 	friend const Matrix& operator/ (
 		const Matrix<Type, Row, Coll>& lso,
-		const Matrix<Type, Row, Coll>& rso)
+		const Matrix<Type, Row2, Coll2>& rso)
 	{
 		Matrix<Type, Row, Coll> result;
 
@@ -176,9 +169,10 @@ public:
 
 
 	// Присваивающие операторы
+	template<unsigned long long Row2, unsigned long long Coll2>
 	friend const Matrix& operator+= (
 		Matrix<Type, Row, Coll>& lso,
-		const Matrix<Type, Row, Coll>& rso)
+		const Matrix<Type, Row2, Coll2>& rso)
 	{
 		for (int i = 0; i < Row; i++)
 		{
@@ -191,9 +185,10 @@ public:
 		return lso;
 	}
 
+	template<unsigned long long Row2, unsigned long long Coll2>
 	friend const Matrix& operator-= (
 		Matrix<Type, Row, Coll>& lso,
-		const Matrix<Type, Row, Coll>& rso)
+		const Matrix<Type, Row2, Coll2>& rso)
 	{
 		for (int i = 0; i < Row; i++)
 		{
@@ -206,9 +201,10 @@ public:
 		return lso;
 	}
 
+	template<unsigned long long Row2, unsigned long long Coll2>
 	friend const Matrix& operator*= (
 		Matrix<Type, Row, Coll>& lso,
-		const Matrix<Type, Row, Coll>& rso)
+		const Matrix<Type, Row2, Coll2>& rso)
 	{
 		Matrix<Type, Row, Coll> result;
 
@@ -241,9 +237,10 @@ public:
 		return lso;
 	}
 
+	template<unsigned long long Row2, unsigned long long Coll2>
 	friend const Matrix& operator/= (
 		Matrix<Type, Row, Coll>& lso,
-		const Matrix<Type, Row, Coll>& rso)
+		const Matrix<Type, Row2, Coll2>& rso)
 	{
 		Matrix<Type, Row, Coll> result;
 
@@ -267,12 +264,113 @@ public:
 
 
 	// Сравнительные операторы
-	friend const bool operator== (const Matrix& lso, const Matrix& rso);
-	friend const bool operator!= (const Matrix& lso, const Matrix& rso);
-	friend const bool operator> (const Matrix& lso, const Matrix& rso);
-	friend const bool operator< (const Matrix& lso, const Matrix& rso);
-	friend const bool operator>= (const Matrix& lso, const Matrix& rso);
-	friend const bool operator<= (const Matrix& lso, const Matrix& rso);
+	template<unsigned long long Row2, unsigned long long Coll2>
+	friend const Matrix& operator== (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row2, Coll2>& rso)
+	{
+		for (int i = 0; i < Row; i++) 
+		{
+			for (int j = 0; j < Coll; j++) 
+			{
+				if (lso[i][j] != rso[i][j]) 
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	template<unsigned long long Row2, unsigned long long Coll2>
+	friend const Matrix& operator!= (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row2, Coll2>& rso)
+	{
+		for (int i = 0; i < Row; i++)
+		{
+			for (int j = 0; j < Coll; j++)
+			{
+				if (lso[i][j] != rso[i][j])
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	template<unsigned long long Row2, unsigned long long Coll2>
+	friend const Matrix& operator> (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row2, Coll2>& rso)
+	{
+		for (int i = 0; i < Row; i++)
+		{
+			for (int j = 0; j < Coll; j++)
+			{
+				if (lso[i][j] < rso[i][j])
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	template<unsigned long long Row2, unsigned long long Coll2>
+	friend const Matrix& operator< (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row2, Coll2>& rso)
+	{
+		for (int i = 0; i < Row; i++)
+		{
+			for (int j = 0; j < Coll; j++)
+			{
+				if (lso[i][j] > rso[i][j])
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	template<unsigned long long Row2, unsigned long long Coll2>
+	friend const Matrix& operator>= (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row2, Coll2>& rso)
+	{
+		for (int i = 0; i < Row; i++)
+		{
+			for (int j = 0; j < Coll; j++)
+			{
+				if (lso[i][j] <= rso[i][j])
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	template<unsigned long long Row2, unsigned long long Coll2>
+	friend const Matrix& operator<= (
+		const Matrix<Type, Row, Coll>& lso,
+		const Matrix<Type, Row2, Coll2>& rso)
+	{
+		for (int i = 0; i < Row; i++)
+		{
+			for (int j = 0; j < Coll; j++)
+			{
+				if (lso[i][j] >= rso[i][j])
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
 
 	// Оператор [] - принимает только 1 параметр, а нам нужно 2, поэтому тут оператор ()
@@ -322,7 +420,6 @@ public:
 			{
 				ins >> rso[i][j] >> " ";
 			}
-			ins >> "\n";
 		}
 		return ins;
 	}
