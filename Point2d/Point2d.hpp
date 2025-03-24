@@ -34,7 +34,12 @@ public:
 	bool IsEqualPoints(const Point2d& other);
 
 
-	// Оператор вывода и ввода
+	// Расчет расстояния между точками
+	friend Point2d DistanceBetweenPoints(const Point2d& x, const Point2d& y);
+
+
+
+	// Оператор ввода и вывода
 	friend std::ostream& operator<< (std::ostream& out, const Point2d obj);
 	friend std::istream& operator>> (std::istream& in, const Point2d obj);
 

@@ -40,6 +40,17 @@ bool Point2d::IsEqualPoints(const Point2d& other)
 
 
 
+// Расчет расстояния между точками
+Point2d DistanceBetweenPoints(const Point2d& x, const Point2d& y)
+{
+	double x1 = static_cast<double>(x.num2_ - x.num1_);
+	double y1 = static_cast<double>(y.num2_ - y.num1_)
+
+	std::sqrt(x1 * x1 + y1 * y1);
+}
+
+
+
 
 std::ostream& operator<<(std::ostream& out, const Point2d obj)
 {
