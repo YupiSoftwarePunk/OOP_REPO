@@ -24,6 +24,20 @@ public:
 	Real GetNum1();
 	Real GetNum2();
 
+ 
+
+	// Сравнительный оператор 
+	friend bool operator==(const Point2d& num1, const Point2d& num2);
+
+
+	// проверка одинаковости двух точек
+	bool IsEqualPoints(const Point2d& other);
+
+
+	// Оператор вывода и ввода
+	friend std::ostream& operator<< (std::ostream& out, const Point2d obj);
+	friend std::istream& operator>> (std::istream& in, const Point2d obj);
+
 private:
 
 	// поля

@@ -23,3 +23,30 @@ Real Point2d::GetNum2()
 	return num2_;
 }
 
+
+
+// Сравнительный оператор 
+bool operator==(const Point2d& num1, const Point2d& num2)
+{
+	return (num1.num1_ == num1.num2_) && (num2.num1_ == num2.num2_);
+}
+
+
+//проверка одинаковости двух точек 
+bool Point2d::IsEqualPoints(const Point2d& other)
+{
+	return *this == other;
+}
+
+
+
+
+std::ostream& operator<<(std::ostream& out, const Point2d obj)
+{
+	return out << obj.num1_ << " " << obj.num2_;
+}
+
+//std::istream& operator>>(std::istream& in, const Point2d obj)
+//{
+//	return obj.num1_ >> " " >> obj.num2_ >> in;
+//}
