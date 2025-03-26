@@ -39,6 +39,11 @@ public:
 
 
 
+	// Расчет корня - для формулы нахождения расстояния между точками
+	static Real MySqrt(Real& number, const Real& epsilon = Real(1e-10));
+
+
+
 	// Оператор ввода и вывода
 	friend std::ostream& operator<< (std::ostream& out, const Point2d obj);
 	friend std::istream& operator>> (std::istream& in, const Point2d obj);

@@ -43,10 +43,44 @@ bool Point2d::IsEqualPoints(const Point2d& other)
 // Расчет расстояния между точками
 Point2d DistanceBetweenPoints(const Point2d& x, const Point2d& y)
 {
-	double x1 = static_cast<double>(x.num2_ - x.num1_);
-	double y1 = static_cast<double>(y.num2_ - y.num1_)
+	Real x1 = x.num2_ - x.num1_;
+	Real y1 = y.num2_ - y.num1_;
 
-	std::sqrt(x1 * x1 + y1 * y1);
+    Real result = x1 * x1 + y1 * y1;
+
+    Point2d::MySqrt(result, Real(1e-10));
+}
+
+
+
+Real Point2d::MySqrt(Real& number, const Real& epsilon)
+{
+    if (number < Real(0)) 
+    {
+        throw std::invalid_argument("Число должно быть положительным!");
+    }
+
+    if (number == Real(0)) 
+    {
+        return Real(0);
+    }
+
+    Real x = number;
+    Real prev;
+
+    do 
+    {
+        prev = x;
+        x = Real(1 / 2) * (x + number / x); 
+
+        if ((x - prev) < Real(0))
+        {
+            (x - prev) *= Real(-1);
+        }
+
+    } while ((x - prev) > Real(epsilon)); 
+
+    return x;
 }
 
 
@@ -57,7 +91,7 @@ std::ostream& operator<<(std::ostream& out, const Point2d obj)
 	return out << obj.num1_ << " " << obj.num2_;
 }
 
-//std::istream& operator>>(std::istream& in, const Point2d obj)
-//{
-//	return obj.num1_ >> " " >> obj.num2_ >> in;
-//}
+std::istream& operator>>(std::istream& in, const Point2d obj)
+{
+	return obj.num1_ >> " " >> obj.num2_ >> in;
+}
