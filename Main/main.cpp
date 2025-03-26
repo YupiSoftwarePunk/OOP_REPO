@@ -232,11 +232,11 @@ int main()
 
 	Matrix<Integer, 3, 3> table3 = table + table2;
 	std::cout << table3 << "\n";
-	Matrix<Integer, 3, 3> table3 = table - table2;
+	Matrix<Integer, 3, 3> table4 = table - table2;
 	std::cout << table3 << "\n";
-	Matrix<Integer, 3, 3> table3 = table * table2;
+	Matrix<Integer, 3, 3> table5 = table * table2;
 	std::cout << table3 << "\n";
-	Matrix<Integer, 3, 3> table3 = table / table2;
+	Matrix<Integer, 3, 3> table6 = table / table2;
 	std::cout << table3 << "\n";
 
 

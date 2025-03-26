@@ -10,7 +10,7 @@ public:
 
 	// конструкторы
 	Point2d(Real num1, Real num2) : num1_(num1), num2_(num2) {}
-	Point2d() : Point2d(Real(0 / 0), Real(0 / 0)) {}
+	Point2d() : Point2d(Real(0 / 1), Real(0 / 1)) {}
 
 	// деструктор
 	virtual ~Point2d() = default;
@@ -35,7 +35,7 @@ public:
 
 
 	// Расчет расстояния между точками
-	friend Point2d DistanceBetweenPoints(const Point2d& x, const Point2d& y);
+	friend Real DistanceBetweenPoints(const Point2d& x, const Point2d& y);
 
 
 
