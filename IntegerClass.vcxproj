@@ -25,6 +25,7 @@
     <ClCompile Include="Main\main.cpp" />
     <ClCompile Include="Point2d\Point2d.cpp" />
     <ClCompile Include="Real\Real.cpp" />
+    <ClCompile Include="Segment\Segment.cpp" />
     <ClCompile Include="SmartPointers\Auto_Unique.cpp" />
     <ClCompile Include="VariaticTemplates\VariaticTemplates.cpp" />
   </ItemGroup>
@@ -35,6 +36,7 @@
     <ClInclude Include="Matrix\Matrix.hpp" />
     <ClInclude Include="Point2d\Point2d.hpp" />
     <ClInclude Include="Real\Real.hpp" />
+    <ClInclude Include="Segment\Segment.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
