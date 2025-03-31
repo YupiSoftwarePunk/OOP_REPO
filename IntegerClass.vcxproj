@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dictionary\Dictionary.cpp" />
+    <ClCompile Include="Figure\Figure.cpp" />
     <ClCompile Include="Fraction\Fraction.cpp" />
     <ClCompile Include="Integer\Integer.cpp" />
     <ClCompile Include="Main\main.cpp" />
@@ -31,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dictionary\Dictionary.hpp" />
+    <ClInclude Include="Figure\Figure.hpp" />
     <ClInclude Include="Fraction\Fraction.hpp" />
     <ClInclude Include="Integer\Integer.hpp" />
     <ClInclude Include="Matrix\Matrix.hpp" />
