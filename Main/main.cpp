@@ -3,6 +3,8 @@
 #include "../Real/Real.hpp"
 #include "../Dictionary/Dictionary.hpp"
 #include "../Matrix/Matrix.hpp"
+#include "../Point2d/Point2d.hpp"
+#include "../Segment/Segment.hpp"
 
 
 
@@ -22,6 +24,10 @@ int main()
 
 	Real num5 = { num1, num3 };
 	Real num6 = { num2, num4 };
+
+	Point2d p1(num5, num6);
+	Point2d p2(num6, num5);
+	Segment seg(p1, p2);
 
 
 	std::cout << "\t\tСловарь\n\n";
@@ -263,6 +269,13 @@ int main()
 	std::cout << (table < table2) << "\n";
 	std::cout << (table >= table2) << "\n";
 	std::cout << (table <= table2) << "\n";
+
+
+
+	std::cout << "\n\n\t\tсегмент\n\n";
+
+	std::cout << seg.GetPointer1();
+	std::cout << seg.GetPointer1Ref();
 
 	return 0;
 }

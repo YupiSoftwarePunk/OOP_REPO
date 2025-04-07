@@ -40,6 +40,19 @@ public:
 	Point2d& GetPointer2Ref();
 
 
+	// сравнение отрезков по длинне
+	friend bool operator>(const Segment& num1, const Segment& num2);
+	friend bool operator<(const Segment& num1, const Segment& num2);
+	friend bool operator>=(const Segment& num1, const Segment& num2);
+	friend bool operator<=(const Segment& num1, const Segment& num2);
+	friend bool operator==(const Segment& num1, const Segment& num2);
+	friend bool operator!=(const Segment& num1, const Segment& num2);
+
+
+	// оператор вывода
+	friend std::ostream& operator<< (std::ostream& out, const Segment obj);
+
+
 	// поля
 private:
 	std::shared_ptr<Point2d> pointer1_;

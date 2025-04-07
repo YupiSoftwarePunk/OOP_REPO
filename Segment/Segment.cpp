@@ -1,6 +1,13 @@
 #include "Segment.hpp"
 
 
+// оператор вывода
+std::ostream& operator<<(std::ostream& out, const Segment obj)
+{
+	return out << obj.pointer1_ << " " << obj.pointer2_;
+}
+
+
 // сеттеры
 void Segment::SetPoiner1(std::shared_ptr<Point2d> pointer1)
 {
