@@ -32,18 +32,12 @@ public:
 
 	// геттеры указателя
 	std::shared_ptr<Point2d> GetPointer1();
-	std::shared_ptr<const Point2d> GetPointer1() const;
-
 	std::shared_ptr<Point2d> GetPointer2();
-	std::shared_ptr<const Point2d> GetPointer2() const;
 
 
 	// геттеры значений
 	Point2d& GetPointer1Ref();
-	const Point2d& GetPointer1Ref() const;
-
 	Point2d& GetPointer2Ref();
-	const Point2d& GetPointer2Ref() const;
 
 
 	// поля
