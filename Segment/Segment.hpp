@@ -40,13 +40,17 @@ public:
 	Point2d& GetPointer2Ref();
 
 
-	// сравнение отрезков по длинне
+	// сравнение отрезков по длине
 	friend bool operator>(const Segment& num1, const Segment& num2);
 	friend bool operator<(const Segment& num1, const Segment& num2);
 	friend bool operator>=(const Segment& num1, const Segment& num2);
 	friend bool operator<=(const Segment& num1, const Segment& num2);
 	friend bool operator==(const Segment& num1, const Segment& num2);
 	friend bool operator!=(const Segment& num1, const Segment& num2);
+
+
+	// арифметические операторы (нужны для сравнительных операторов)
+	friend bool operator-(const Segment& num1, const Segment& num2);
 
 
 	// оператор вывода

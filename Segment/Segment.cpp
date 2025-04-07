@@ -1,6 +1,5 @@
 #include "Segment.hpp"
 
-
 // оператор вывода
 std::ostream& operator<<(std::ostream& out, const Segment obj)
 {
@@ -43,3 +42,44 @@ Point2d& Segment::GetPointer2Ref()
 	return *pointer2_;
 }
 
+
+
+// сравнение отрезков по длине
+bool operator>(const Segment& num1, const Segment& num2)
+{
+	Segment difference1 = num2.pointer1_ - num1.pointer1_;
+	Segment difference2 = num2.pointer2_ - num1.pointer2_;
+	return difference1 > difference2;
+}
+
+bool operator<(const Segment& num1, const Segment& num2)
+{
+	
+}
+
+bool operator>=(const Segment& num1, const Segment& num2)
+{
+	
+}
+
+bool operator<=(const Segment& num1, const Segment& num2)
+{
+	
+}
+
+bool operator==(const Segment& num1, const Segment& num2)
+{
+	
+}
+
+bool operator!=(const Segment& num1, const Segment& num2)
+{
+
+}
+
+
+// арифметические операторы 
+bool operator-(const Segment& num1, const Segment& num2)
+{
+	return num1.pointer1_ - num2.pointer1_;
+}
