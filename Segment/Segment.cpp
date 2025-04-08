@@ -81,5 +81,5 @@ bool operator!=(const Segment& num1, const Segment& num2)
 // арифметические операторы 
 bool operator-(const Segment& num1, const Segment& num2)
 {
-	return num1.pointer1_ - num2.pointer1_;
+	
 }
