@@ -41,7 +41,7 @@ public:
 
 
 	// сравнение отрезков по длине
-	friend bool operator>(const Segment& num1, const Segment& num2);
+	friend bool operator>(const Point2d& num1, const Point2d& num2);
 	friend bool operator<(const Segment& num1, const Segment& num2);
 	friend bool operator>=(const Segment& num1, const Segment& num2);
 	friend bool operator<=(const Segment& num1, const Segment& num2);
@@ -50,7 +50,8 @@ public:
 
 
 	// арифметические операторы (нужны для сравнительных операторов)
-	friend bool operator-(const Segment& num1, const Segment& num2);
+	friend Segment operator-(const Segment& num1, const Segment& num2);
+	friend Segment operator+(const Segment& num1, const Segment& num2);
 
 
 	// оператор вывода
