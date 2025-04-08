@@ -36,9 +36,25 @@ class List
 public:
     //constructors
     List() :start_(nullptr), end_(nullptr), size_(0) {}
-    explicit List(size_t size);
-    List(std::initializer_list<Type> obj);
-    List(const List& other) {
+
+    explicit List(size_t size) : List() 
+    {
+        for (size_t i = 0; i < size; ++i) 
+        {
+            push_back(Type());
+        }
+    }
+
+    List(std::initializer_list<Type> obj) : List() 
+    {
+        for (const auto& item : obj) 
+        {
+            push_back(item);
+        }
+    }
+
+    List(const List& other) 
+    {
         auto current = other.start_;
         size_ = 0;
         while (size_ != other.size_)
@@ -47,8 +63,18 @@ public:
             current = current->getNext();
         }
     }
-    List(List&& other) noexcept;
-    ~List() {
+
+    // copy constructor
+    List(List&& other) noexcept : start_(other.start_), end_(other.end_), size_(other.size_) 
+    {
+        other.start_ = nullptr;
+        other.end_ = nullptr;
+        other.size_ = 0;
+    }
+
+    // destructor
+    ~List() 
+    {
         auto current = start_;
         while (size_)
         {
@@ -75,10 +101,10 @@ public:
     //short acces
 
     Type& back() { return end_->getData(); }
-    Type& front();
+    Type& front() {return start_->getData() }
 
-    const Type& back()const;
-    const Type& front()const;
+    const Type& back()const { return end_->getData(); }
+    const Type& front()const { return start_->getData() }
     void push_back(const Type& other);
     void push_front(const Type& other);
     void pop_back();
