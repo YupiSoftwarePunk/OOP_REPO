@@ -44,6 +44,21 @@ Point2d& Segment::GetPointer2Ref()
 
 
 
+// проверка на одинаковость
+bool Segment::IsEqualSegments(const Segment& other)
+{
+	return *this == other;
+}
+
+
+
+Real GetSegmentDistance(const Point2d& num1, const Point2d& num2)
+{
+	return DistanceBetweenPoints(num1, num2);
+}
+
+
+
 // сравнение отрезков по длине
 bool operator>(const Point2d& num1, const Point2d& num2)
 {

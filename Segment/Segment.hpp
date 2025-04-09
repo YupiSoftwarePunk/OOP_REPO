@@ -54,6 +54,18 @@ public:
 	friend Segment operator+(const Segment& num1, const Segment& num2);
 
 
+	// проверка на одинаковость
+	bool IsEqualSegments(const Segment& other);
+
+
+	// проверка на пересечение отрезков
+	bool IsSegmentsCrossed(const Segment& other);
+
+
+	//  сообщение своей длинны
+	friend Real GetSegmentDistance(const Point2d& num1, const Point2d& num2);
+
+
 	// оператор вывода
 	friend std::ostream& operator<< (std::ostream& out, const Segment obj);
 
