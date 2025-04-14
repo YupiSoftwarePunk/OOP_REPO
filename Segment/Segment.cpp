@@ -60,49 +60,38 @@ Real GetSegmentDistance(const Point2d& num1, const Point2d& num2)
 
 
 // сравнение отрезков по длине
-bool operator>(const Point2d& num1, const Point2d& num2)
+bool operator>(const Segment& num1, const Segment& num2)
 {
-	
+	return GetSegmentDistance(*(num1.pointer1_), *(num1.pointer2_)) > 
+		GetSegmentDistance(*(num2.pointer1_), *(num2.pointer2_));
 }
 
 bool operator<(const Segment& num1, const Segment& num2)
 {
-	
+	return GetSegmentDistance(*(num1.pointer1_), *(num1.pointer2_)) <
+		GetSegmentDistance(*(num2.pointer1_), *(num2.pointer2_));
 }
 
 bool operator>=(const Segment& num1, const Segment& num2)
 {
-	
+	return GetSegmentDistance(*(num1.pointer1_), *(num1.pointer2_)) >=
+		GetSegmentDistance(*(num2.pointer1_), *(num2.pointer2_));
 }
 
 bool operator<=(const Segment& num1, const Segment& num2)
 {
-	
+	return GetSegmentDistance(*(num1.pointer1_), *(num1.pointer2_)) <=
+		GetSegmentDistance(*(num2.pointer1_), *(num2.pointer2_));
 }
 
 bool operator==(const Segment& num1, const Segment& num2)
 {
-	
+	return GetSegmentDistance(*(num1.pointer1_), *(num1.pointer2_)) ==
+		GetSegmentDistance(*(num2.pointer1_), *(num2.pointer2_));
 }
 
 bool operator!=(const Segment& num1, const Segment& num2)
 {
-
+	return GetSegmentDistance(*(num1.pointer1_), *(num1.pointer2_)) !=
+		GetSegmentDistance(*(num2.pointer1_), *(num2.pointer2_));
 }
-
-
-// арифметические операторы 
-Segment operator-(const Segment& num1, const Segment& num2)
-{
-	Point2d p1 = *num1.pointer1_ - *num2.pointer2_;
-	Point2d p2 = *num1.pointer1_ - *num2.pointer2_;
-	return Segment(p1, p2);
-}
-
-Segment operator+(const Segment& num1, const Segment& num2)
-{
-	Point2d p1 = *num1.pointer1_ + *num2.pointer2_;
-	Point2d p2 = *num1.pointer1_ + *num2.pointer2_;
-	return Segment(p1, p2);
-}
-
