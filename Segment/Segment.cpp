@@ -79,6 +79,40 @@ bool Segment::IsSegmentsCrossed(const Segment& other)
 		return q.num1_ <= std::max(p.num1_, r.num1_) && q.num1_ >= std::min(p.num1_, r.num1_) &&
 			q.num2_ <= std::max(p.num2_, r.num2_) && q.num2_ >= std::min(p.num2_, r.num2_);
 	};
+
+
+	int o1 = orientation(p1, p2, p3);
+	int o2 = orientation(p1, p2, p4);
+	int o3 = orientation(p3, p4, p1);
+	int o4 = orientation(p3, p4, p2);
+
+	if (o1 != o2 && o3 != o4)
+	{
+		return true;
+	}
+
+
+	if (o1 == 0 && onSegment(p1, p3, p2))
+	{
+		return true;
+	}
+	if (o2 == 0 && onSegment(p1, p4, p2))
+	{ 
+		return true;
+	}
+	if (o3 == 0 && onSegment(p3, p1, p4)) 
+	{ 
+		return true; 
+	}
+	if (o4 == 0 && onSegment(p3, p2, p4)) 
+	{ 
+		return true; 
+	}
+	else
+	{
+		return false;
+	}
+	
 }
 
 
