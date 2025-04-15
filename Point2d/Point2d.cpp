@@ -31,11 +31,6 @@ bool operator==(const Point2d& num1, const Point2d& num2)
 	return (num1.num1_ == num1.num2_) && (num2.num1_ == num2.num2_);
 }
 
-bool operator>(const Point2d& num1, const Point2d& num2)
-{
-    return (num1.num1_ > num1.num2_) && (num2.num1_ > num2.num2_);
-}
-
 
 //проверка одинаковости двух точек 
 bool Point2d::IsEqualPoints(const Point2d& other)

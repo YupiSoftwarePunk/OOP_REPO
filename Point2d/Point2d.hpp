@@ -29,8 +29,6 @@ public:
 	// Сравнительный оператор 
 	friend bool operator==(const Point2d& num1, const Point2d& num2);
 
-	friend bool operator>(const Point2d& num1, const Point2d& num2);
-
 
 	// проверка одинаковости двух точек
 	bool IsEqualPoints(const Point2d& other);
