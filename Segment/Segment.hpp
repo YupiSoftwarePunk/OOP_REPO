@@ -57,13 +57,12 @@ public:
 	bool IsSegmentsCrossed(const Segment& other);
 
 
-	//  сообщение своей длинны
+	//  сообщение своей длины
 	friend Real GetSegmentDistance(const Point2d& num1, const Point2d& num2);
 
 
 	// вспомогательные методы для нахождения пересечения отрезков
 	friend Real GetMax(const Real& num1, const Real& num2);
-
 	friend Real GetMin(const Real& num1, const Real& num2);
 
 

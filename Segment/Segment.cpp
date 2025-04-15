@@ -50,6 +50,9 @@ bool Segment::IsEqualSegments(const Segment& other)
 	return *this == other;
 }
 
+
+
+// проверка на пересечение отрезков
 bool Segment::IsSegmentsCrossed(const Segment& other)
 {
 	Point2d p1 = *pointer1_;
@@ -143,6 +146,7 @@ Real GetMin(const Real& num1, const Real& num2)
 
 
 
+//  сообщение своей длины
 Real GetSegmentDistance(const Point2d& num1, const Point2d& num2)
 {
 	return DistanceBetweenPoints(num1, num2);
