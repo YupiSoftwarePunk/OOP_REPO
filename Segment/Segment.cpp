@@ -59,25 +59,25 @@ bool Segment::IsSegmentsCrossed(const Segment& other)
 	Point2d p4 = *(other.pointer2_);
 
 
-	auto orientation = [](const Point2d& a, const Point2d& b, const Point2d& c) 
+	auto orientation = [](Point2d& a, Point2d& b, Point2d& c) 
 	{
-		double orientation = (b.num2_ - a.num2_) * (c.num1_ - b.num1_) - (b.num1_ - a.num1_) * (c.num2_ - b.num2_);
+		Real orientation = (b.GetNum2() - a.GetNum2()) * (c.GetNum1() - b.GetNum1()) - (b.GetNum1() - a.GetNum1()) * (c.GetNum2() - b.GetNum2());
 
-		if (orientation == 0)
+		if (orientation == Real(0))
 		{
 			return 0;
 		} 
 		else 
 		{
-			return (orientation > 0) ? 1 : 2;
+			return (orientation > Real(0)) ? 1 : 2;
 		}
 	};
 
 
-	auto onSegment = [](const Point2d& p, const Point2d& q, const Point2d& r) 
+	auto onSegment = [](Point2d& p, Point2d& q, Point2d& r) 
 	{
-		return q.num1_ <= std::max(p.num1_, r.num1_) && q.num1_ >= std::min(p.num1_, r.num1_) &&
-			q.num2_ <= std::max(p.num2_, r.num2_) && q.num2_ >= std::min(p.num2_, r.num2_);
+		return q.GetNum1() <= GetMax(p.GetNum1(), r.GetNum1()) && q.GetNum1() >= GetMin(p.GetNum1(), r.GetNum1()) &&
+			q.GetNum2() <= GetMax(p.GetNum2(), r.GetNum2()) && q.GetNum2() >= GetMin(p.GetNum2(), r.GetNum2());
 	};
 
 
@@ -113,6 +113,32 @@ bool Segment::IsSegmentsCrossed(const Segment& other)
 		return false;
 	}
 	
+}
+
+
+
+Real GetMax(const Real& num1, const Real& num2)
+{
+	if (num1 > num2)
+	{
+		return num1;
+	}
+	else
+	{
+		return num2;
+	}
+}
+
+Real GetMin(const Real& num1, const Real& num2)
+{
+	if (num1 < num2)
+	{
+		return num1;
+	}
+	else
+	{
+		return num2;
+	}
 }
 
 
