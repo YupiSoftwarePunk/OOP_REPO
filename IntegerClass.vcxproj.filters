@@ -92,6 +92,7 @@
     <None Include="desktop.ini" />
     <None Include="x64\Debug\IntegerClass.exe" />
     <None Include="x64\Debug\IntegerClass.pdb" />
+    <None Include="ТЗ.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LICENSE.txt" />

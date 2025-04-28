@@ -58,6 +58,7 @@
     <None Include="x64\Debug\Classes.pdb" />
     <None Include="x64\Debug\IntegerClass.exe" />
     <None Include="x64\Debug\IntegerClass.pdb" />
+    <None Include="ТЗ.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Classes\x64\Debug\Classes.log" />
