@@ -37,6 +37,7 @@ Real::Real(const Fraction& obj)
 	}
 }
 
+// преобразование из double
 Real::Real(long double obj)
 {
 	units_ = static_cast<Integer>(static_cast<int>(obj));
@@ -59,6 +60,7 @@ Real::Real(long double obj)
 
 
 
+// преобразование в double
 long double Real::ToDouble() 
 {
 	
@@ -179,28 +181,28 @@ Real Real::operator/(const Real& other) const    // переписать опе�
 		::exit(-1);
 	}
 
-	Real result;
+	/*Real result;
 
-	/*Fraction resUnits;
-	Fraction resFraction;
-
-	resUnits = Fraction(units_) / Fraction(other.units_);
-	resFraction = Fraction(fractional_) / Fraction(other.fractional_);
-
-	result.units_ = resUnits.WholePart();
-	result.fractional_ += resFraction.WholePart();
+	result.units_ = units_ / other.units_;
+	result.fractional_ = fractional_ / other.fractional_;
 
 	return result;*/
 
 
-	/*Integer unit = Real(units_).GetUnits() / Real(other.units_).GetUnits();
-	Fraction fractional = Real(fractional_).GetFractional() / Real(other.fractional_).GetFractional();
 
-	return Real(unit, fractional);*/
+	Integer resUnits = units_;
+	Fraction resFractional = fractional_;
 
+	Integer resUnits2 = other.units_;
+	Fraction resFractional2 = other.fractional_;
 
-	result.units_ = units_ / other.units_;
-	result.fractional_ = fractional_ / other.fractional_;
+	long double res1 = resUnits.integerToDouble() / resUnits2.integerToDouble();
+	long double res2 = resFractional.fractionToDouble() / resFractional2.fractionToDouble();
+
+	Real result;
+
+	result.units_ = Integer(res1);
+	result.fractional_ = Fraction(res2);
 
 	return result;
 }
@@ -302,7 +304,11 @@ Real& Real::operator*=(const Real& other)
 
 Real& Real::operator/=(const Real& other)  // пофиксить
 {
-	*this = *this / other;
+	/**this = *this / other;*/
+
+	units_ /= other.units_;
+	fractional_ /= other.fractional_;
+	units_ += fractional_.WholePart();
 
 	return *this;
 }
