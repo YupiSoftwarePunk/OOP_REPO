@@ -18,11 +18,13 @@ Real::Real(const Integer& units, const Fraction& fractional)
 
 Real::Real(const Fraction& obj)
 {
-	if (obj.isProper()) {
+	if (obj.isProper()) 
+	{
 		units_ = 0;
 		fractional_ = obj;
 	}
-	else {
+	else 
+	{
 		units_ = Fraction(obj).GetNumerator() / Fraction(obj).GetDenominator();
 		Integer newNumerator = Fraction(obj).GetNumerator() % Fraction(obj).GetDenominator();
 		if (newNumerator == 0) {
@@ -37,9 +39,21 @@ Real::Real(const Fraction& obj)
 
 Real::Real(long double obj)
 {
-	/*
-		сдесь нужно выделить целую и дробную часть и записать это в поля класса
-	*/
+	units_ = static_cast<Integer>(static_cast<int>(obj));
+
+	long double fractional_part = obj - static_cast<int>(obj);
+
+	if (fractional_part == 0.0)
+	{
+		fractional_ = Fraction(0, 1); 
+	}
+	else
+	{
+		const int denominator = 1000000; 
+		int numerator = static_cast<int>(fractional_part * denominator);
+
+		fractional_ = Fraction(numerator, denominator).ReduceFraction();
+	}
 }
 
 
@@ -49,7 +63,16 @@ long double Real::ToDouble() const
 	/*
 		сдесь нужно обратно преобразовать число в double
 	*/
-	return 0;
+	
+	long double result = static_cast<long double>(units_.ToInt());
+
+	// Добавляем дробную часть
+	if (fractional_ != Fraction(0, 1))
+	{
+		result += static_cast<long double>(fractional_.GetNumerator()) / static_cast<long double>(fractional_.GetDenominator());
+	}
+
+	return result;
 }
 
 
