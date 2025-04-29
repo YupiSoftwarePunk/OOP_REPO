@@ -74,6 +74,7 @@ Real GetMin(const Real& num1, const Real& num2)
 	}
 }
 
+
 // проверка на пересечение отрезков
 bool Segment::IsSegmentsCrossed(const Segment& other)
 {
@@ -84,29 +85,29 @@ bool Segment::IsSegmentsCrossed(const Segment& other)
 	Point2d p4 = *(other.pointer2_);
 
 
-	auto orientation = [](Point2d& a, Point2d& b, Point2d& c) 
-	{
-		Real orientation = (b.GetNum2() - a.GetNum2()) * (c.GetNum1() - b.GetNum1()) - (b.GetNum1() - a.GetNum1()) * (c.GetNum2() - b.GetNum2());
-
-		if (orientation == Real(0))
+	auto orientation = [](Point2d& a, Point2d& b, Point2d& c)
 		{
-			return 0;
-		} 
-		else 
+			Real orientation = (b.GetNum2() - a.GetNum2()) * (c.GetNum1() - b.GetNum1()) - (b.GetNum1() - a.GetNum1()) * (c.GetNum2() - b.GetNum2());
+
+			if (orientation == Real(0))
+			{
+				return 0;
+			}
+			else
+			{
+				return (orientation > Real(0)) ? 1 : 2;
+			}
+		};
+
+
+	auto onSegment = [](Point2d& p, Point2d& q, Point2d& r)
 		{
-			return (orientation > Real(0)) ? 1 : 2;
-		}
-	};
-
-
-	auto onSegment = [](Point2d& p, Point2d& q, Point2d& r) 
-	{
-		return 
-			q.GetNum1() <= GetMax(p.GetNum1(), r.GetNum1()) &&
-			q.GetNum1() >= GetMin(p.GetNum1(), r.GetNum1()) &&
-			q.GetNum2() <= GetMax(p.GetNum2(), r.GetNum2()) && 
-			q.GetNum2() >= GetMin(p.GetNum2(), r.GetNum2());
-	};
+			return
+				q.GetNum1() <= GetMax(p.GetNum1(), r.GetNum1()) &&
+				q.GetNum1() >= GetMin(p.GetNum1(), r.GetNum1()) &&
+				q.GetNum2() <= GetMax(p.GetNum2(), r.GetNum2()) &&
+				q.GetNum2() >= GetMin(p.GetNum2(), r.GetNum2());
+		};
 
 
 	int o1 = orientation(p1, p2, p3);
@@ -125,22 +126,22 @@ bool Segment::IsSegmentsCrossed(const Segment& other)
 		return true;
 	}
 	if (o2 == 0 && onSegment(p1, p4, p2))
-	{ 
+	{
 		return true;
 	}
-	if (o3 == 0 && onSegment(p3, p1, p4)) 
-	{ 
-		return true; 
+	if (o3 == 0 && onSegment(p3, p1, p4))
+	{
+		return true;
 	}
-	if (o4 == 0 && onSegment(p3, p2, p4)) 
-	{ 
-		return true; 
+	if (o4 == 0 && onSegment(p3, p2, p4))
+	{
+		return true;
 	}
 	else
 	{
 		return false;
 	}
-	
+
 }
 
 
@@ -160,7 +161,7 @@ Real GetSegmentDistance(const Point2d& num1, const Point2d& num2)
 // сравнение отрезков по длине
 bool operator>(const Segment& num1, const Segment& num2)
 {
-	return GetSegmentDistance(*(num1.pointer1_), *(num1.pointer2_)) > 
+	return GetSegmentDistance(*(num1.pointer1_), *(num1.pointer2_)) >
 		GetSegmentDistance(*(num2.pointer1_), *(num2.pointer2_));
 }
 

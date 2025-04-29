@@ -44,6 +44,16 @@ Real::Real(long double obj)
 
 
 
+long double Real::ToDouble() const
+{
+	/*
+		сдесь нужно обратно преобразовать число в double
+	*/
+	return 0;
+}
+
+
+
 //setters
 void Real::SetUnits(Integer units)
 {

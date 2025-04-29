@@ -28,7 +28,6 @@ public:
     long double ToDouble()const;
 
 
-
     // сеттеры и геттеры
 
     //setters

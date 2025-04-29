@@ -17,6 +17,7 @@
 // в качестве хранимых типов. Для этого вам нада изучить тему assert функций,
 // специализацию шаблонов или constraint шаблонов. Любой из этих способов может ограничить область применения вашего шаблона.
 
+
 template<typename Type, unsigned long long Row, unsigned long long Coll>
 
 class Matrix
@@ -37,7 +38,7 @@ public:
 	}
 
 	// конструктор переноса
-	Matrix(Matrix&& other) noexcept  
+	Matrix(Matrix&& other) noexcept
 	{
 		std::swap(data_, other.data_);
 	}
@@ -47,7 +48,7 @@ public:
 
 
 	// конструктор переноса
-	Matrix& operator= (const Matrix& other)   
+	Matrix& operator= (const Matrix& other)
 	{
 		::memmove(this->data_, other.data_, sizeof(Type) * Row * Coll);
 		return *this;
@@ -56,7 +57,7 @@ public:
 
 
 	// размер колонок и строк
-	unsigned long long collSize() const 
+	unsigned long long collSize() const
 	{
 		return Coll;
 	}
@@ -269,11 +270,11 @@ public:
 		const Matrix<Type, Row, Coll>& lso,
 		const Matrix<Type, Row2, Coll2>& rso)
 	{
-		for (int i = 0; i < Row; i++) 
+		for (int i = 0; i < Row; i++)
 		{
-			for (int j = 0; j < Coll; j++) 
+			for (int j = 0; j < Coll; j++)
 			{
-				if (lso[i][j] != rso[i][j]) 
+				if (lso[i][j] != rso[i][j])
 				{
 					return false;
 				}
@@ -373,7 +374,8 @@ public:
 	}
 
 
-	Type*  operator[] (unsigned long long Row)
+
+	Type* operator[] (unsigned long long Row)
 	{
 		return data_[Row];
 	}
@@ -382,6 +384,7 @@ public:
 	{
 		return data_[Row];
 	}
+
 
 	// Оператор [] - принимает только 1 параметр, а нам нужно 2, поэтому тут оператор ()
 	Type& operator() (unsigned long long Row, unsigned long long Coll)
@@ -409,7 +412,7 @@ public:
 
 
 	// операторы ввода и вывода
-	friend std::ostream& operator << (std::ostream & outs, const Matrix & rso)
+	friend std::ostream& operator << (std::ostream& outs, const Matrix& rso)
 	{
 		for (int i = 0; i < Row; i++)
 		{
@@ -422,7 +425,7 @@ public:
 		return outs;
 	}
 
-	friend std::istream& operator >> (std::istream & ins, const Matrix & rso)
+	friend std::istream& operator >> (std::istream& ins, const Matrix& rso)
 	{
 		for (int i = 0; i < Row; i++)
 		{

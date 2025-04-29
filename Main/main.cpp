@@ -19,8 +19,8 @@ int main()
 	Integer num11 = 10;
 	Integer num22 = 2;
 
-	Fraction num3 = {num1, num2};
-	Fraction num4 = {num11, num22 };
+	Fraction num3 = { num1, num2 };
+	Fraction num4 = { num11, num22 };
 
 	Real num5 = { num1, num3 };
 	Real num6 = { num2, num4 };
@@ -32,10 +32,10 @@ int main()
 
 	std::cout << "\t\tСловарь\n\n";
 
-	/* 
-					задача заключалось в том, чтобы проверять есть ли слова из текста в словаре и возвратить число слов,
-					которые отсутствуют в словаре и перечислить их 
-	 */
+	/*
+				задача заключалось в том, чтобы проверять есть ли слова из текста в словаре и возвратить число слов,
+				которые отсутствуют в словаре и перечислить их
+	*/
 
 	std::string text = "One orange fox watched TV last night";
 
@@ -115,13 +115,13 @@ int main()
 
 	std::cout << num3.isNumPositive() << "\n";
 	std::cout << num3.isNumNegative() << "\n";
-	std::cout << num3.isSame(num4) << "\n";    
-	std::cout << num3.isEqual(num4) << "\n";     
+	std::cout << num3.isSame(num4) << "\n";
+	std::cout << num3.isEqual(num4) << "\n";
 	std::cout << num4.isProper() << "\n";
 	std::cout << num4.isImProper() << "\n";
-	std::cout << num3.ReduceFraction() << "\n";    
-	std::cout << num3.ReverseFraction() << "\n";    
-	std::cout << num3.CountUnits() << "\n";      
+	std::cout << num3.ReduceFraction() << "\n";
+	std::cout << num3.ReverseFraction() << "\n";
+	std::cout << num3.CountUnits() << "\n";
 
 	std::cout << "\n\n\n";
 
@@ -137,7 +137,7 @@ int main()
 	std::cout << (num3 <= num4) << "\n";
 	std::cout << (num3 >= num4) << "\n";
 	std::cout << (num3 == num4) << "\n";
-	std::cout << (num3 != num4) << "\n";   
+	std::cout << (num3 != num4) << "\n";
 
 	std::cout << "\n\n\n";
 
@@ -152,8 +152,8 @@ int main()
 
 	std::cout << "\n\n\n";
 
-	std::cout << -num3 << "\n";   
-	std::cout << +num3 << "\n";	  
+	std::cout << -num3 << "\n";
+	std::cout << +num3 << "\n";
 
 
 
@@ -173,7 +173,7 @@ int main()
 
 	std::cout << num5 + num6 << "\n";
 	std::cout << num6 - num5 << "\n";
-	std::cout << num5 * num6 << "\n"; 
+	std::cout << num5 * num6 << "\n";
 	std::cout << num6 / num5 << "\n";
 
 	std::cout << "\n\n\n";
@@ -188,14 +188,15 @@ int main()
 	std::cout << "\n\n\n";
 
 	num5 += num6;
-	std::cout << num5 << "\n";  
+	std::cout << num5 << "\n";
 	num5 -= num6;
-	std::cout << num5 << "\n";	
+	std::cout << num5 << "\n";
 	num5 *= num6;
-	std::cout << num5 << "\n";	
+	std::cout << num5 << "\n";
 	// некорректно работает код ниже
 	/*num5 /= num6;
-	std::cout << num5 << "\n";*/	// всегда выдается ошибка про деление на 0
+	std::cout << num5 << "\n";*/	
+	// всегда выдается ошибка про деление на 0
 	//----------------------------------------
 
 	std::cout << "\n\n\n";
@@ -296,7 +297,7 @@ int main()
 	и записывало бы это все в текствый файл и можно было бы потом опять эту строчку вернуть в число этого типа
 
 	Пример:
-	Введите число типа Real: 
+	Введите число типа Real:
 	а далее записывало бы это число в txt файлик
 
 	И есть возможность потом считать это число из файла обратно в прогу в этом же типе данных

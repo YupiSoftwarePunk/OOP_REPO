@@ -48,39 +48,6 @@
     <ClCompile Include="LinkedList\List.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\LinkedList\List.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Main\main.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Point2d\Point2d.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Real\Real.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Segment\Segment.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\SmartPointers\Auto_Unique.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\VariaticTemplates\VariaticTemplates.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Dictionary\Dictionary.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Figure\Figure.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Fraction\Fraction.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Integer\Integer.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fraction\Fraction.hpp">
@@ -107,30 +74,6 @@
     <ClInclude Include="Figure\Figure.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Matrix\Matrix.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Point2d\Point2d.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Real\Real.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Segment\Segment.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Dictionary\Dictionary.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Figure\Figure.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Fraction\Fraction.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Integer\Integer.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
@@ -150,18 +93,9 @@
     <None Include="x64\Debug\IntegerClass.exe" />
     <None Include="x64\Debug\IntegerClass.pdb" />
     <None Include="ТЗ.pdf" />
-    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\IntegerClass.vcxproj.user" />
-    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\ТЗ.pdf" />
-    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\.gitattributes" />
-    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\.gitignore" />
-    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\desktop.ini" />
-    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\IntegerClass.sln" />
-    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\IntegerClass.vcxproj" />
-    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\IntegerClass.vcxproj.filters" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LICENSE.txt" />
     <Text Include="Classes\x64\Debug\Classes.log" />
-    <Text Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\LICENSE.txt" />
   </ItemGroup>
 </Project>
