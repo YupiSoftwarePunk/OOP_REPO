@@ -35,6 +35,13 @@ Real::Real(const Fraction& obj)
 	}
 }
 
+Real::Real(long double obj)
+{
+	/*
+		сдесь нужно выделить целую и дробную часть и записать это в поля класса
+	*/
+}
+
 
 
 //setters

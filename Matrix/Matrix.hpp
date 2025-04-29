@@ -47,9 +47,9 @@ public:
 
 
 	// конструктор переноса
-	const Matrix& operator= (Matrix&& other)   
+	Matrix& operator= (const Matrix& other)   
 	{
-		std::swap(data_, other.data_);
+		::memmove(this->data_, other.data_, sizeof(Type) * Row * Coll);
 		return *this;
 	}
 
@@ -265,7 +265,7 @@ public:
 
 	// Сравнительные операторы
 	template<unsigned long long Row2, unsigned long long Coll2>
-	friend const Matrix& operator== (
+	friend const bool& operator== (
 		const Matrix<Type, Row, Coll>& lso,
 		const Matrix<Type, Row2, Coll2>& rso)
 	{
@@ -283,7 +283,7 @@ public:
 	}
 
 	template<unsigned long long Row2, unsigned long long Coll2>
-	friend const Matrix& operator!= (
+	friend const bool& operator!= (
 		const Matrix<Type, Row, Coll>& lso,
 		const Matrix<Type, Row2, Coll2>& rso)
 	{
@@ -301,7 +301,7 @@ public:
 	}
 
 	template<unsigned long long Row2, unsigned long long Coll2>
-	friend const Matrix& operator> (
+	friend const bool& operator> (
 		const Matrix<Type, Row, Coll>& lso,
 		const Matrix<Type, Row2, Coll2>& rso)
 	{
@@ -319,7 +319,7 @@ public:
 	}
 
 	template<unsigned long long Row2, unsigned long long Coll2>
-	friend const Matrix& operator< (
+	friend const bool& operator< (
 		const Matrix<Type, Row, Coll>& lso,
 		const Matrix<Type, Row2, Coll2>& rso)
 	{
@@ -337,7 +337,7 @@ public:
 	}
 
 	template<unsigned long long Row2, unsigned long long Coll2>
-	friend const Matrix& operator>= (
+	friend const bool& operator>= (
 		const Matrix<Type, Row, Coll>& lso,
 		const Matrix<Type, Row2, Coll2>& rso)
 	{
@@ -355,7 +355,7 @@ public:
 	}
 
 	template<unsigned long long Row2, unsigned long long Coll2>
-	friend const Matrix& operator<= (
+	friend const bool& operator<= (
 		const Matrix<Type, Row, Coll>& lso,
 		const Matrix<Type, Row2, Coll2>& rso)
 	{
@@ -372,6 +372,16 @@ public:
 		return true;
 	}
 
+
+	Type*  operator[] (unsigned long long Row)
+	{
+		return data_[Row];
+	}
+
+	const Type* operator[] (unsigned long long Row) const
+	{
+		return data_[Row];
+	}
 
 	// Оператор [] - принимает только 1 параметр, а нам нужно 2, поэтому тут оператор ()
 	Type& operator() (unsigned long long Row, unsigned long long Coll)

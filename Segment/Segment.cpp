@@ -50,7 +50,29 @@ bool Segment::IsEqualSegments(const Segment& other)
 	return *this == other;
 }
 
+Real GetMax(const Real& num1, const Real& num2)
+{
+	if (num1 > num2)
+	{
+		return num1;
+	}
+	else
+	{
+		return num2;
+	}
+}
 
+Real GetMin(const Real& num1, const Real& num2)
+{
+	if (num1 < num2)
+	{
+		return num1;
+	}
+	else
+	{
+		return num2;
+	}
+}
 
 // проверка на пересечение отрезков
 bool Segment::IsSegmentsCrossed(const Segment& other)
@@ -79,8 +101,11 @@ bool Segment::IsSegmentsCrossed(const Segment& other)
 
 	auto onSegment = [](Point2d& p, Point2d& q, Point2d& r) 
 	{
-		return q.GetNum1() <= GetMax(p.GetNum1(), r.GetNum1()) && q.GetNum1() >= GetMin(p.GetNum1(), r.GetNum1()) &&
-			q.GetNum2() <= GetMax(p.GetNum2(), r.GetNum2()) && q.GetNum2() >= GetMin(p.GetNum2(), r.GetNum2());
+		return 
+			q.GetNum1() <= GetMax(p.GetNum1(), r.GetNum1()) &&
+			q.GetNum1() >= GetMin(p.GetNum1(), r.GetNum1()) &&
+			q.GetNum2() <= GetMax(p.GetNum2(), r.GetNum2()) && 
+			q.GetNum2() >= GetMin(p.GetNum2(), r.GetNum2());
 	};
 
 
@@ -120,29 +145,7 @@ bool Segment::IsSegmentsCrossed(const Segment& other)
 
 
 
-Real GetMax(const Real& num1, const Real& num2)
-{
-	if (num1 > num2)
-	{
-		return num1;
-	}
-	else
-	{
-		return num2;
-	}
-}
 
-Real GetMin(const Real& num1, const Real& num2)
-{
-	if (num1 < num2)
-	{
-		return num1;
-	}
-	else
-	{
-		return num2;
-	}
-}
 
 
 

@@ -272,10 +272,22 @@ int main()
 
 
 
-	std::cout << "\n\n\t\tсегмент\n\n";
 
-	std::cout << seg.GetPointer1();
-	std::cout << seg.GetPointer1Ref();
+	std::cout << "\n\n\t\tТочка\n\n";
+
+	std::cout << (p1 == p1) << "\n";
+	std::cout << p1.IsEqualPoints(p2) << "\n";
+	std::cout << p2.MySqrt(num5) << "\n";
+	std::cout << DistanceBetweenPoints(p1, p2) << "\n";
+
+
+
+
+
+	std::cout << "\n\n\t\tСегмент\n\n";
+
+	std::cout << seg.GetPointer1() << "\n";
+	std::cout << seg.GetPointer1Ref() << "\n";
 
 	/*
 	Что нужно доделать

@@ -40,7 +40,7 @@ public:
 
 
 	// Расчет корня - для формулы нахождения расстояния между точками
-	static Real MySqrt(Real& number, const Real& epsilon = Real(1e-10));
+	static Real MySqrt(Real& number);
 
 
 

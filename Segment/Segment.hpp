@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Point2d/Point2d.hpp"
+#include "../Real/Real.hpp"
 
 class Segment
 {

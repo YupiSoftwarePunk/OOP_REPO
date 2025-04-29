@@ -19,6 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Dictionary\Dictionary.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Figure\Figure.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Fraction\Fraction.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Integer\Integer.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\LinkedList\List.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Main\main.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Point2d\Point2d.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Real\Real.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Segment\Segment.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\SmartPointers\Auto_Unique.cpp" />
+    <ClCompile Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\VariaticTemplates\VariaticTemplates.cpp" />
     <ClCompile Include="Dictionary\Dictionary.cpp" />
     <ClCompile Include="Figure\Figure.cpp" />
     <ClCompile Include="Fraction\Fraction.cpp" />
@@ -32,6 +43,14 @@
     <ClCompile Include="VariaticTemplates\VariaticTemplates.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Dictionary\Dictionary.hpp" />
+    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Figure\Figure.hpp" />
+    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Fraction\Fraction.hpp" />
+    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Integer\Integer.hpp" />
+    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Matrix\Matrix.hpp" />
+    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Point2d\Point2d.hpp" />
+    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Real\Real.hpp" />
+    <ClInclude Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\Segment\Segment.hpp" />
     <ClInclude Include="Dictionary\Dictionary.hpp" />
     <ClInclude Include="Figure\Figure.hpp" />
     <ClInclude Include="Fraction\Fraction.hpp" />
@@ -42,6 +61,14 @@
     <ClInclude Include="Segment\Segment.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\.gitattributes" />
+    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\.gitignore" />
+    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\desktop.ini" />
+    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\IntegerClass.sln" />
+    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\IntegerClass.vcxproj" />
+    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\IntegerClass.vcxproj.filters" />
+    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\IntegerClass.vcxproj.user" />
+    <None Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\ТЗ.pdf" />
     <None Include=".gitattributes" />
     <None Include=".gitignore" />
     <None Include="Classes\x64\Debug\Classes.exe.recipe" />
@@ -61,6 +88,7 @@
     <None Include="ТЗ.pdf" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\..\..\Downloads\OOP_REPO-master\OOP_REPO-master\LICENSE.txt" />
     <Text Include="Classes\x64\Debug\Classes.log" />
     <Text Include="LICENSE.txt" />
   </ItemGroup>

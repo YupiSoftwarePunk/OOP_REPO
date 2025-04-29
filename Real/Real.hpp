@@ -12,6 +12,7 @@ public:
     Real() : Real(Integer(), Fraction()) {}   
     Real(const Integer& units, const Fraction& fractional); 
     Real(const Fraction& obj);
+    Real(long double obj);
     Real(Integer obj) : units_(obj), fractional_(Integer(1)) {};
     Real(
         int units,
@@ -23,6 +24,9 @@ public:
         Fraction fractional) :
         units_(units),
         fractional_(fractional) {};
+
+    long double ToDouble()const;
+
 
 
     // сеттеры и геттеры

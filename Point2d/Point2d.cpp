@@ -28,7 +28,7 @@ Real Point2d::GetNum2()
 // Сравнительный оператор 
 bool operator==(const Point2d& num1, const Point2d& num2)
 {
-	return (num1.num1_ == num1.num2_) && (num2.num1_ == num2.num2_);
+	return (num1.num1_ == num2.num1_) && (num1.num2_ == num2.num2_);
 }
 
 
@@ -53,34 +53,34 @@ Real DistanceBetweenPoints(const Point2d& x, const Point2d& y)
 
 
 
-Real Point2d::MySqrt(Real& number, const Real& epsilon)
+Real Point2d::MySqrt(Real& number)
 {
-    if (number < Real(0)) 
-    {
-        throw std::invalid_argument("Число должно быть положительным!");
-    }
+    //if (number < Real(0)) 
+    //{
+    //    throw std::invalid_argument("Число должно быть положительным!");
+    //}
 
-    if (number == Real(0)) 
-    {
-        return Real(0);
-    }
+    //if (number == Real(0)) 
+    //{
+    //    return Real(0);
+    //}
 
-    Real x = number;
-    Real prev;
+    //Real x = number;
+    //Real prev;
 
-    do 
-    {
-        prev = x;
-        x = Real(1 / 2) * (x + number / x); 
+    //do 
+    //{
+    //    prev = x;
+    //    x = Real(1 / 2) * (x + number / x); 
 
-        if ((x - prev) < Real(0))
-        {
-            (x - prev) *= Real(-1);
-        }
+    //    if ((x - prev) < Real(0))
+    //    {
+    //        (x - prev) *= Real(-1);
+    //    }
 
-    } while ((x - prev) > Real(epsilon)); 
+    //} while ((x - prev) > Real(epsilon)); 
 
-    return x;
+    return ::sqrt(number.ToDouble());
 }
 
 
