@@ -396,6 +396,23 @@ Fraction Fraction::operator-() const
 
 
 
+long double Fraction::fractionToDouble()
+{
+	long double numerator = num_.integerToDouble();
+	long double denominator = denum_.integerToDouble();
+
+	long double result = numerator / denominator;
+
+	if (GetSign())
+	{
+		result = -result;
+	}
+
+	return result;
+}
+
+
+
 // оператор вывода
 std::ostream& operator<<(std::ostream& out, const Fraction& obj)
 {

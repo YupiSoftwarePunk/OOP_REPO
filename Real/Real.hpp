@@ -25,7 +25,8 @@ public:
         units_(units),
         fractional_(fractional) {};
 
-    long double ToDouble()const;
+
+    long double ToDouble();
 
 
     // сеттеры и геттеры

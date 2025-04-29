@@ -123,6 +123,9 @@ public:
 	Fraction operator-() const;
 
 
+	long double fractionToDouble();
+
+
 
 	// поля
 private:

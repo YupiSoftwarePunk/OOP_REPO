@@ -621,6 +621,20 @@ Integer Integer::operator-()
 
 
 
+long double Integer::integerToDouble()
+{
+	long double result = static_cast<long double>(units_);
+
+	if (sign_)
+	{
+		result = -result;
+	}
+
+	return result;
+}
+
+
+
 // Оператор вывода
 std::ostream& operator<<(std::ostream& out, const Integer& other)
 {

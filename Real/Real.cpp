@@ -43,6 +43,7 @@ Real::Real(long double obj)
 
 	long double fractional_part = obj - static_cast<int>(obj);
 
+
 	if (fractional_part == 0.0)
 	{
 		fractional_ = Fraction(0, 1); 
@@ -58,18 +59,15 @@ Real::Real(long double obj)
 
 
 
-long double Real::ToDouble() const
+long double Real::ToDouble() 
 {
-	/*
-		сдесь нужно обратно преобразовать число в double
-	*/
 	
-	long double result = static_cast<long double>(units_.ToInt());
+	long double result = static_cast<long double>(units_.integerToDouble());
 
-	// Добавляем дробную часть
 	if (fractional_ != Fraction(0, 1))
 	{
-		result += static_cast<long double>(fractional_.GetNumerator()) / static_cast<long double>(fractional_.GetDenominator());
+		result += static_cast<long double>(fractional_.GetNumerator().integerToDouble()) /
+				  static_cast<long double>(fractional_.GetDenominator().integerToDouble());
 	}
 
 	return result;

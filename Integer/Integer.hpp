@@ -129,6 +129,9 @@ public:
 	Integer operator-();
 
 
+	long double integerToDouble();
+
+
 
 	// Оператор вывода
 	friend std::ostream& operator<<(std::ostream& out, const Integer& other);
