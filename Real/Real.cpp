@@ -37,6 +37,7 @@ Real::Real(const Fraction& obj)
 	}
 }
 
+
 // преобразование из double
 Real::Real(long double obj)
 {
@@ -210,7 +211,6 @@ Real Real::operator/(const Real& other) const    // переписать опе�
 
 
 // Операторы сравнения
-
 bool Real::operator<(const Real& other) const
 {
 	if (units_ == other.units_)

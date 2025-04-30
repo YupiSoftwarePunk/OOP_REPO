@@ -27,7 +27,9 @@ int main()
 
 	Point2d p1(num5, num6);
 	Point2d p2(num6, num5);
-	Segment seg(p1, p2);
+
+	Segment seg1(p1, p2);
+	Segment seg2(p2, p1);
 
 
 	std::cout << "\t\tСловарь\n\n";
@@ -287,8 +289,10 @@ int main()
 
 	std::cout << "\n\n\t\tСегмент\n\n";
 
-	std::cout << seg.GetPointer1() << "\n";
-	std::cout << seg.GetPointer1Ref() << "\n";
+	std::cout << seg1.GetPointer1() << "\n";
+	std::cout << seg1.GetPointer1Ref() << "\n";
+	std::cout << seg1.IsEqualSegments(seg2) << "\n";
+	std::cout << seg1.IsSegmentsCrossed(seg2) << "\n";
 
 	/*
 	Что нужно доделать
