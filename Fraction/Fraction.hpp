@@ -28,6 +28,9 @@ public:
 	// операторо вывода
 	friend std::ostream& operator<<(std::ostream& out, const Fraction& obj);
 
+	// операторо ввода
+	friend std::istream& operator>>(std::istream& in, Fraction& obj);
+
 
 	// Проверка дроби
 

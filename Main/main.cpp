@@ -307,8 +307,16 @@ int main()
 	И есть возможность потом считать это число из файла обратно в прогу в этом же типе данных
 	*/
 
+	std::cout << "\n\n\t\tЦелые числа\n";
+
 	std::cin >> num1;
 	std::cout << num1;
+
+	std::cout << "\n\t\tДроби\n";
+
+	std::cin >> num3;
+	std::cout << num3;
+
 
 	return 0;
 }

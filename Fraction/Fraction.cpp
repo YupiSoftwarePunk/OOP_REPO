@@ -425,3 +425,56 @@ std::ostream& operator<<(std::ostream& out, const Fraction& obj)
 		return out << obj.num_ << "/" << obj.denum_;
 	}
 }
+
+
+// оператор ввода
+std::istream& operator>>(std::istream& in, Fraction& obj)
+{
+	std::string input;
+	in >> input;
+
+	size_t slashPos = input.find('/');
+	Integer num = 0;
+	Integer denum = 0;
+
+
+	bool sign = false;
+	int startPos = 0;
+
+	if (!input.empty() && input[0] == '-')
+	{
+		sign = true;
+		startPos = 1;
+	}
+
+
+	for (int i = startPos; i < slashPos; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			num = num * 10 + (input[i] - '0');
+		}
+	}
+
+	for (int i = slashPos + 1; i < input.size(); i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			denum = denum * 10 + (input[i] - '0');
+		}
+	}
+
+	obj.num_ = num;
+	obj.denum_ = denum;
+	obj.sign_ = sign;
+
+	return in;
+}

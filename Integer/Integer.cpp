@@ -649,6 +649,8 @@ std::ostream& operator<<(std::ostream& out, const Integer& other)
 	return out;
 }
 
+
+// оператор ввода
 std::istream& operator>>(std::istream& in, Integer& other)
 {
 	std::string input;
@@ -656,18 +658,18 @@ std::istream& operator>>(std::istream& in, Integer& other)
 
 	
 	bool sign = false;
-	int start_pos = 0;
+	int startPos = 0;
 
 	if (!input.empty() && input[0] == '-') 
 	{
 		sign = true;
-		start_pos = 1;
+		startPos = 1;
 	}
 	
 	bool valid = true;
 	unsigned units = 0;
 
-	for (int i = start_pos; i < input.size(); i++) 
+	for (int i = startPos; i < input.size(); i++)
 	{
 		if (!isdigit(input[i])) 
 		{
