@@ -136,6 +136,9 @@ public:
 	// Оператор вывода
 	friend std::ostream& operator<<(std::ostream& out, const Integer& other);
 
+	// Оператор ввода
+	friend std::istream& operator>>(std::istream& in, Integer& other);
+
 
 	// поля класса
 private:

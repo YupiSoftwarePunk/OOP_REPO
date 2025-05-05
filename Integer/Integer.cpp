@@ -648,3 +648,45 @@ std::ostream& operator<<(std::ostream& out, const Integer& other)
 	}
 	return out;
 }
+
+std::istream& operator>>(std::istream& in, Integer& other)
+{
+	std::string input;
+	in >> input;  
+
+	
+	bool sign = false;
+	int start_pos = 0;
+
+	if (!input.empty() && input[0] == '-') 
+	{
+		sign = true;
+		start_pos = 1;
+	}
+	
+	bool valid = true;
+	unsigned units = 0;
+
+	for (int i = start_pos; i < input.size(); i++) 
+	{
+		if (!isdigit(input[i])) 
+		{
+			valid = false;
+			break;
+		}
+		else
+		{
+			units = units * 10 + (input[i] - '0');
+		}
+	}
+
+	if (!valid) 
+	{
+		::exit(-1);
+	}
+
+	other.sign_ = sign;
+	other.units_ = units;
+
+	return in;
+}
