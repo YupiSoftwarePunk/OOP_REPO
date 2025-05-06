@@ -278,6 +278,9 @@ int main()
 
 	std::cout << "\n\n\t\tТочка\n\n";
 
+	std::cout << p1 << "\n";
+	std::cout << p2 << "\n";
+
 	std::cout << (p1 == p1) << "\n";
 	std::cout << p1.IsEqualPoints(p2) << "\n";
 	std::cout << p2.MySqrt(num5) << "\n";
@@ -307,20 +310,29 @@ int main()
 	И есть возможность потом считать это число из файла обратно в прогу в этом же типе данных
 	*/
 
+
 	std::cout << "\n\n\t\tЦелые числа\n";
 
 	std::cin >> num1;
 	std::cout << num1;
+
 
 	std::cout << "\n\t\tДроби\n";
 
 	std::cin >> num3;
 	std::cout << num3;
 
+
 	std::cout << "\n\t\tДесятичные дроби\n";
 
-	std::cin >> num5;
+	std::cin >> num5;   // ошибка в целой части числа
 	std::cout << num5;
+
+
+	std::cout << "\n\t\tТочка\n";
+
+	std::cin >> p1;   // ошибка 
+	std::cout << p1;
 
 
 	return 0;

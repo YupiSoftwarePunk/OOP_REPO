@@ -64,7 +64,6 @@ Real::Real(long double obj)
 // преобразование в double
 long double Real::ToDouble() 
 {
-	
 	long double result = static_cast<long double>(units_.integerToDouble());
 
 	if (fractional_ != Fraction(0, 1))
@@ -379,7 +378,7 @@ std::istream& operator>>(std::istream& in, Real& obj)
 		}
 		else
 		{
-			if (input[0] == '-')
+			if (input[0] == '-')    // здесь ошибка
 			{
 				units = units * 10 + (input[i] - '0');
 				units = -units;

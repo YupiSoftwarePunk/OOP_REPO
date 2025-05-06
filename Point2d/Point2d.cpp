@@ -55,33 +55,6 @@ Real DistanceBetweenPoints(const Point2d& x, const Point2d& y)
 
 Real Point2d::MySqrt(Real& number)
 {
-    /*if (number < Real(0)) 
-    {
-        throw std::invalid_argument("Число должно быть положительным!");
-    }
-
-    if (number == Real(0)) 
-    {
-        return Real(0);
-    }
-
-    Real x = number;
-    Real prev;
-
-    do 
-    {
-        prev = x;
-        x = Real(1 / 2) * (x + number / x); 
-
-        if ((x - prev) < Real(0))
-        {
-            (x - prev) *= Real(-1);
-        }
-
-    } while ((x - prev) > Real(epsilon)); 
-
-    return x;*/
-
     return ::sqrt(number.ToDouble());
 }
 
@@ -93,7 +66,149 @@ std::ostream& operator<<(std::ostream& out, const Point2d obj)
 	return out << obj.num1_ << " " << obj.num2_;
 }
 
-//std::istream& operator>>(std::istream& in, const Point2d obj)
-//{
-//	return in >> obj.num1_ >> " " >> obj.num2_;
-//}
+
+std::istream& operator>>(std::istream& in, Point2d obj)   // тут ошибка
+{
+	std::string input;
+	in >> input;
+
+	int slashPos1 = input.find('/');
+	int bracketPos1 = input.find('(');
+	int bracketPos2 = input.find(')');
+
+	int slashPos2 = input.find('/');
+	int bracketPos3 = input.find('(');
+	int bracketPos4 = input.find(')');
+
+	Real num1;
+	Real num2;
+
+	Integer units = 0;
+	Integer fractionalNum = 0;
+	Integer fractionalDenum = 0;
+	Fraction fractional;
+
+	Integer units2 = 0;
+	Integer fractionalNum2 = 0;
+	Integer fractionalDenum2 = 0;
+	Fraction fractional2;
+
+	int startPos = 0;
+	bool sign = false;
+
+
+	if (!input.empty() && input[0] == '-')
+	{
+		sign = true;
+		startPos = 1;
+	}
+
+	for (int i = startPos; i < bracketPos1; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			if (input[0] == '-')    // здесь ошибка
+			{
+				units = units * 10 + (input[i] - '0');
+				units = -units;
+			}
+			else
+			{
+				units = units * 10 + (input[i] - '0');
+			}
+		}
+	}
+
+	for (int i = bracketPos1 + 1; i < slashPos1; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalNum = fractionalNum * 10 + (input[i] - '0');
+		}
+	}
+
+	for (int i = slashPos1 + 1; i < bracketPos2; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalDenum = fractionalDenum * 10 + (input[i] - '0');
+		}
+	}
+
+	fractional.SetNumerator(fractionalNum);
+	fractional.SetDenominator(fractionalDenum);
+
+
+
+
+	for (int i = bracketPos2 + 2; i < bracketPos3; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			if (input[0] == '-')    // здесь ошибка
+			{
+				units2 = units * 10 + (input[i] - '0');
+				units2 = -units;
+			}
+			else
+			{
+				units2 = units * 10 + (input[i] - '0');
+			}
+		}
+	}
+
+	for (int i = bracketPos3 + 1; i < slashPos2; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalNum2 = fractionalNum * 10 + (input[i] - '0');
+		}
+	}
+
+	for (int i = slashPos2 + 1; i < bracketPos4; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalDenum2 = fractionalDenum * 10 + (input[i] - '0');
+		}
+	}
+
+	fractional2.SetNumerator(fractionalNum2);
+	fractional2.SetDenominator(fractionalDenum2);
+
+	num1.SetUnits(units);
+	num1.SetFractional(fractional);
+
+	num2.SetUnits(units2);
+	num2.SetFractional(fractional2);
+
+	obj.num1_ = num1;
+	obj.num2_ = num2;
+
+
+	return in;
+}
