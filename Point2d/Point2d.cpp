@@ -76,9 +76,9 @@ std::istream& operator>>(std::istream& in, Point2d obj)   // тут ошибка
 	int bracketPos1 = input.find('(');
 	int bracketPos2 = input.find(')');
 
-	int slashPos2 = input.find('/');
-	int bracketPos3 = input.find('(');
-	int bracketPos4 = input.find(')');
+	int slashPos2 = input.find('/', slashPos1 + 1);
+	int bracketPos3 = input.find('(', bracketPos1 + 1);
+	int bracketPos4 = input.find(')', bracketPos2 + 1);
 
 	Real num1;
 	Real num2;
@@ -95,6 +95,7 @@ std::istream& operator>>(std::istream& in, Point2d obj)   // тут ошибка
 
 	int startPos = 0;
 	bool sign = false;
+	bool sign2 = false;
 
 
 	if (!input.empty() && input[0] == '-')
@@ -111,15 +112,7 @@ std::istream& operator>>(std::istream& in, Point2d obj)   // тут ошибка
 		}
 		else
 		{
-			if (input[0] == '-')    // здесь ошибка
-			{
-				units = units * 10 + (input[i] - '0');
-				units = -units;
-			}
-			else
-			{
-				units = units * 10 + (input[i] - '0');
-			}
+			units = units * 10 + (input[i] - '0');
 		}
 	}
 
@@ -147,10 +140,18 @@ std::istream& operator>>(std::istream& in, Point2d obj)   // тут ошибка
 		}
 	}
 
+	units.SetSign(sign);
+
 	fractional.SetNumerator(fractionalNum);
 	fractional.SetDenominator(fractionalDenum);
 
 
+
+
+	if (!input.empty() && input[bracketPos2 + 2] == '-')
+	{
+		sign2 = true;
+	}
 
 
 	for (int i = bracketPos2 + 2; i < bracketPos3; i++)
@@ -161,15 +162,7 @@ std::istream& operator>>(std::istream& in, Point2d obj)   // тут ошибка
 		}
 		else
 		{
-			if (input[0] == '-')    // здесь ошибка
-			{
-				units2 = units * 10 + (input[i] - '0');
-				units2 = -units;
-			}
-			else
-			{
-				units2 = units * 10 + (input[i] - '0');
-			}
+			units = units * 10 + (input[i] - '0');
 		}
 	}
 
@@ -196,6 +189,8 @@ std::istream& operator>>(std::istream& in, Point2d obj)   // тут ошибка
 			fractionalDenum2 = fractionalDenum * 10 + (input[i] - '0');
 		}
 	}
+
+	units2.SetSign(sign2);
 
 	fractional2.SetNumerator(fractionalNum2);
 	fractional2.SetDenominator(fractionalDenum2);
