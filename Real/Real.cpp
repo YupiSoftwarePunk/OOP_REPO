@@ -378,15 +378,7 @@ std::istream& operator>>(std::istream& in, Real& obj)
 		}
 		else
 		{
-			if (input[0] == '-')    // здесь ошибка
-			{
-				units = units * 10 + (input[i] - '0');
-				units = -units;
-			}
-			else
-			{
-				units = units * 10 + (input[i] - '0');
-			}
+			units = units * 10 + (input[i] - '0');
 		}
 	}
 
@@ -413,6 +405,8 @@ std::istream& operator>>(std::istream& in, Real& obj)
 			fractionalDenum = fractionalDenum * 10 + (input[i] - '0');
 		}
 	}
+
+	units.SetSign(sign);
 
 	fractional.SetNumerator(fractionalNum);
 	fractional.SetDenominator(fractionalDenum);

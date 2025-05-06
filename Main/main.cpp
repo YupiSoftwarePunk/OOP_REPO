@@ -325,7 +325,7 @@ int main()
 
 	std::cout << "\n\t\tДесятичные дроби\n";
 
-	std::cin >> num5;   // ошибка в целой части числа
+	std::cin >> num5;   
 	std::cout << num5;
 
 
