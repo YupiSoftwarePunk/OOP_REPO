@@ -345,3 +345,82 @@ std::ostream& operator<<(std::ostream& out, const Real& obj)
 	}
 
 }
+
+std::istream& operator>>(std::istream& in, Real& obj)
+{
+	std::string input;
+	in >> input;
+
+	int slashPos = input.find('/');
+	int bracketPos1 = input.find('(');
+	int bracketPos2 = input.find(')');
+
+	Integer units = 0;
+	Integer fractionalNum = 0;
+	Integer fractionalDenum = 0;
+	Fraction fractional;
+
+	bool sign = false;
+	int startPos = 0;
+
+
+	if (!input.empty() && input[0] == '-')
+	{
+		sign = true;
+		startPos = 1;
+	}
+
+
+	for (int i = startPos; i < bracketPos1; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			if (input[0] == '-')
+			{
+				units = units * 10 + (input[i] - '0');
+				units = -units;
+			}
+			else
+			{
+				units = units * 10 + (input[i] - '0');
+			}
+		}
+	}
+
+	for (int i = bracketPos1 + 1; i < slashPos; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalNum = fractionalNum * 10 + (input[i] - '0');
+		}
+	}
+
+	for (int i = slashPos + 1; i < bracketPos2; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalDenum = fractionalDenum * 10 + (input[i] - '0');
+		}
+	}
+
+	fractional.SetNumerator(fractionalNum);
+	fractional.SetDenominator(fractionalDenum);
+
+	obj.units_ = units;
+	obj.fractional_ = fractional;
+
+
+	return in;
+}

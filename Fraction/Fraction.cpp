@@ -433,7 +433,7 @@ std::istream& operator>>(std::istream& in, Fraction& obj)
 	std::string input;
 	in >> input;
 
-	size_t slashPos = input.find('/');
+	int slashPos = input.find('/');
 	Integer num = 0;
 	Integer denum = 0;
 

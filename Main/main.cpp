@@ -317,6 +317,11 @@ int main()
 	std::cin >> num3;
 	std::cout << num3;
 
+	std::cout << "\n\t\tÄåñÿòè÷íûå äğîáè\n";
+
+	std::cin >> num5;
+	std::cout << num5;
+
 
 	return 0;
 }

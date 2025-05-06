@@ -43,6 +43,9 @@ public:
     // Оператор вывода
     friend std::ostream& operator<<(std::ostream& out, const Real& obj);
 
+    // Оператор ввода
+    friend std::istream& operator>>(std::istream& in, Real& obj);
+
 
     // Проверки числа
     bool isDecimalPositive() const;
