@@ -40,6 +40,7 @@
     <ClInclude Include="Point2d\Point2d.hpp" />
     <ClInclude Include="Real\Real.hpp" />
     <ClInclude Include="Segment\Segment.hpp" />
+    <ClInclude Include="Vector\Vector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
