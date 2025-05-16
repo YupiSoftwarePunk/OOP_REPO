@@ -68,11 +68,20 @@ public:
 
 
 	// оператор вывода
-	friend std::ostream& operator<< (std::ostream& out, const Segment obj);
+	friend std::ostream& operator<< (std::ostream& out, const Segment& obj);
 
+	// оператор ввода
+	friend std::istream& operator>> (std::istream& in, const Segment& obj);
+	/*
+		Примечание:
+		можно сделать просто такой же код как в поинт, завернуть его в метод и просто вызвать два раза ну или тип того
+		в общем завернуть в метод для удобнова вызова, чтоб не пришлось огромный код два раза писать
+	*/
+
+
+private:
 
 	// поля
-private:
 	std::shared_ptr<Point2d> pointer1_;
 	std::shared_ptr<Point2d> pointer2_;
 
