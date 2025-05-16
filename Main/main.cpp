@@ -331,7 +331,7 @@ int main()
 
 	std::cout << "\n\t\tÒî÷êà\n";
 
-	std::cin >> p1;   // îøèáêà 
+	std::cin >> p1;   
 	std::cout << p1;
 
 

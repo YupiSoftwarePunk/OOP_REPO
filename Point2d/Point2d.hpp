@@ -45,8 +45,9 @@ public:
 
 
 	// Оператор ввода и вывода
-	friend std::ostream& operator<< (std::ostream& out, const Point2d obj);
-	friend std::istream& operator>> (std::istream& in, Point2d obj);
+	friend std::ostream& operator<< (std::ostream& out, const Point2d& obj);
+
+	friend std::istream& operator>> (std::istream& in, Point2d& obj);
 
 private:
 

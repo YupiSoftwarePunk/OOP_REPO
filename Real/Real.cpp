@@ -345,6 +345,8 @@ std::ostream& operator<<(std::ostream& out, const Real& obj)
 
 }
 
+
+// Оператор ввода
 std::istream& operator>>(std::istream& in, Real& obj)
 {
 	std::string input;
