@@ -135,11 +135,41 @@ public:
 
 
 	// Оператор вывода
-	
+	friend std::ostream& operator << (std::ostream& outs, const Vector<T>& obj)
+	{
+		for (int i = 0; i < obj.size_; ++i) 
+		{
+			outs << "{ ";
+			for (int j = 0; j < obj.capacity_; ++j) 
+			{
+				outs << obj.array_[i][j];
+				if (j < obj.capacity_ - 1) 
+				{
+					outs << ", ";
+				}
+			}
+			outs << " }";
+			if (i < obj.size_ - 1) 
+			{
+				outs << "\n";
+			}
+		}
+		return outs;
+	}
 
 
 	// Оператор ввода
-
+	friend std::istream& operator >> (std::istream& ins, const Vector<T>& obj) 
+	{
+		for (int i = 0; i < obj.size_; ++i) 
+		{
+			for (int j = 0; j < obj.capacity_; ++j) 
+			{
+				ins >> obj.array_[i][j];
+			}
+		}
+		return ins;
+	}
 
 
 private:
