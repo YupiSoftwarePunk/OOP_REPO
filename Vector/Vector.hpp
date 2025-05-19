@@ -95,6 +95,7 @@ public:
 
 
 
+	// методы для индексов с одним параметром
 	T* operator[] (unsigned long long Row)
 	{
 		return array_[Row];
@@ -107,6 +108,7 @@ public:
 
 
 
+	// методы для индексов с двумя параметрами
 	T& operator() (unsigned long long Row, unsigned long long Coll)
 	{
 		return array_[Row][Coll];
@@ -118,6 +120,28 @@ public:
 	}
 
 
+
+	// Оператор at
+	T& at(unsigned long long Row, unsigned long long Coll)
+	{
+		return array_[Row][Coll];
+	}
+
+	const T& at(unsigned long long Row, unsigned long long Coll) const
+	{
+		return array_[Row][Coll];
+	}
+
+
+
+	// Оператор вывода
+	
+
+
+	// Оператор ввода
+
+
+
 private:
 
 	struct {
@@ -125,20 +149,33 @@ private:
 		{
 			return ::operator new(size);
 		}
-		void deallocate(char* place)
-		{
-			delete[] place;
-		}
-		void reallocate(char*& place, int old_size, int new_size)
-		{
-			char* place2 = new char[new_size];
-			for (int i = 0; i < new_size; i++)
-			{
-				place2[i] = place[i];
-			}
-			delete[] place;
-			place = place2;
 
+		void deallocate(T** arr)
+		{
+			if (arr) 
+			{
+				for (T** ptr = arr; *ptr != nullptr; ++ptr) 
+				{
+					delete[] * ptr; 
+					*ptr = nullptr; 
+				}
+				delete[] arr; 
+				arr = nullptr; 
+			}
+		}
+
+		void reallocate(T** array, size_t old_rows, size_t old_cols, size_t new_rows, size_t new_cols)
+		{
+			T** new_array = allocate(new_rows, new_cols); 
+			for (size_t i = 0; i < std::min(old_rows, new_rows); i++) 
+			{
+				for (size_t j = 0; j < std::min(old_cols, new_cols); j++) 
+				{
+					new_array[i][j] = array[i][j]; 
+				}
+			}
+			deallocate(array); 
+			return new_array; 
 		}
 
 	}allocator_;
