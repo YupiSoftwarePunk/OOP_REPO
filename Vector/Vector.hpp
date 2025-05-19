@@ -30,11 +30,10 @@ public:
 		}
 	}
 
-	Vector(T* arr) 
+	Vector(const std::initializer_list<T>& other) : capacity_(other.size()), size_(other.size()) 
 	{
-		capacity_ = arr.size();
-		array_ = allocator_.allocate(capacity_);
-		memcpy(array_, arr, capacity_);
+		array_ = static_cast<T*>(allocator_.allocate(capacity_ * sizeof(T)));
+		std::copy(other.begin(), other.end(), array_);
 	}
 
 	// Конструктор копирования
@@ -57,7 +56,7 @@ public:
 	}
 
 	// конструктор оператор присваивания копирования
-	Vector& operator=(const T& other) 
+	Vector& operator=(const Vector& other) 
 	{
 		if (this != &other) 
 		{
@@ -93,6 +92,31 @@ public:
 			allocator_.deallocate(array_);
 		}
 	}
+
+
+
+	T* operator[] (unsigned long long Row)
+	{
+		return array_[Row];
+	}
+
+	const T* operator[] (unsigned long long Row) const
+	{
+		return array_[Row];
+	}
+
+
+
+	T& operator() (unsigned long long Row, unsigned long long Coll)
+	{
+		return array_[Row][Coll];
+	}
+
+	const T& operator() (unsigned long long Row, unsigned long long Coll) const
+	{
+		return array_[Row][Coll];
+	}
+
 
 private:
 
