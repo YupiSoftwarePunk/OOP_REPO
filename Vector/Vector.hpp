@@ -174,7 +174,8 @@ public:
 
 private:
 
-	struct {
+	struct allocator_ 
+	{
 		void* allocate(size_t  size)
 		{
 			return ::operator new(size);
@@ -208,7 +209,7 @@ private:
 			return new_array; 
 		}
 
-	}allocator_;
+	};
 
 	// поля
 	T* array_[];
