@@ -22,7 +22,6 @@
     <ClCompile Include="Dictionary\Dictionary.cpp" />
     <ClCompile Include="Figure\Figure.cpp" />
     <ClCompile Include="Fraction\Fraction.cpp" />
-    <ClCompile Include="VectorHandler\Handler.cpp" />
     <ClCompile Include="Integer\Integer.cpp" />
     <ClCompile Include="LinkedList\List.cpp" />
     <ClCompile Include="Main\main.cpp" />
@@ -42,7 +41,7 @@
     <ClInclude Include="Point2d\Point2d.hpp" />
     <ClInclude Include="Real\Real.hpp" />
     <ClInclude Include="Segment\Segment.hpp" />
-    <ClInclude Include="Vector\Vector.hpp" />
+    <ClInclude Include="VectorArr\VectorArr.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
