@@ -9,13 +9,17 @@ class IVectorOperationStrategy
 {
 public:
     virtual ~IVectorOperationStrategy() = default;
+
     virtual T execute(const Vector<T>& vec1, const Vector<T>& vec2) const = 0;
+
     virtual T execute(const Vector<T>& vec) const = 0;
 };
 
 
+
 // Конкретная стратегия для скалярного произведения
 template <typename T>
+
 class ScalarProductStrategy : public IVectorOperationStrategy<T> 
 {
 public:
@@ -43,8 +47,11 @@ public:
     }
 };
 
+
+
 // Конкретная стратегия для векторного произведения (для 3D векторов)
 template <typename T>
+
 class VectorProductStrategy : public IVectorOperationStrategy<T> 
 {
 public:
@@ -68,8 +75,11 @@ public:
     }
 };
 
+
+
 // Конкретная стратегия для вычисления нормы вектора
 template <typename T>
+
 class VectorNormStrategy : public IVectorOperationStrategy<T> 
 {
 public:
@@ -92,8 +102,11 @@ public:
     }
 };
 
+
+
 // Класс-обработчик векторов, использующий паттерн Стратегия
 template <typename T>
+
 class VectorHandler
 {
 public:

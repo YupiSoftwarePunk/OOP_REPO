@@ -5,6 +5,7 @@
 #include "../Matrix/Matrix.hpp"
 #include "../Point2d/Point2d.hpp"
 #include "../Segment/Segment.hpp"
+#include "../VectorArr/VectorArr.hpp"
 
 
 
@@ -333,6 +334,14 @@ int main()
 
 	std::cin >> p1;   
 	std::cout << p1;
+
+
+	std::cout << "\n\t\tОтрезок\n";
+	// в разработке
+
+
+	/*Vector<double> vec1 = { {1.0, 2.0, 3.0} };  тут ошибочка, нужно переделать
+	Vector<double> vec2 = { {4.0, 5.0, 6.0} };*/
 
 
 	return 0;
