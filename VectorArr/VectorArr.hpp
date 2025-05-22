@@ -212,7 +212,11 @@ private:
 	};
 
 	// поля
-	T* array_[];
+	T** array_;
+
 	int capacity_;
 	int size_;
+
+	size_t rows_ = 0;
+	size_t cols_ = 0;
 };
