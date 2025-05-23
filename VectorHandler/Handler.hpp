@@ -7,15 +7,15 @@
 // Базовый интерфейс стратегии
 template <typename T>
 
-class IVectorOperationStrategy 
+class VectorOperationStrategy 
 {
 public:
-    virtual ~IVectorOperationStrategy() = default;
+    virtual ~VectorOperationStrategy() = default;
 
-    // Для операций с двумя векторами
+    // для 2 векторов
     virtual Vector<T> execute(const Vector<T>& vec1, const Vector<T>& vec2) const = 0;
 
-    // Для операций с одним вектором
+    // для 1 вектора
     virtual T execute(const Vector<T>& vec) const = 0;
 };
 
@@ -24,7 +24,7 @@ public:
 // Конкретная стратегия для скалярного произведения
 template <typename T>
 
-class ScalarProductStrategy : public IVectorOperationStrategy<T> 
+class ScalarStrategy : public VectorOperationStrategy<T> 
 {
 public:
     Vector<T> execute(const Vector<T>& vec1, const Vector<T>& vec2) const override 
@@ -60,7 +60,7 @@ public:
 // Конкретная стратегия для векторного произведения (для 3D векторов)
 template <typename T>
 
-class VectorProductStrategy : public IVectorOperationStrategy<T> 
+class VectorStrategy : public VectorOperationStrategy<T> 
 {
 public:
     Vector<T> execute(const Vector<T>& vec1, const Vector<T>& vec2) const override
@@ -88,7 +88,7 @@ public:
 // Конкретная стратегия для вычисления нормы вектора
 template <typename T>
 
-class VectorNormStrategy : public IVectorOperationStrategy<T> 
+class VectorNormStrategy : public VectorOperationStrategy<T> 
 {
 public:
     Vector<T> execute(const Vector<T>& vec1, const Vector<T>& vec2) const override 
@@ -119,10 +119,10 @@ template <typename T>
 class VectorHandler 
 {
 public:
-    explicit VectorHandler(std::unique_ptr<IVectorOperationStrategy<T>> strategy)
+    explicit VectorHandler(std::unique_ptr<VectorOperationStrategy<T>> strategy)
         : strategy_(std::move(strategy)) {}
 
-    void setStrategy(std::unique_ptr<IVectorOperationStrategy<T>> strategy) 
+    void setStrategy(std::unique_ptr<VectorOperationStrategy<T>> strategy) 
     {
         strategy_ = std::move(strategy);
     }
@@ -140,5 +140,5 @@ public:
     }
 
 private:
-    std::unique_ptr<IVectorOperationStrategy<T>> strategy_;
+    std::unique_ptr<VectorOperationStrategy<T>> strategy_;
 };
