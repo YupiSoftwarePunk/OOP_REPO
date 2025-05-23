@@ -10,7 +10,9 @@
 #include <cstring>
 #include <stdexcept>
 
+
 template <typename T>
+
 class Vector
 {
 public:
@@ -25,7 +27,7 @@ public:
         allocate();
     }
 
-    // Конструктор из initializer_list (для двумерного массива)
+    // Конструктор из initializer_list
     Vector(const std::initializer_list<std::initializer_list<T>>& initList)
     {
         rows_ = initList.size();
@@ -122,7 +124,7 @@ public:
 
     // Доступ к элементам
 
-    // Доступ к строке
+    // Доступ к индексу
     T* operator[](size_t row)
     {
         return data_[row];
@@ -190,6 +192,7 @@ public:
         cols_ = new_cols;
     }
 
+
     // Заполнение значением
     void fill(const T& value)
     {
@@ -201,6 +204,8 @@ public:
             }
         }
     }
+
+
 
     // Операторы ввода/вывода
 

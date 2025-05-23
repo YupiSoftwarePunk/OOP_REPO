@@ -342,8 +342,19 @@ int main()
 	std::cout << seg3;
 
 
-	/*Vector<double> vec1 = { {1.0, 2.0, 3.0} };  тут ошибочка, нужно переделать
-	Vector<double> vec2 = { {4.0, 5.0, 6.0} };*/
+
+	std::cout << "\n\t\tДвумерный динамический массив\n";
+
+	Vector<int> vector(3, 4);
+
+	Vector<double> dynVector = 
+	{
+	{1.1, 2.2, 3.3},  
+	{4.4, 5.5, 6.6},
+	{56.99, 77.45, 90.34}
+	};
+
+
 
 
 	return 0;
