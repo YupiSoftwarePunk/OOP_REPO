@@ -1,14 +1,15 @@
 #pragma once
+
 #include "../Fraction/Fraction.hpp"
 #include "../Integer/Integer.hpp"
 #include "../Real/Real.hpp"
 #include "../Matrix/Matrix.hpp"
 #include "../Point2d/Point2d.hpp"
 #include "../Segment/Segment.hpp"
+
 #include <initializer_list>
 #include <algorithm>
 #include <cstring>
-#include <stdexcept>
 
 
 template <typename T>
