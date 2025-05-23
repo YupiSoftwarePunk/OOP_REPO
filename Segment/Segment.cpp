@@ -229,9 +229,9 @@ std::istream& operator>>(std::istream& in,  Segment& obj)
 // второе число
 
 	// первая часть числа
-	int bracketPos5 = input.find('(', bracketPos3);
-	int slashPos3 = input.find('/', slashPos2);
-	int bracketPos6 = input.find(')', bracketPos4);
+	int bracketPos5 = input.find('(', bracketPos3 + 1);
+	int slashPos3 = input.find('/', slashPos2 + 1);
+	int bracketPos6 = input.find(')', bracketPos4 + 1);
 
 	// вторая часть числа
 	int bracketPos7 = input.find('(', bracketPos5 + 1);
