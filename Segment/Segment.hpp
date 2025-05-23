@@ -32,8 +32,8 @@ public:
 
 
 	// геттеры указател€
-	std::shared_ptr<Point2d> GetPointer1();
-	std::shared_ptr<Point2d> GetPointer2();
+	std::shared_ptr<Point2d>& GetPointer1();
+	std::shared_ptr<Point2d>& GetPointer2();
 
 
 	// геттеры значений
@@ -71,12 +71,7 @@ public:
 	friend std::ostream& operator<< (std::ostream& out, const Segment& obj);
 
 	// оператор ввода
-	friend std::istream& operator>> (std::istream& in, const Segment& obj);
-	/*
-		ѕримечание:
-		можно сделать просто такой же код как в поинт, завернуть его в метод и просто вызвать два раза ну или тип того
-		в общем завернуть в метод дл€ удобнова вызова, чтоб не пришлось огромный код два раза писать
-	*/
+	friend std::istream& operator>> (std::istream& in, Segment& obj);
 
 
 private:

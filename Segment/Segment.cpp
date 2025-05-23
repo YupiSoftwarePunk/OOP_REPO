@@ -13,12 +13,12 @@ void Segment::SetPoiner2(std::shared_ptr<Point2d> pointer2)
 
 
 // геттеры указателя
-std::shared_ptr<Point2d> Segment::GetPointer1()
+std::shared_ptr<Point2d>& Segment::GetPointer1()
 {
 	return pointer1_;
 }
 
-std::shared_ptr<Point2d> Segment::GetPointer2()
+std::shared_ptr<Point2d>& Segment::GetPointer2()
 {
 	return pointer2_;
 }
@@ -200,12 +200,12 @@ bool operator!=(const Segment& num1, const Segment& num2)
 // оператор вывода
 std::ostream& operator<<(std::ostream& out, const Segment& obj)
 {
-	return out << obj.pointer1_ << " " << obj.pointer2_;
+	return out << *(obj.pointer1_) << " " << *(obj.pointer2_);
 }
 
 
 // оператор ввода
-std::istream& operator>>(std::istream& in, const Segment& obj)
+std::istream& operator>>(std::istream& in,  Segment& obj)
 {
 	std::string input;
 	in >> input;
@@ -239,9 +239,8 @@ std::istream& operator>>(std::istream& in, const Segment& obj)
 	int bracketPos8 = input.find(')', bracketPos6 + 1);
 
 
-	Real num1;
-	Real num2;
 
+	// первое число
 	Integer units = 0;
 	Integer fractionalNum = 0;
 	Integer fractionalDenum = 0;
@@ -252,11 +251,40 @@ std::istream& operator>>(std::istream& in, const Segment& obj)
 	Integer fractionalDenum2 = 0;
 	Fraction fractional2;
 
-	Point2d p1;
-	Point2d p2;
-
 	bool sign = false;
 	bool sign2 = false;
+
+	Real num1;
+	Real num2;
+
+	Point2d p1;
+
+	Segment s;
+
+
+
+	// второе число
+	Integer units3 = 0;
+	Integer fractionalNum3 = 0;
+	Integer fractionalDenum3 = 0;
+	Fraction fractional3;
+
+	Integer units4 = 0;
+	Integer fractionalNum4 = 0;
+	Integer fractionalDenum4 = 0;
+	Fraction fractional4;
+
+	bool sign3 = false;
+	bool sign4 = false;
+
+	Real num3;
+	Real num4;
+
+	Point2d p2;
+
+	
+	
+
 
 	int startPos = 0;
 
@@ -352,6 +380,108 @@ std::istream& operator>>(std::istream& in, const Segment& obj)
 	}
 
 
+
+	// Второе число
+
+	// Первая часть числа
+
+	int startPos3 = bracketPos4 + 1;
+
+	if (input.size() > startPos3 && input[startPos3] == '-')
+	{
+		sign3 = true;
+		startPos3++;
+	}
+
+
+	for (int i = startPos3; i < bracketPos5; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			units3 = units3 * 10 + (input[i] - '0');
+		}
+	}
+
+	for (int i = bracketPos5 + 1; i < slashPos3; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalNum3 = fractionalNum3 * 10 + (input[i] - '0');
+		}
+	}
+
+	for (int i = slashPos3 + 1; i < bracketPos6; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalDenum3 = fractionalDenum3 * 10 + (input[i] - '0');
+		}
+	}
+
+
+	// вторая часть числа
+
+	int startPos4 = bracketPos6 + 1;
+
+	if (input.size() > startPos4 && input[startPos4] == '-')
+	{
+		sign4 = true;
+		startPos4++;
+	}
+
+
+	for (int i = startPos4; i < bracketPos7; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			units4 = units4 * 10 + (input[i] - '0');
+		}
+	}
+
+	for (int i = bracketPos7 + 1; i < slashPos4; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalNum4 = fractionalNum4 * 10 + (input[i] - '0');
+		}
+	}
+
+	for (int i = slashPos4 + 1; i < bracketPos8; i++)
+	{
+		if (!isdigit(input[i]))
+		{
+			break;
+		}
+		else
+		{
+			fractionalDenum4 = fractionalDenum4 * 10 + (input[i] - '0');
+		}
+	}
+
+
+
+
+
 // Первое число
 
 	// первая часть числа
@@ -375,6 +505,37 @@ std::istream& operator>>(std::istream& in, const Segment& obj)
 
 	p1.SetNum1(num1);
 	p1.SetNum2(num2);
+
+
+
+// Второе число
+
+	// первая часть числа
+	units3.SetSign(sign3);
+
+	fractional3.SetNumerator(fractionalNum3);
+	fractional3.SetDenominator(fractionalDenum3);
+
+	num3.SetUnits(units3);
+	num3.SetFractional(fractional3);
+
+
+	// вторая часть числа
+	units4.SetSign(sign4);
+
+	fractional4.SetNumerator(fractionalNum4);
+	fractional4.SetDenominator(fractionalDenum4);
+
+	num4.SetUnits(units4);
+	num4.SetFractional(fractional4);
+
+
+
+	p2.SetNum1(num3);
+	p2.SetNum2(num4);
+
+	obj.SetPoiner1(std::make_shared<Point2d>(p1));
+	obj.SetPoiner2(std::make_shared<Point2d>(p2));
 
 
 	return in;

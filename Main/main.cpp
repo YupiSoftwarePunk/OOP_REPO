@@ -31,6 +31,7 @@ int main()
 
 	Segment seg1(p1, p2);
 	Segment seg2(p2, p1);
+	Segment seg3;
 
 
 	std::cout << "\t\tСловарь\n\n";
@@ -312,7 +313,7 @@ int main()
 	*/
 
 
-	std::cout << "\n\n\t\tЦелые числа\n";
+	/*std::cout << "\n\n\t\tЦелые числа\n";
 
 	std::cin >> num1;
 	std::cout << num1;
@@ -333,11 +334,13 @@ int main()
 	std::cout << "\n\t\tТочка\n";
 
 	std::cin >> p1;   
-	std::cout << p1;
+	std::cout << p1;*/
 
 
 	std::cout << "\n\t\tОтрезок\n";
-	// в разработке
+	// в тестировании
+	std::cin >> seg3;     // 1(11/22)2(22/33)3(33/44)4(44/55)
+	std::cout << seg3;
 
 
 	/*Vector<double> vec1 = { {1.0, 2.0, 3.0} };  тут ошибочка, нужно переделать
