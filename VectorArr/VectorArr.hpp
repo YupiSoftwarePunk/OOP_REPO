@@ -1,222 +1,277 @@
-//#pragma once
-//#include "../Fraction/Fraction.hpp"
-//#include "../Integer/Integer.hpp"
-//#include "../Real/Real.hpp"
-//#include "../Matrix/Matrix.hpp"
-//#include "../Point2d/Point2d.hpp"
-//#include "../Segment/Segment.hpp"
-//#include  <initializer_list>
-//#include <algorithm>
-//#include <cstring>
-//
-//
-//
-//template <typename T>
-//class Vector
-//{
-//public:
-//	// конструкторы
-//
-//	// Обычные конструкторы
-//	Vector(): array_(nullptr), capacity_(0), size_(0) {}
-//
-//	Vector(int size) : capacity_(size), size_(size)
-//	{
-//		array_ = static_cast<T*>(allocator_.allocate(size * sizeof(T)));
-//
-//		for (int i = 0; i < size; i++) 
-//		{
-//			new (&array_[i]) T(); 
-//		}
-//	}
-//
-//	Vector(const std::initializer_list<T>& other) : capacity_(other.size()), size_(other.size()) 
-//	{
-//		array_ = static_cast<T*>(allocator_.allocate(capacity_ * sizeof(T)));
-//		std::copy(other.begin(), other.end(), array_);
-//	}
-//
-//	// Конструктор копирования
-//	Vector(const Vector& other) : capacity_(other.capacity_), size_(other.size_)
-//	{
-//		array_ = static_cast<T*>(allocator_.allocate(other.capacity_ * sizeof(T)));
-//
-//		for (int i = 0; i < other.size_; i++)
-//		{
-//			new (&array_[i]) T(other.array_[i]); 
-//		}
-//	}
-//
-//	// конструктор переноса
-//	Vector(Vector&& other) noexcept : array_(other.array_), capacity_(other.capacity_), size_(other.size_)
-//	{
-//		other.array_ = nullptr;
-//		other.capacity_ = 0;
-//		other.size_ = 0;
-//	}
-//
-//	// конструктор оператор присваивания копирования
-//	Vector& operator=(const Vector& other) 
-//	{
-//		if (this != &other) 
-//		{
-//			allocator_.deallocate(array_);
-//
-//			capacity_ = other.capacity_;
-//			size_ = other.size_;
-//			array_ = static_cast<T*>(allocator_.allocate(capacity_ * sizeof(T)));
-//
-//			for (int i = 0; i < size_; ++i) 
-//			{
-//				new (&array_[i]) T(other.array_[i]);
-//			}
-//		}
-//		return *this;
-//	}
-//
-//	Vector(std::initializer_list<T> other) 
-//	{
-//		size_ = other.size();
-//		capacity_ = other.size()
-//		for (int i = 0; i < capacity_; i++)
-//		{
-//			array_[i] = other.array_[i];
-//		}
-//	}
-//
-//	// деструктор
-//	~Vector()
-//	{
-//		if (capacity_ > 0 || capacity_ != nullptr)
-//		{
-//			allocator_.deallocate(array_);
-//		}
-//	}
-//
-//
-//
-//	// методы для индексов с одним параметром
-//	T* operator[] (unsigned long long Row)
-//	{
-//		return array_[Row];
-//	}
-//
-//	const T* operator[] (unsigned long long Row) const
-//	{
-//		return array_[Row];
-//	}
-//
-//
-//
-//	// методы для индексов с двумя параметрами
-//	T& operator() (unsigned long long Row, unsigned long long Coll)
-//	{
-//		return array_[Row][Coll];
-//	}
-//
-//	const T& operator() (unsigned long long Row, unsigned long long Coll) const
-//	{
-//		return array_[Row][Coll];
-//	}
-//
-//
-//
-//	// Оператор at
-//	T& at(unsigned long long Row, unsigned long long Coll)
-//	{
-//		return array_[Row][Coll];
-//	}
-//
-//	const T& at(unsigned long long Row, unsigned long long Coll) const
-//	{
-//		return array_[Row][Coll];
-//	}
-//
-//
-//
-//	// Оператор вывода
-//	friend std::ostream& operator << (std::ostream& outs, const Vector<T>& obj)
-//	{
-//		for (int i = 0; i < obj.size_; ++i) 
-//		{
-//			outs << "{ ";
-//			for (int j = 0; j < obj.capacity_; ++j) 
-//			{
-//				outs << obj.array_[i][j];
-//				if (j < obj.capacity_ - 1) 
-//				{
-//					outs << ", ";
-//				}
-//			}
-//			outs << " }";
-//			if (i < obj.size_ - 1) 
-//			{
-//				outs << "\n";
-//			}
-//		}
-//		return outs;
-//	}
-//
-//
-//	// Оператор ввода
-//	friend std::istream& operator >> (std::istream& ins, const Vector<T>& obj) 
-//	{
-//		for (int i = 0; i < obj.size_; ++i) 
-//		{
-//			for (int j = 0; j < obj.capacity_; ++j) 
-//			{
-//				ins >> obj.array_[i][j];
-//			}
-//		}
-//		return ins;
-//	}
-//
-//
-//private:
-//
-//	struct allocator_ 
-//	{
-//		void* allocate(size_t  size)
-//		{
-//			return ::operator new(size);
-//		}
-//
-//		void deallocate(T** arr)
-//		{
-//			if (arr) 
-//			{
-//				for (T** ptr = arr; *ptr != nullptr; ++ptr) 
-//				{
-//					delete[] * ptr; 
-//					*ptr = nullptr; 
-//				}
-//				delete[] arr; 
-//				arr = nullptr; 
-//			}
-//		}
-//
-//		void reallocate(T** array, size_t old_rows, size_t old_cols, size_t new_rows, size_t new_cols)
-//		{
-//			T** new_array = allocate(new_rows, new_cols); 
-//			for (size_t i = 0; i < std::min(old_rows, new_rows); i++) 
-//			{
-//				for (size_t j = 0; j < std::min(old_cols, new_cols); j++) 
-//				{
-//					new_array[i][j] = array[i][j]; 
-//				}
-//			}
-//			deallocate(array); 
-//			return new_array; 
-//		}
-//
-//	};
-//
-//	// поля
-//	T** array_;
-//
-//	int capacity_;
-//	int size_;
-//
-//	size_t rows_ = 0;
-//	size_t cols_ = 0;
-//};
+#pragma once
+#include "../Fraction/Fraction.hpp"
+#include "../Integer/Integer.hpp"
+#include "../Real/Real.hpp"
+#include "../Matrix/Matrix.hpp"
+#include "../Point2d/Point2d.hpp"
+#include "../Segment/Segment.hpp"
+#include <initializer_list>
+#include <algorithm>
+#include <cstring>
+#include <stdexcept>
+
+template <typename T>
+class Vector
+{
+public:
+    // Конструкторы
+
+    // Конструктор по умолчанию
+    Vector() : data_(nullptr), rows_(0), cols_(0) {}
+
+    // Конструктор с указанием размеров
+    Vector(size_t rows, size_t cols) : rows_(rows), cols_(cols)
+    {
+        allocate();
+    }
+
+    // Конструктор из initializer_list (для двумерного массива)
+    Vector(const std::initializer_list<std::initializer_list<T>>& initList)
+    {
+        rows_ = initList.size();
+        if (rows_ > 0) {
+            cols_ = initList.begin()->size();
+        }
+        else {
+            cols_ = 0;
+        }
+
+        allocate();
+
+        size_t i = 0;
+        for (const auto& row : initList)
+        {
+            if (row.size() != cols_)
+            {
+                ::exit(-1);
+            }
+
+            std::copy(row.begin(), row.end(), data_[i]);
+            i++;
+        }
+    }
+
+    // Конструктор копирования
+    Vector(const Vector& other) : rows_(other.rows_), cols_(other.cols_)
+    {
+        allocate();
+        for (size_t i = 0; i < rows_; ++i)
+        {
+            for (size_t j = 0; j < cols_; ++j)
+            {
+                data_[i][j] = other.data_[i][j];
+            }
+        }
+    }
+
+    // Конструктор перемещения
+    Vector(Vector&& other) noexcept : data_(other.data_), rows_(other.rows_), cols_(other.cols_)
+    {
+        other.data_ = nullptr;
+        other.rows_ = 0;
+        other.cols_ = 0;
+    }
+
+
+    // Деструктор
+    ~Vector()
+    {
+        deallocate();
+    }
+
+
+    // Оператор присваивания копированием
+    Vector& operator=(const Vector& other)
+    {
+        if (this != &other)
+        {
+            deallocate();
+            rows_ = other.rows_;
+            cols_ = other.cols_;
+            allocate();
+
+            for (size_t i = 0; i < rows_; ++i)
+            {
+                for (size_t j = 0; j < cols_; ++j)
+                {
+                    data_[i][j] = other.data_[i][j];
+                }
+            }
+        }
+        return *this;
+    }
+
+    // Оператор присваивания перемещением
+    Vector& operator=(Vector&& other) noexcept
+    {
+        if (this != &other)
+        {
+            deallocate();
+            data_ = other.data_;
+            rows_ = other.rows_;
+            cols_ = other.cols_;
+
+            other.data_ = nullptr;
+            other.rows_ = 0;
+            other.cols_ = 0;
+        }
+        return *this;
+    }
+
+
+
+    // Доступ к элементам
+
+    // Доступ к строке
+    T* operator[](size_t row)
+    {
+        return data_[row];
+    }
+
+    const T* operator[](size_t row) const
+    {
+        return data_[row];
+    }
+
+
+    // Доступ к элементу
+    T& operator()(size_t row, size_t col)
+    {
+        return data_[row][col];
+    }
+
+    const T& operator()(size_t row, size_t col) const
+    {
+        return data_[row][col];
+    }
+
+
+    // Безопасный доступ к элементу
+    T& at(size_t row, size_t col)
+    {
+        return data_[row][col];
+    }
+
+    const T& at(size_t row, size_t col) const
+    {
+        return data_[row][col];
+    }
+
+
+    // Получение размеров
+    size_t rows() const { return rows_; }
+    size_t cols() const { return cols_; }
+    size_t size() const { return rows_ * cols_; }
+
+
+
+    // Изменение размера
+    void resize(size_t new_rows, size_t new_cols)
+    {
+        if (new_rows == rows_ && new_cols == cols_)
+            return;
+
+        T** new_data = new T * [new_rows];
+        for (size_t i = 0; i < new_rows; ++i)
+        {
+            new_data[i] = new T[new_cols];
+            for (size_t j = 0; j < new_cols; ++j)
+            {
+                if (i < rows_ && j < cols_)
+                    new_data[i][j] = data_[i][j];
+                else
+                    new_data[i][j] = T();
+            }
+        }
+
+        deallocate();
+        data_ = new_data;
+        rows_ = new_rows;
+        cols_ = new_cols;
+    }
+
+    // Заполнение значением
+    void fill(const T& value)
+    {
+        for (size_t i = 0; i < rows_; ++i)
+        {
+            for (size_t j = 0; j < cols_; ++j)
+            {
+                data_[i][j] = value;
+            }
+        }
+    }
+
+    // Операторы ввода/вывода
+
+    friend std::ostream& operator<<(std::ostream& os, const Vector<T>& vec)
+    {
+        for (size_t i = 0; i < vec.rows_; ++i)
+        {
+            os << "{ ";
+            for (size_t j = 0; j < vec.cols_; ++j)
+            {
+                os << vec.data_[i][j];
+                if (j < vec.cols_ - 1)
+                    os << ", ";
+            }
+            os << " }";
+            if (i < vec.rows_ - 1)
+                os << "\n";
+        }
+        return os;
+    }
+
+
+    friend std::istream& operator>>(std::istream& is, Vector<T>& vec)
+    {
+        for (size_t i = 0; i < vec.rows_; ++i)
+        {
+            for (size_t j = 0; j < vec.cols_; ++j)
+            {
+                is >> vec.data_[i][j];
+            }
+        }
+        return is;
+    }
+
+
+private:
+    // поля
+    T** data_ = nullptr;
+    size_t rows_ = 0;
+    size_t cols_ = 0;
+
+
+    // Выделение памяти
+    void allocate()
+    {
+        data_ = new T * [rows_];
+
+        for (size_t i = 0; i < rows_; ++i)
+        {
+            data_[i] = new T[cols_];
+            for (size_t j = 0; j < cols_; ++j)
+            {
+                data_[i][j] = T();
+            }
+        }
+    }
+
+
+    // Освобождение памяти
+    void deallocate()
+    {
+        if (data_)
+        {
+            for (size_t i = 0; i < rows_; ++i)
+            {
+                delete[] data_[i];
+            }
+            delete[] data_;
+            data_ = nullptr;
+        }
+        rows_ = 0;
+        cols_ = 0;
+    }
+};

@@ -313,7 +313,7 @@ int main()
 	*/
 
 
-	/*std::cout << "\n\n\t\tÖåëûå ÷èñëà\n";
+	std::cout << "\n\n\t\tÖåëûå ÷èñëà\n";
 
 	std::cin >> num1;
 	std::cout << num1;
@@ -334,7 +334,7 @@ int main()
 	std::cout << "\n\t\tÒî÷êà\n";
 
 	std::cin >> p1;   
-	std::cout << p1;*/
+	std::cout << p1;
 
 
 	std::cout << "\n\t\tÎòğåçîê\n";
