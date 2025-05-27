@@ -21,6 +21,7 @@ public:
 
 	Serialization(const T& num) {}
 
+
 	// Тут определяется формат сериализации 
 	static std::string Serialize(const T& num, const std::string& form)
 	{

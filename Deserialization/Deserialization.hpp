@@ -21,6 +21,7 @@ public:
 
     Deserialization(const std::string& data) {}
 
+
     // Тут определяется формат десериализации
     static T Deserialize(const std::string& data, const std::string& form)
     {
@@ -44,6 +45,7 @@ public:
 
 private:
 
+
     // txt
     static T DeserializeFromTxt(const std::string& data)
     {
@@ -56,6 +58,21 @@ private:
         {
             throw std::runtime_error("Failed to parse number from TXT format");
         }
+
+
+        std::ifstream fin;
+        fin.open("TXT_Data.txt");
+
+        if (fin.is_open())
+        {
+            while (std::getline(fin, iss, '\n'))
+            {
+                std::cout << iss.str() << std::endl;
+            }
+        }
+
+        fin.close();
+
         return num;
     }
 
