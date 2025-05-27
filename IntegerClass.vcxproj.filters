@@ -105,9 +105,17 @@
     <None Include="x64\Debug\IntegerClass.exe" />
     <None Include="x64\Debug\IntegerClass.pdb" />
     <None Include="ТЗ.pdf" />
+    <None Include="Files\JSON_Data.json" />
+    <None Include="JSON_Data.json" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="LICENSE.txt" />
     <Text Include="Classes\x64\Debug\Classes.log" />
+    <Text Include="Files\TXT_Data.txt" />
+    <Text Include="TXT_Data.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Files\XML_Data.xml" />
+    <Xml Include="XML_Data.xml" />
   </ItemGroup>
 </Project>

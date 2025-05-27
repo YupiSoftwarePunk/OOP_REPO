@@ -365,8 +365,8 @@ int main()
 
 	// определяет все типы корректно и процесс сериализации проходит как нужно, без ошибок
 
-	Serialization s = { num3 };
-	std::cout<< s.Serialize(num3, "json");
+	Serialization s = { num2 };
+	std::cout<< s.Serialize(num2, "txt");
 
 
 	std::cout << "\n\n\t\tМеню выбора типа в который нужно перевести число из текстового файла (txt, json, xml)\n";
