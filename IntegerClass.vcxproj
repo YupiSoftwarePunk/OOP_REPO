@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Deserialization\Deserialization.cpp" />
     <ClCompile Include="Dictionary\Dictionary.cpp" />
     <ClCompile Include="Figure\Figure.cpp" />
     <ClCompile Include="Fraction\Fraction.cpp" />
@@ -28,13 +29,16 @@
     <ClCompile Include="Point2d\Point2d.cpp" />
     <ClCompile Include="Real\Real.cpp" />
     <ClCompile Include="Segment\Segment.cpp" />
+    <ClCompile Include="Serialization\Serialization.cpp" />
     <ClCompile Include="SmartPointers\Auto_Unique.cpp" />
     <ClCompile Include="VariaticTemplates\VariaticTemplates.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Deserialization\Deserialization.hpp" />
     <ClInclude Include="Dictionary\Dictionary.hpp" />
     <ClInclude Include="Figure\Figure.hpp" />
     <ClInclude Include="Fraction\Fraction.hpp" />
+    <ClInclude Include="Serialization\Serialization.hpp" />
     <ClInclude Include="VectorHandler\Handler.hpp" />
     <ClInclude Include="Integer\Integer.hpp" />
     <ClInclude Include="Matrix\Matrix.hpp" />
