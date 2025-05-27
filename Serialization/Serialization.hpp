@@ -50,6 +50,19 @@ private:
 	{
 		std::ostringstream oss;
 		oss << num << " " << typeName();
+
+
+
+		std::ofstream fout;
+		fout.open("TXT_Data.txt");
+
+		if (fout.is_open())
+		{
+			fout << oss.str();
+		}
+
+		fout.close();
+
 		return oss.str();
 	}
 
@@ -59,6 +72,19 @@ private:
 	{
 		std::ostringstream oss;
 		oss << "{\"type\":\"" << typeName() << "\",\"value\":\"" << num << "\"}";
+
+
+
+		std::ofstream fout;
+		fout.open("JSON_Data.json");
+
+		if (fout.is_open())
+		{
+			fout << oss.str();
+		}
+
+		fout.close();
+
 		return oss.str();
 	}
 
@@ -68,6 +94,19 @@ private:
 	{
 		std::ostringstream oss;
 		oss << "<" << typeName() << ">" << num << "</" << typeName() << ">";
+
+
+
+		std::ofstream fout;
+		fout.open("XML_Data.xml");
+
+		if (fout.is_open())
+		{
+			fout << oss.str();
+		}
+
+		fout.close();
+
 		return oss.str();
 	}
 
