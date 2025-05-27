@@ -6,6 +6,8 @@
 #include "../Point2d/Point2d.hpp"
 #include "../Segment/Segment.hpp"
 #include "../VectorArr/VectorArr.hpp"
+#include "../Serialization/Serialization.hpp"
+#include "../Deserialization/Deserialization.hpp"
 
 
 
@@ -313,33 +315,33 @@ int main()
 	*/
 
 
-	std::cout << "\n\n\t\tЦелые числа\n";
+	//std::cout << "\n\n\t\tЦелые числа\n";
 
-	std::cin >> num1;
-	std::cout << num1;
-
-
-	std::cout << "\n\t\tДроби\n";
-
-	std::cin >> num3;
-	std::cout << num3;
+	//std::cin >> num1;
+	//std::cout << num1;
 
 
-	std::cout << "\n\t\tДесятичные дроби\n";
+	//std::cout << "\n\t\tДроби\n";
 
-	std::cin >> num5;   
-	std::cout << num5;
-
-
-	std::cout << "\n\t\tТочка\n";
-
-	std::cin >> p1;   
-	std::cout << p1;
+	//std::cin >> num3;
+	//std::cout << num3;
 
 
-	std::cout << "\n\t\tОтрезок\n";
-	std::cin >> seg3;     // 1(11/22)2(22/33)3(33/44)4(44/55)
-	std::cout << seg3;
+	//std::cout << "\n\t\tДесятичные дроби\n";
+
+	//std::cin >> num5;   
+	//std::cout << num5;
+
+
+	//std::cout << "\n\t\tТочка\n";
+
+	//std::cin >> p1;   
+	//std::cout << p1;
+
+
+	//std::cout << "\n\t\tОтрезок\n";
+	//std::cin >> seg3;     // 1(11/22)2(22/33)3(33/44)4(44/55)
+	//std::cout << seg3;
 
 
 
@@ -359,10 +361,21 @@ int main()
 
 	// Меню выбора сериализации и десериализации формата и типа данных числа
 
-	std::cout << "\n\n\t\tМеню выбора формата в который нужно перевести число (txt, json)\n";
+	std::cout << "\n\n\t\tМеню выбора формата в который нужно перевести число (txt, json, xml)\n";
+
+	// определяет все типы корректно, 
+	// нужно реализовать сам парсинг в различные файлы с разными типами
+
+	Serialization s = { seg1 };
+	std::cout<< s.Serialize(seg1, "txt");
 
 
-	std::cout << "\n\n\t\tМеню выбора типа в который нужно перевести число из текстового файла (txt, json)\n";
+	std::cout << "\n\n\t\tМеню выбора типа в который нужно перевести число из текстового файла (txt, json, xml)\n";
+
+	/*Deserialization d = { "2453"};
+	
+	тут ошибка в создании объекта и не понимаю как её пофиксить
+	*/
 
 
 	return 0;

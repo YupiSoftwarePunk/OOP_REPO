@@ -19,6 +19,8 @@ class Serialization
 {
 public:
 
+	Serialization(const T& num) {}
+
 	// Тут определяется формат сериализации 
 	static std::string Serialize(const T& num, const std::string& form)
 	{
@@ -47,7 +49,7 @@ private:
 	static std::string SerializeToTxt(const T& num)
 	{
 		std::ostringstream oss;
-		oss << num;
+		oss << num << " " << typeName();
 		return oss.str();
 	}
 

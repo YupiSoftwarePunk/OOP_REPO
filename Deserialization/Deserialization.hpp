@@ -19,6 +19,8 @@ class Deserialization
 {
 public:
 
+    Deserialization(const std::string& data) {}
+
     // Тут определяется формат десериализации
     static T Deserialize(const std::string& data, const std::string& form)
     {
