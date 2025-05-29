@@ -12,7 +12,7 @@
 #include <iostream>
 #include <fstream>
 
-
+// нужно починить данный класс, пока не знаю как
 template <typename T>
 
 class Deserialization
