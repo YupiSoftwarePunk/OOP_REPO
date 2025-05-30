@@ -373,7 +373,8 @@ int main()
 
 	// Необходимо починить десериализацию и конструкторы в её классе
 
-	Deserialization d = {"TXT_Data.txt"};
+	Deserialization<Integer> d = { "TXT_Data.txt" };
+	std::cout << d.Deserialize();
 	
 		//тут ошибка в создании объекта и не понимаю как её пофиксить
 	

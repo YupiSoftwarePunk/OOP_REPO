@@ -11,109 +11,102 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+#include <regex>
 
-// нужно починить данный класс, пока не знаю как
 template <typename T>
-
 class Deserialization
 {
 public:
-
-    Deserialization(const std::string& data) {}
-
-
-    // Тут определяется формат десериализации
-    static T Deserialize(const std::string& data, const std::string& form)
+    Deserialization(const std::string& filename)
     {
-        if (form == "txt")
+        std::ifstream file(filename);
+        if (!file.is_open())
         {
-            return DeserializeFromTxt(data);
+            throw std::runtime_error("Failed to open file: " + filename);
         }
-        else if (form == "json")
+
+        std::stringstream buffer;
+        buffer << file.rdbuf();
+        fileData = buffer.str();
+        file.close();
+
+        format = DetermineFormat(filename);
+    }
+
+    T Deserialize()
+    {
+        if (format == "txt")
         {
-            return DeserializeFromJson(data);
+            return DeserializeFromTxt(fileData);
         }
-        else if (form == "xml")
+        else if (format == "json")
         {
-            return DeserializeFromXml(data);
+            return DeserializeFromJson(fileData);
+        }
+        else if (format == "xml")
+        {
+            return DeserializeFromXml(fileData);
         }
         else
         {
-            throw std::invalid_argument("Unsupported format: " + form);
+            throw std::invalid_argument("Unsupported format: " + format);
         }
     }
 
 private:
+    std::string fileData;
+    std::string format;
 
+    std::string DetermineFormat(const std::string& filename)
+    {
+        if (filename.ends_with(".txt"))
+            return "txt";
+        else if (filename.ends_with(".json"))
+            return "json";
+        else if (filename.ends_with(".xml"))
+            return "xml";
+        else
+            throw std::invalid_argument("Unknown file format for: " + filename);
+    }
 
-    // txt
     static T DeserializeFromTxt(const std::string& data)
     {
         T num;
-
         std::istringstream iss(data);
         iss >> num;
 
-        if (iss.fail()) 
+        if (iss.fail())
         {
             throw std::runtime_error("Failed to parse number from TXT format");
         }
 
-
-        std::ifstream fin;
-        fin.open("TXT_Data.txt");
-
-        if (fin.is_open())
-        {
-            while (std::getline(fin, iss, '\n'))
-            {
-                std::cout << iss.str() << std::endl;
-            }
-        }
-
-        fin.close();
-
         return num;
     }
 
-
-    // json
     static T DeserializeFromJson(const std::string& data)
     {
-        size_t valuePos = data.find("\"value\":\"");
+        std::regex jsonRegex(R"(\{.*"value"\s*:\s*"(.*?)"".*\\)");
 
-        if (valuePos == std::string::npos) 
+        std::smatch match;
+
+        if (std::regex_search(data, match, jsonRegex))
         {
-            throw std::runtime_error("Invalid JSON format");
+            return DeserializeFromTxt(match[1]);
         }
-
-        valuePos += 9; 
-        size_t valueEnd = data.find('"', valuePos);
-
-        if (valueEnd == std::string::npos) 
-        {
-            throw std::runtime_error("Invalid JSON format");
-        }
-
-        std::string value = data.substr(valuePos, valueEnd - valuePos);
-        return DeserializeFromTxt(value);
+        throw std::runtime_error("Invalid JSON format");
     }
 
 
-    // xml
     static T DeserializeFromXml(const std::string& data)
     {
-        size_t startTagEnd = data.find('>');
-        size_t endTagStart = data.find('<', startTagEnd + 1);
+        std::regex xmlRegex(R"(<.*?>(.*?)</.*?>)");
+        std::smatch match;
 
-        if (startTagEnd == std::string::npos || endTagStart == std::string::npos)
+        if (std::regex_search(data, match, xmlRegex))
         {
-            throw std::runtime_error("Invalid XML format");
+            return DeserializeFromTxt(match[1]);
         }
-
-        std::string value = data.substr(startTagEnd + 1, endTagStart - startTagEnd - 1);
-        return DeserializeFromTxt(value);
+        throw std::runtime_error("Invalid XML format");
     }
 };
-
 
