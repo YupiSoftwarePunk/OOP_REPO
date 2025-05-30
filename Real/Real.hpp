@@ -3,6 +3,8 @@
 #include "../Fraction/Fraction.hpp"
 #include "../Integer/Integer.hpp"
 
+
+// Класс десятичных дробей или дробей с целой частью
 class Real
 {
 public:

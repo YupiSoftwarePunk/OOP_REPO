@@ -4,6 +4,9 @@
 #include "../Integer/Integer.hpp"
 #include "../Real/Real.hpp"
 
+
+// Класс точки
+// Данный класс хранит координаты одной точки в пространстве (реализован на десятичных дробях)
 class Point2d
 {
 public:

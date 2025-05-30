@@ -33,6 +33,8 @@
 #include <initializer_list>
 template <typename Type>
 
+
+// Связный список
 class List 
 {
 public:

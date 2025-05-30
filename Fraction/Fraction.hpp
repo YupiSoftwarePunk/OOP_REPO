@@ -5,6 +5,8 @@
 #include <Windows.h>
 #include "../Integer/Integer.hpp"
 
+
+// Класс дробей
 class Fraction
 {
 public:

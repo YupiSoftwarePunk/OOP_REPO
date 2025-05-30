@@ -3,6 +3,9 @@
 #include "../Point2d/Point2d.hpp"
 #include "../Real/Real.hpp"
 
+
+// Класс отрезка
+// Класс хранит в себе указатели на координаты двух точек отрезка (Состоит из указателей на 2 точки)
 class Segment
 {
 public:

@@ -4,6 +4,8 @@
 #include <numeric>
 
 
+// Класс целых чисел
+// Содержит в себе знак и число без знака
 class Integer
 {
 public:

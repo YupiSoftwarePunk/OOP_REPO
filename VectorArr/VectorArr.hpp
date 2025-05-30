@@ -12,6 +12,7 @@
 #include <cstring>
 
 
+// Динамический массив
 template <typename T>
 
 class Vector

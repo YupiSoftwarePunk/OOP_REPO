@@ -4,6 +4,10 @@
 #include <memory>
 #include <cmath>
 
+
+// Обработчик динамического массива
+
+
 // Базовый интерфейс стратегии
 template <typename T>
 
