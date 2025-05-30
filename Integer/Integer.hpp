@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <numeric>
+
+
 class Integer
 {
 public:

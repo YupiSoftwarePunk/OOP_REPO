@@ -13,7 +13,10 @@
 #include <fstream>
 #include <regex>
 
+
+//помогает заниматься десерилизацией классов, вложенных в библиотеку
 template <typename T>
+
 class Deserialization
 {
 public:

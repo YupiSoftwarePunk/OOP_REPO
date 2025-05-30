@@ -12,7 +12,7 @@
 #include <iostream>
 #include <fstream>
 
-
+//помогает заниматься серилизацией классов, вложенных в библиотеку
 template <typename T>
 
 class Serialization
