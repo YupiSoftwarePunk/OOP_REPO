@@ -13,6 +13,7 @@
 #include <fstream>
 
 
+//  ласс серилизации
 //помогает заниматьс€ серилизацией классов, вложенных в библиотеку
 template <typename T>
 
@@ -20,32 +21,61 @@ class Serialization
 {
 public:
 
-	Serialization(const T& num) {}
+	Serialization(const T& num, const std::string& form) : num_(num), form_(form) {}
+
+
+	// setters
+	void SetNum(const T& num)
+	{
+		num_ = num;
+	}
+
+	void SetForm(const std::string& form)
+	{
+		form_ = form;
+	}
+
+
+	// getters
+	const T GetNum()
+	{
+		return num_;
+	}
+
+	const std::string GetForm()
+	{
+		return form_;
+	}
 
 
 	// “ут определ€етс€ формат сериализации 
-	static std::string Serialize(const T& num, const std::string& form)
+	std::string Serialize()
 	{
-		if (form == "txt")
+		if (form_ == "txt")
 		{
-			return SerializeToTxt(num);
+			return SerializeToTxt(num_);
 		}
-		else if (form == "json")
+		else if (form_ == "json")
 		{
-			return SerializeToJson(num);
+			return SerializeToJson(num_);
 		}
-		else if (form == "xml")
+		else if (form_ == "xml")
 		{
-			return SerializeToXml(num);
+			return SerializeToXml(num_);
 		}
 		else
 		{
-			throw std::invalid_argument("Unsupported format: " + form);
+			throw std::invalid_argument("Unsupported format: " + form_);
 		}
 	}
 
 
 private:
+
+	// ѕол€
+	T num_;
+	std::string form_;
+
 
 	// txt
 	static std::string SerializeToTxt(const T& num)
